@@ -1,0 +1,47 @@
+## Interface: 30400
+## Interface-Classic: 11307
+## Interface-BCC: 20502
+## Interface-WOTLKC: 30400
+## Title: |cff9900ffCulte|r |cff595959DKP|r
+## Author: Yozo
+## Notes: Feature-rich DKP Management Tool modified by Yozo
+## Version: 1.0.2
+## DefaultState: enabled
+## SavedVariables: CulteDKP_DB, CulteDKP_Loot, CulteDKP_DKPTable, CulteDKP_DKPHistory, CulteDKP_MinBids, CulteDKP_MaxBids, CulteDKP_Whitelist, CulteDKP_Standby, CulteDKP_Archive, CulteDKP_Profiles
+
+
+
+Localization\Localization.en.lua
+Localization\Localization.fr.lua
+embeds.xml
+Core.lua
+Modules\Sync.lua
+Modules\comm.lua
+Modules\Standby.lua
+Modules\Bidding.lua
+CulteDKP.lua
+Modules\AutoAward.lua
+Data\TableUpgrades.lua
+init.lua
+Localization\Localization.lua
+Modules\LootHistory.lua
+Modules\DKPHistory.lua
+ConfigMenuTabs.lua
+Modules\Award.lua
+Modules\LootPriceTab.lua
+Modules\AdjustDKP.lua
+Modules\ManageEntries.lua
+Modules\ClassGraph.lua
+Modules\Options.lua
+TableFunctions.lua
+XMLFunctions.lua
+CulteDKP.xml
+Modules\DKPModes.lua
+Modules\Modes\DKPModesMain.lua
+Modules\Modes\DKPModesMisc.lua
+Modules\BidInterface.lua
+Modules\exportDKP.lua
+Modules\Repair.lua
+Modules\RaidTimer.lua
+Modules\ZeroSumBank.lua
+Modules\Validate.lua
