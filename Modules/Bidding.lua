@@ -127,6 +127,7 @@ end
 function CulteDKP_CHAT_MSG_WHISPER(text, ...)
   local name = ...;
   local cmd;
+  local locspec = "MS";
   local dkp;
   local seconds;
   local response = L["ERRORPROCESSING"];
@@ -138,13 +139,19 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
     name = strsub(name, 1, dashPos-1)
   end
 
+  -- TODO YOZO add MS or OS
   if string.find(text, "!bid") == 1 and core.IsOfficer == true then
     if core.BidInProgress then
       cmd = BidCmd(text)
-      if (mode == "Static Item Values" and cmd ~= "cancel") or (mode == "Zero Sum" and cmd ~= "cancel" and core.DB.modes.ZeroSumBidType == "Static") then
+
+	  if cmd:upper() == "OS" then 
+	    locspec = "OS";
+		cmd = nil;
+	  end 
+	  if (mode == "Static Item Values" and cmd ~= "cancel") or (mode == "Zero Sum" and cmd ~= "cancel" and core.DB.modes.ZeroSumBidType == "Static") then
         cmd = nil;
       end
-      if cmd == "cancel" and core.DB.modes.mode ~= "Roll Based Bidding" then
+	  if cmd == "cancel" and core.DB.modes.mode ~= "Roll Based Bidding" then
         local flagCanceled = false
         for i=1, #Bids_Submitted do           -- !bid cancel will cancel their bid
           if Bids_Submitted[i] and Bids_Submitted[i].player == name then
@@ -170,7 +177,18 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
         SendChatMessage(L["INVALIDPLAYER"], "WHISPER", nil, name)
         return
       end
-
+	  if mode == "Static Item Values" or core.DB.modes.ZeroSumBidType == "Static" then
+		for i=1, #Bids_Submitted do
+	      if Bids_Submitted[i] and Bids_Submitted[i].player == name and Bids_Submitted[i].spec ~= locspec then
+	        table.remove(Bids_Submitted, i)
+			table.insert(Bids_Submitted, {player=name, dkp=dkp, spec=locspec})
+		    CulteDKP:BidScrollFrame_Update()
+            if core.DB.modes.BroadcastBids then
+              CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
+            end
+		  end
+		end
+	  end
       if (tonumber(cmd) and (core.BiddingWindow.maxBid == nil or tonumber(cmd) <= core.BiddingWindow.maxBid:GetNumber() or core.BiddingWindow.maxBid:GetNumber() == 0)) or ((mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static")) and not cmd) then
         if dkp then
           if (cmd and cmd <= dkp) or (core.DB.modes.SubZeroBidding == true and dkp >= 0) or (core.DB.modes.SubZeroBidding == true and core.DB.modes.AllowNegativeBidders == true) or (mode == "Static Item Values" and dkp > 0 and (dkp > core.BiddingWindow.cost:GetNumber() or core.DB.modes.SubZeroBidding == true or core.DB.modes.costvalue == "Percent")) or ((mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") and not cmd) then
@@ -199,7 +217,7 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
                 if core.DB.modes.DeclineLowerBids and Bids_Submitted[1] and cmd <= Bids_Submitted[1].bid then   -- declines bids lower than highest bid
                   response = "Bid Declined! Current highest bid is "..Bids_Submitted[1].bid;
                 else
-                  table.insert(Bids_Submitted, {player=name, bid=cmd})
+                  table.insert(Bids_Submitted, {player=name, bid=cmd, spec=nil})
                   response = L["YOURBIDOF"].." "..cmd.." "..L["DKPWASACCEPTED"].."."
                 end
                 if core.DB.modes.BroadcastBids then
@@ -226,12 +244,16 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
                     SendChatMessage(L["NEWHIGHBIDDER"].." "..name.." ("..dkp.." DKP)", msgTarget)
                   end
                 end
-                table.insert(Bids_Submitted, {player=name, dkp=dkp})
+                table.insert(Bids_Submitted, {player=name, dkp=dkp, spec=locspec})
                 if core.DB.modes.BroadcastBids then
                   CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
                 end
-                response = L["BIDWASACCEPTED"]
-
+				if locspec == "MS" then
+                  response = L["BIDWASACCEPTED"]
+				else 
+                  response = L["BIDOSWASACCEPTED"]
+				end
+				
                 if Timer ~= 0 and Timer > (core.BiddingWindow.bidTimer:GetText() - 10) and core.DB.modes.AntiSnipe > 0 then
                   seconds = core.BiddingWindow.bidTimer:GetText().."{"..core.DB.modes.AntiSnipe
                   CulteDKP:BroadcastBidTimer(seconds, core.BiddingWindow.item:GetText().." Extended", core.BiddingWindow.itemIcon:GetTexture());
@@ -1024,6 +1046,7 @@ function CulteDKP:CreateTimer()
 end
 
 local function BidRow_OnClick(self)
+  
   if SelectedBidder.player == strsub(self.Strings[1]:GetText(), 1, strfind(self.Strings[1]:GetText(), " ")-1) then
     for i=1, numrows do
       core.BiddingWindow.bidTable.Rows[i]:SetNormalTexture("Interface\\COMMON\\talent-blue-glow")
@@ -1089,9 +1112,9 @@ local function BidWindowCreateRow(parent, id) -- Create 3 buttons for each row i
         end
     end
     f.Strings[1].rowCounter = f:CreateFontString(nil, "OVERLAY");
-  f.Strings[1].rowCounter:SetFontObject("CulteDKPSmallOutlineLeft")
-  f.Strings[1].rowCounter:SetTextColor(1, 1, 1, 0.3);
-  f.Strings[1].rowCounter:SetPoint("LEFT", f, "LEFT", 3, -1);
+    f.Strings[1].rowCounter:SetFontObject("CulteDKPSmallOutlineLeft")
+    f.Strings[1].rowCounter:SetTextColor(1, 1, 1, 0.3);
+    f.Strings[1].rowCounter:SetPoint("LEFT", f, "LEFT", 3, -1);
 
     f.Strings[1]:SetWidth((width/2)-10)
     f.Strings[2]:SetWidth(width/4)
@@ -1179,7 +1202,8 @@ function CulteDKP:BidScrollFrame_Update()
               row.Strings[2]:SetText(Bids_Submitted[i].roll..Bids_Submitted[i].range)
               row.Strings[3]:SetText(math.floor(minRoll).."-"..math.floor(maxRoll))
             elseif mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
-              row.Strings[3]:SetText(CulteDKP_round(Bids_Submitted[i].dkp, core.DB.modes.rounding))
+              row.Strings[2]:SetText(Bids_Submitted[i].spec)
+			  row.Strings[3]:SetText(CulteDKP_round(Bids_Submitted[i].dkp, core.DB.modes.rounding))
             end
         else
             row:Hide()
@@ -1657,27 +1681,26 @@ function CulteDKP:CreateBidWindow()
     headerButtons.player = CreateFrame("Button", "$ParentButtonPlayer", f.BidTable_Headers)
     headerButtons.bid = CreateFrame("Button", "$ParentButtonBid", f.BidTable_Headers)
     headerButtons.dkp = CreateFrame("Button", "$ParentSuttonDkp", f.BidTable_Headers)
+	headerButtons.spec = CreateFrame("Button", "$ParentSuttonSpec", f.BidTable_Headers)
 
     headerButtons.player:SetPoint("LEFT", f.BidTable_Headers, "LEFT", 2, 0)
     headerButtons.bid:SetPoint("LEFT", headerButtons.player, "RIGHT", 0, 0)
-    headerButtons.dkp:SetPoint("RIGHT", f.BidTable_Headers, "RIGHT", -1, 0)
+	headerButtons.spec:SetPoint("LEFT", headerButtons.player, "RIGHT", 0, 0)
+    headerButtons.dkp:SetPoint("RIGHT", f.BidTable_Headers, "RIGHT", -1 , 0)
 
     for k, v in pairs(headerButtons) do
       v:SetHighlightTexture("Interface\\BUTTONS\\BlueGrad64_faded.blp");
       if k == "player" then
-        if mode == "Minimum Bid Values" or mode == "Roll Based Bidding" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
           v:SetSize((width/2)-1, height)
-        elseif mode == "Static Item Values" or mode == "Roll Based Bidding" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
-          v:SetSize((width*0.75)-1, height)
-        end
       else
+		v:SetSize((width/4)-1, height)
         if mode == "Minimum Bid Values" or mode == "Roll Based Bidding" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
-          v:SetSize((width/4)-1, height)
-        elseif mode == "Static Item Values" or mode == "Roll Based Bidding" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
-          if k == "bid" then
+		  if k == "spec" then
             v:Hide()
-          else
-            v:SetSize((width/4)-1, height)
+          end
+        elseif mode == "Static Item Values" or mode == "Roll Based Bidding" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
+		  if k == "bid" then
+            v:Hide()
           end
         end
 
@@ -1708,10 +1731,16 @@ function CulteDKP:CreateBidWindow()
     headerButtons.dkp.t:SetTextColor(1, 1, 1, 1);
     headerButtons.dkp.t:SetPoint("CENTER", headerButtons.dkp, "CENTER", 0, 0);
 
+    headerButtons.spec.t = headerButtons.spec:CreateFontString(nil, "OVERLAY")
+    headerButtons.spec.t:SetFontObject("CulteDKPNormal")
+    headerButtons.spec.t:SetTextColor(1, 1, 1, 1);
+    headerButtons.spec.t:SetPoint("CENTER", headerButtons.spec, "CENTER", 0, 0);
+
     if mode == "Minimum Bid Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
       headerButtons.dkp.t:SetText(L["TOTALDKP"]);
     elseif mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
       headerButtons.dkp.t:SetText(L["DKP"]);
+	  headerButtons.spec.t:SetText("SPEC");
     elseif mode == "Roll Based Bidding" then
       headerButtons.dkp.t:SetText(L["EXPECTEDROLL"])
     end

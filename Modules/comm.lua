@@ -867,9 +867,10 @@ end
 function CulteDKP:BidderReceived(commObject, sender)
   if core.BidInProgress and core.IsOfficer then
     if commObject.Data == "pass" then
-        -- CulteDKP:Print(sender.." has passed.")  --TODO: Let's do something different here at some point.
+        CulteDKP:Print(sender.." has passed.")  --TODO: Let's do something different here at some point.
       return;
     else
+	  CulteDKP:Print(sender.." bid : "..commObject.Data);
       CulteDKP_CHAT_MSG_WHISPER(commObject.Data, sender);
       return;
     end

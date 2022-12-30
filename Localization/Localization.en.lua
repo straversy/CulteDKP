@@ -250,6 +250,7 @@ core.L = {
   BESTPRACTICES = "",
   BID = "Bid",
   BIDACCEPTEDFILTER = "Your bid was Accepted.",
+  BIDOSACCEPTEDFILTER = "Your bid OffSpec was Accepted.",
   BIDCANCELLED = "Your bid has been canceled.",
   BIDDENIEDEXCEEDMAX = "Bid Denied! Your bid exceeded the maximum bid value of",
   BIDDENIEDFILTER = "Bid Denied!",

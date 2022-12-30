@@ -54,7 +54,7 @@ local function SaveSettings()
     core.DB.MinBidBySlot.OffHand = CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[15]:GetNumber()
     core.DB.MinBidBySlot.Range = CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[16]:GetNumber()
     core.DB.MinBidBySlot.Other = CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[17]:GetNumber()
-    --core.DB.MinBidBySlot.OffSpec = CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18]:GetNumber()
+    core.DB.MinBidBySlot.OffSpec = CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18]:GetNumber()
     
     if core.DB.modes.mode == "Minimum Bid Values" or (core.DB.modes.mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
       core.DB.MaxBidBySlot.Head = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[1]:GetNumber()
@@ -74,7 +74,7 @@ local function SaveSettings()
       core.DB.MaxBidBySlot.OffHand = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[15]:GetNumber()
       core.DB.MaxBidBySlot.Range = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[16]:GetNumber()
       core.DB.MaxBidBySlot.Other = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[17]:GetNumber()
-      --core.DB.MaxBidBySlot.OffSpec = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18]:GetNumber()
+      core.DB.MaxBidBySlot.OffSpec = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18]:GetNumber()
       end
   end
 
@@ -270,7 +270,7 @@ function CulteDKP:Options()
       local SlotBox = {}
       CulteDKP.ConfigTab4.DefaultMinBids.SlotBox = SlotBox;
 
-      for i=1, 17 do
+      for i=1, 18 do
 
         if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then
           CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i] = CreateFrame("EditBox", nil, CulteDKP.ConfigTab4)
@@ -366,6 +366,8 @@ function CulteDKP:Options()
           CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i]:SetPoint("TOPLEFT", CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[1], "TOPLEFT", 150, 0)
         elseif i==17 then
           CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i]:SetPoint("TOP", CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[8], "BOTTOM", 0, -22)
+        elseif i==18 then
+          CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i]:SetPoint("TOP", CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[16], "BOTTOM", 0, -22)
         else
           CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i]:SetPoint("TOP", CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i-1], "BOTTOM", 0, -22)
         end
@@ -481,11 +483,13 @@ function CulteDKP:Options()
       CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[17]:SetText(core.DB.MinBidBySlot.Other)
       CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[17].tooltipText = L["OTHER"]
       CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[17].tooltipDescription = prefix.." "..L["FOROTHERSLOT"]
-	  
-      --CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18].Header:SetText(L["OFFSPEC"]..": ")
-      --CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18]:SetText(core.DB.MinBidBySlot.OffSpec)
-      --CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18].tooltipText = L["OFFSPEC"]
-      --CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18].tooltipDescription = prefix.." "..L["FOROFFSPEC"]
+
+      --TODO 
+      --core.DB.MinBidBySlot.OffSpec = 10;
+      CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18].Header:SetText(L["OFFSPEC"]..": ")
+      CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18]:SetText(core.DB.MinBidBySlot.OffSpec)
+      CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18].tooltipText = L["OFFSPEC"]
+      CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18].tooltipDescription = prefix.." "..L["FOROFFSPEC"]
 
       if core.DB.modes.costvalue == "Percent" then
         for i=1, #CulteDKP.ConfigTab4.DefaultMinBids.SlotBox do
@@ -496,7 +500,7 @@ function CulteDKP:Options()
       -- Broadcast Minimum Bids Button
       CulteDKP.ConfigTab4.BroadcastMinBids = self:CreateButton("TOP", CulteDKP.ConfigTab4, "BOTTOM", 30, 30, L["BCASTVALUES"]);
       CulteDKP.ConfigTab4.BroadcastMinBids:ClearAllPoints();
-      CulteDKP.ConfigTab4.BroadcastMinBids:SetPoint("LEFT", CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[17], "RIGHT", 41, 0)
+      CulteDKP.ConfigTab4.BroadcastMinBids:SetPoint("LEFT", CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18], "RIGHT", 41, 0)
       CulteDKP.ConfigTab4.BroadcastMinBids:SetSize(110,25)
       CulteDKP.ConfigTab4.BroadcastMinBids:SetScript("OnClick", function()
         StaticPopupDialogs["SEND_MINBIDS"] = {
@@ -548,7 +552,7 @@ function CulteDKP:Options()
       local SlotBox = {}
       CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox = SlotBox;
 
-      for i=1, 17 do
+      for i=1, 18 do
         if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then
           CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i] = CreateFrame("EditBox", nil, CulteDKP.ConfigTab4)
         else -- WOW_PROJECT_BURNING_CRUSADE_CLASSIC OR WOW_PROJECT_WRATH_CLASSIC
@@ -644,6 +648,8 @@ function CulteDKP:Options()
           CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i]:SetPoint("TOPLEFT", CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[1], "TOPLEFT", 150, 0)
         elseif i==17 then
           CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i]:SetPoint("TOP", CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[8], "BOTTOM", 0, -22)
+        elseif i==18 then
+          CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i]:SetPoint("TOP", CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[16], "BOTTOM", 0, -22)
         else
           CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i]:SetPoint("TOP", CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i-1], "BOTTOM", 0, -22)
         end
@@ -738,7 +744,13 @@ function CulteDKP:Options()
       CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[17]:SetText(core.DB.MaxBidBySlot.Other)
       CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[17].tooltipText = L["OTHER"]
       CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[17].tooltipDescription = prefix.." "..L["FOROTHERSLOT"].." "..L["MAXIMUMBIDTTDESC"]
-
+	  
+      --core.DB.MaxBidBySlot.OffSpec = 10;
+      CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18].Header:SetText(L["OFFSPEC"]..": ")
+      CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18]:SetText(core.DB.MaxBidBySlot.OffSpec)
+      CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18].tooltipText = L["OFFSPEC"]
+      CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18].tooltipDescription = prefix.." "..L["FOROFFSPEC"]
+      
       --TODO YOZO Add OffSpec
       if core.DB.modes.costvalue == "Percent" then
         for i=1, #CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox do
