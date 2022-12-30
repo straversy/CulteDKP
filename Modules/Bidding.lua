@@ -187,6 +187,7 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
 				if core.DB.modes.BroadcastBids then
 					CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
 				end
+				SendChatMessage(L["BIDSPECCHANGED"], "WHISPER", nil, name)
 			end
 		  end
 		end
@@ -210,11 +211,11 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
                     msgTarget = "RAID_WARNING";
                   end
 
-                  if not core.DB.modes.AnnounceBidName then
-                    SendChatMessage(L["NEWHIGHBID"].." "..cmd.." DKP", msgTarget)
-                  else
-                    SendChatMessage(L["NEWHIGHBIDDER"].." "..name.." ("..cmd.." DKP)", msgTarget)
-                  end
+				  if not core.DB.modes.AnnounceBidName then
+					SendChatMessage(L["NEWHIGHBID"].." "..cmd.." DKP", msgTarget)
+				  else
+					SendChatMessage(L["NEWHIGHBIDDER"].." "..name.." ("..cmd.." DKP)", msgTarget)
+				  end
                 end
                 if core.DB.modes.DeclineLowerBids and Bids_Submitted[1] and cmd <= Bids_Submitted[1].bid then   -- declines bids lower than highest bid
                   response = "Bid Declined! Current highest bid is "..Bids_Submitted[1].bid;
@@ -240,20 +241,22 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
                     msgTarget = "RAID_WARNING";
                   end
 
-                  if not core.DB.modes.AnnounceBidName then
-                    SendChatMessage(L["NEWHIGHBID"].." "..dkp.." DKP", msgTarget)
-                  else
-                    SendChatMessage(L["NEWHIGHBIDDER"].." "..name.." ("..dkp.." DKP)", msgTarget)
+				  if locspec == "MS" and ((Bids_Submitted[1] and Bids_Submitted[1].spec == "MS") or not Bids_Submitted[1]) then
+                    if not core.DB.modes.AnnounceBidName then
+                      SendChatMessage(L["NEWHIGHBID"].." "..dkp.." DKP", msgTarget)
+                    else
+                      SendChatMessage(L["NEWHIGHBIDDER"].." "..name.." ("..locspec..": "..dkp.." DKP)", msgTarget)
+                    end
                   end
                 end
                 table.insert(Bids_Submitted, {player=name, dkp=dkp, spec=locspec})
                 if core.DB.modes.BroadcastBids then
                   CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
                 end
-				if locspec == "MS" then
-                  response = L["BIDWASACCEPTED"]
-				else 
+				if locspec == "OS" then
                   response = L["BIDOSWASACCEPTED"]
+				else 
+                  response = L["BIDWASACCEPTED"]
 				end
 				
                 if Timer ~= 0 and Timer > (core.BiddingWindow.bidTimer:GetText() - 10) and core.DB.modes.AntiSnipe > 0 then
@@ -703,7 +706,7 @@ local function StartBidding()
       SendChatMessage(L["TOBIDUSE"].." "..channelText.." "..L["TOSEND"].." !bid <"..L["VALUE"].."> (ex: !bid "..core.BiddingWindow.minBid:GetText().."). "..L["OR"].." !bid cancel "..L["TOWITHDRAWBID"], "RAID_WARNING")
     elseif mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
       SendChatMessage(L["TAKINGBIDSON"].." "..core.BiddingWindow.item:GetText().." ("..core.BiddingWindow.cost:GetText()..perc..")", "RAID_WARNING")
-      SendChatMessage(L["TOBIDUSE"].." "..channelText.." "..L["TOSEND"].." !bid. "..L["OR"].." !bid cancel "..L["TOWITHDRAWBID"], "RAID_WARNING")
+      SendChatMessage(L["TOBIDUSE"].." "..channelText.." "..L["TOSEND"].." !bid, !bid OS "..L["OR"].." !bid cancel "..L["TOWITHDRAWBID"], "RAID_WARNING")
     elseif mode == "Roll Based Bidding" then
       SendChatMessage(L["ROLLFOR"].." "..core.BiddingWindow.item:GetText().." ("..core.BiddingWindow.cost:GetText()..perc..")", "RAID_WARNING")
       SendChatMessage(L["TOBIDROLLRANGE"].." "..channelText.." "..L["WITH"].." !dkp", "RAID_WARNING")

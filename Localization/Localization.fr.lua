@@ -341,6 +341,8 @@ if GetLocale() == "frFR" then
     BIDTIMERTTDESC = "Durée durant laquelle l’enchère restera ouverte, en secondes.",
     BIDTIMERTTWARN = "La valeur par défaut peut être définie dans l'onglet Options.",
     BIDWASACCEPTED = "Offre acceptée.",
+    BIDOSWASACCEPTED = "Offre offspec acceptée.",
+    BIDSPECCHANGED = "Changement de spec acceptée.",
     BIDWHISPARENOW = "Les chuchotements sont maintenant",
     BLOCKOODBROADCAST = "Vous ne pouvez pas diffuser de tableaux obsolètes. Cela entraînerait une perte de données irrécupérable. Si vous êtes absolument certain de disposer des données les plus récentes, la suppression de l’étiquette de la note publique du chef de guilde résoudra ce problème.",
     BONUS = "Prime",
@@ -1011,7 +1013,7 @@ if GetLocale() == "frFR" then
     MIGRATIONCOMPLETED    = "Migration réussie.|n|nVeuillez désactiver MonolithDKP et recharger votre interface (/reload).", --TODO TRANSLATE:
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.2-wotlk", 
+    CHANGELOG1 = "CulteDKP - v1.0.3-wotlk", 
     CHANGELOG2 = "- Fixé pour WOTLK",   
     CHANGELOG3 = "- Bosses et raids WOTLK ajoutés",
     CHANGELOG4 = "",

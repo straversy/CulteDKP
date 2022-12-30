@@ -79,10 +79,10 @@ function CulteDKP:DKPModes_Misc()
 		f.AnnounceBidContainer.AnnounceBid:SetPoint("TOPLEFT", f.AnnounceBidContainer, "TOPLEFT", 10, -10);
 		f.AnnounceBidContainer.AnnounceBid:SetScript("OnClick", function(self)
 			core.DB.modes.AnnounceBid = self:GetChecked();
-			if self:GetChecked() == false then
-				f.AnnounceBidContainer.AnnounceBidName:SetChecked(false)
-				core.DB.modes.AnnounceBidName = false;
-			end
+			--if self:GetChecked() == false then
+			--	f.AnnounceBidContainer.AnnounceBidName:SetChecked(false)
+			--	core.DB.modes.AnnounceBidName = false;
+			--end
 			PlaySound(808);
 		end)
 		f.AnnounceBidContainer.AnnounceBid:SetScript("OnEnter", function(self)
@@ -105,10 +105,10 @@ function CulteDKP:DKPModes_Misc()
 		f.AnnounceBidContainer.AnnounceBidName:SetPoint("TOP", f.AnnounceBidContainer.AnnounceBid, "BOTTOM", 0, 0);
 		f.AnnounceBidContainer.AnnounceBidName:SetScript("OnClick", function(self)
 			core.DB.modes.AnnounceBidName = self:GetChecked();
-			if self:GetChecked() == true then
-				f.AnnounceBidContainer.AnnounceBid:SetChecked(true)
-				core.DB.modes.AnnounceBid = true;
-			end
+			--if self:GetChecked() == true then
+			--	f.AnnounceBidContainer.AnnounceBid:SetChecked(true)
+			--	core.DB.modes.AnnounceBid = true;
+			--end
 			PlaySound(808);
 		end)
 		f.AnnounceBidContainer.AnnounceBidName:SetScript("OnEnter", function(self)

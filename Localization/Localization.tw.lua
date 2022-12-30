@@ -274,6 +274,8 @@ if GetLocale() == "zhTW" then
     BESTPRACTICES = "",
     BID = "出價",
     BIDACCEPTEDFILTER = "您的出價已被接受。",
+    BIDOSACCEPTEDFILTER = "Your bid OffSpec was Accepted.",
+    BIDOSWASACCEPTED = "Your bid offspec was Accepted.",
     BIDCANCELLED = "您的出價已被取消。",
     BIDDENIEDEXCEEDMAX = "競標被拒絕！您的出價超出了最高出價",
     BIDDENIEDFILTER = "競標被拒絕！",
@@ -964,7 +966,7 @@ if GetLocale() == "zhTW" then
     MIGRATIONCOMPLETED    = "Migration complete.|n|nPlease disable MonolithDKP and /reload the UI.", --TODO TRANSLATE:
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.2-wotlk", 
+    CHANGELOG1 = "CulteDKP - v1.0.3-wotlk", 
     CHANGELOG2 = "- fixed for WOTLK",   
     CHANGELOG3 = "",
     CHANGELOG4 = "",
