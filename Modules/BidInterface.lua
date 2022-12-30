@@ -28,7 +28,7 @@ local function SortBidTable()
       if mode == "Minimum Bid Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
         return a["bid"] > b["bid"]
       elseif mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
-        return a["dkp"] > b["dkp"]
+        return (a["spec"] == 'MS' and b["spec"] == 'OS') or (a["spec"] == b["spec"] and a["dkp"] > b["dkp"])
       elseif mode == "Roll Based Bidding" then
         return a["roll"] > b["roll"]
       end
@@ -434,7 +434,7 @@ function CulteDKP:CurrItem_Set(item, value, icon, value2)
       local message;
 
       if core.BidInterface.Bid:IsShown() then
-        message = "!bid"..CulteDKP_round(core.BidInterface.Bid:GetNumber(), core.DB.modes.rounding)
+        message = "!bid "..CulteDKP_round(core.BidInterface.Bid:GetNumber(), core.DB.modes.rounding)
       else
         message = "!bid";
       end
@@ -447,7 +447,7 @@ function CulteDKP:CurrItem_Set(item, value, icon, value2)
       local message;
 
       if core.BidInterface.Bid:IsShown() then
-         message = "!bid"..CulteDKP_round(core.BidInterface.Bid:GetNumber(), core.DB.modes.rounding)
+         message = "!bid "..CulteDKP_round(core.BidInterface.Bid:GetNumber(), core.DB.modes.rounding)
       else
         message = "!bid OS";
       end
@@ -925,7 +925,7 @@ function CulteDKP:BidInterface_Create()
   f.headerButtons.spec.t = f.headerButtons.dkp:CreateFontString(nil, "OVERLAY")
   f.headerButtons.spec.t:SetFontObject("CulteDKPNormal")
   f.headerButtons.spec.t:SetTextColor(1, 1, 1, 1);
-  f.headerButtons.spec.t:SetPoint("CENTER", f.headerButtons.dkp, "CENTER", 0, 0);
+  f.headerButtons.spec.t:SetPoint("CENTER", f.headerButtons.spec, "CENTER", 0, 0);
 
   f.headerButtons.dkp.t = f.headerButtons.dkp:CreateFontString(nil, "OVERLAY")
   f.headerButtons.dkp.t:SetFontObject("CulteDKPNormal")

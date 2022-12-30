@@ -144,7 +144,7 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
     if core.BidInProgress then
       cmd = BidCmd(text)
 
-	  if cmd:upper() == "OS" then 
+	  if cmd and cmd:upper() == "OS" then 
 	    locspec = "OS";
 		cmd = nil;
 	  end 
@@ -179,13 +179,15 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
       end
 	  if mode == "Static Item Values" or core.DB.modes.ZeroSumBidType == "Static" then
 		for i=1, #Bids_Submitted do
-	      if Bids_Submitted[i] and Bids_Submitted[i].player == name and Bids_Submitted[i].spec ~= locspec then
-	        table.remove(Bids_Submitted, i)
-			table.insert(Bids_Submitted, {player=name, dkp=dkp, spec=locspec})
-		    CulteDKP:BidScrollFrame_Update()
-            if core.DB.modes.BroadcastBids then
-              CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
-            end
+	      if Bids_Submitted[i] and Bids_Submitted[i].player == name then 
+		    if Bids_Submitted[i].spec ~= locspec then
+				table.remove(Bids_Submitted, i)
+				table.insert(Bids_Submitted, {player=name, dkp=dkp, spec=locspec})
+				CulteDKP:BidScrollFrame_Update()
+				if core.DB.modes.BroadcastBids then
+					CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
+				end
+			end
 		  end
 		end
 	  end
@@ -1138,7 +1140,7 @@ local function SortBidTable()             -- sorts the Loot History Table by dat
       if mode == "Minimum Bid Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
         return a["bid"] > b["bid"]
       elseif mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
-        return a["dkp"] > b["dkp"]
+		return (a["spec"] == 'MS' and b["spec"] == 'OS') or (a["spec"] == b["spec"] and a["dkp"] > b["dkp"])
       elseif mode == "Roll Based Bidding" then
         return a["roll"] > b["roll"]
       end
