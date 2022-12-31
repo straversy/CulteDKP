@@ -940,8 +940,8 @@ core.L = {
 
     --TODO TRANSLATE:
     CHANGELOG1 = "CulteDKP - v1.0.2-wotlk", 
-    CHANGELOG2 = "- fixed for WOTLK",   
-    CHANGELOG3 = "",
+    CHANGELOG2 = "- Added Off Spec Button",   
+    CHANGELOG3 = "- Fixed some nil errors",
     CHANGELOG4 = "",
     CHANGELOG5 = "Fixed by Yozomia from server Pagle",
     CHANGELOG6 = "",

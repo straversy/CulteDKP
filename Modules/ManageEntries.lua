@@ -1191,7 +1191,7 @@ function CulteDKP:ManageEntries()
 						}
 						StaticPopup_Show ("RENAME_TEAM")
 					else
-						if CheckLeader <= 2 then
+						if CheckLeader and CheckLeader <= 2 then
 							CulteDKP:ChangeTeamName(selectedTeamIndex, CulteDKP.ConfigTab3.TeamNameInput:GetText())
 							-- if we are performing name change on currently selected team, change main team view dropdown Text
 							if tonumber(CulteDKP:GetCurrentTeamIndex()) == selectedTeamIndex then
@@ -1240,7 +1240,7 @@ function CulteDKP:ManageEntries()
 		-- rename team function
 		CulteDKP.ConfigTab3.TeamAdd:SetScript("OnClick", 
 			function ()	
-				if CheckLeader <= 2 then
+				if CheckLeader and CheckLeader <= 2 then
 					StaticPopupDialogs["ADD_TEAM"] = {
 						text = L["TEAMADDDIALOG"],
 						button1 = L["YES"],
@@ -1272,7 +1272,7 @@ function CulteDKP:ManageEntries()
 		);
 
 	-- only show whitelist and/or team management if player is a guild master
-	if CheckLeader <= 2 then
+	if CheckLeader and CheckLeader <= 1 then
 		CulteDKP.ConfigTab3.WhitelistContainer:Show()
 		CulteDKP.ConfigTab3.TeamHeader:Show()
 		CulteDKP.ConfigTab3.TeamListDropDown:Show()

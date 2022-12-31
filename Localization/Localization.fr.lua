@@ -1013,9 +1013,9 @@ if GetLocale() == "frFR" then
     MIGRATIONCOMPLETED    = "Migration réussie.|n|nVeuillez désactiver MonolithDKP et recharger votre interface (/reload).", --TODO TRANSLATE:
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.3-wotlk", 
-    CHANGELOG2 = "- Fixé pour WOTLK",   
-    CHANGELOG3 = "- Bosses et raids WOTLK ajoutés",
+    CHANGELOG1 = "CulteDKP - v1.0.4-wotlk", 
+    CHANGELOG2 = "- Added Off Spec Button",   
+    CHANGELOG3 = "- Fixed some nil errors",
     CHANGELOG4 = "",
     CHANGELOG5 = "Fixé par Yozomia du server Pagle",
     CHANGELOG6 = "",

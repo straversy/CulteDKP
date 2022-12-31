@@ -142,7 +142,6 @@ function CulteDKP:ConfigMenuTabs()
 	CulteDKP.UIConfig.TabMenuBG:SetColorTexture(0, 0, 0, 1)
 	CulteDKP.UIConfig.TabMenuBG:SetPoint("TOPLEFT", CulteDKP.UIConfig.TabMenu, "TOPLEFT", 2, -2);
 	CulteDKP.UIConfig.TabMenuBG:SetSize(536, 511);
-        -- TODO YOZO BACKGROUND
 	CulteDKP.UIConfig.TabMenuBG:SetTexture("Interface\\AddOns\\CulteDKP\\Media\\Textures\\menu-bg");
 	-- CulteDKP.UIConfig.TabMenuBG:SetTexture("Interface\\AddOns\\CulteDKP\\Media\\Textures\\Culte-dkp_large");
 

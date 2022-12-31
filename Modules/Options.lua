@@ -54,6 +54,9 @@ local function SaveSettings()
     core.DB.MinBidBySlot.OffHand = CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[15]:GetNumber()
     core.DB.MinBidBySlot.Range = CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[16]:GetNumber()
     core.DB.MinBidBySlot.Other = CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[17]:GetNumber()
+    if not CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18]:GetNumber() then
+      CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18]:SetText("10")
+    end
     core.DB.MinBidBySlot.OffSpec = CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18]:GetNumber()
     
     if core.DB.modes.mode == "Minimum Bid Values" or (core.DB.modes.mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
@@ -74,6 +77,9 @@ local function SaveSettings()
       core.DB.MaxBidBySlot.OffHand = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[15]:GetNumber()
       core.DB.MaxBidBySlot.Range = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[16]:GetNumber()
       core.DB.MaxBidBySlot.Other = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[17]:GetNumber()
+      if not CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18]:GetNumber() then
+        core.DB.MaxBidBySlot.OffSpec = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18]:SetText("10")
+      end
       core.DB.MaxBidBySlot.OffSpec = CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18]:GetNumber()
       end
   end
@@ -487,6 +493,9 @@ function CulteDKP:Options()
       --TODO 
       --core.DB.MinBidBySlot.OffSpec = 10;
       CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18].Header:SetText(L["OFFSPEC"]..": ")
+      if not core.DB.MinBidBySlot.OffSpec then
+        core.DB.MinBidBySlot.OffSpec = 10
+      end
       CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18]:SetText(core.DB.MinBidBySlot.OffSpec)
       CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18].tooltipText = L["OFFSPEC"]
       CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[18].tooltipDescription = prefix.." "..L["FOROFFSPEC"]
@@ -747,11 +756,13 @@ function CulteDKP:Options()
 	  
       --core.DB.MaxBidBySlot.OffSpec = 10;
       CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18].Header:SetText(L["OFFSPEC"]..": ")
+      if not core.DB.MaxBidBySlot.OffSpec then
+        core.DB.MaxBidBySlot.OffSpec = 10
+      end
       CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18]:SetText(core.DB.MaxBidBySlot.OffSpec)
       CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18].tooltipText = L["OFFSPEC"]
       CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[18].tooltipDescription = prefix.." "..L["FOROFFSPEC"]
       
-      --TODO YOZO Add OffSpec
       if core.DB.modes.costvalue == "Percent" then
         for i=1, #CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox do
           DrawPercFrame(i)

@@ -944,9 +944,9 @@ core.L = {
   MIGRATIONCANCELED     = "Migration canceled.|n|nPlease disable MonolithDKP and /reload the UI if you want to continue with CulteDKP without using your current tables and settings.",
   MIGRATIONCOMPLETED    = "Migration complete.|n|nPlease disable MonolithDKP and /reload the UI.",
 
-    CHANGELOG1 = "CulteDKP - v1.0.3-wotlk", 
-    CHANGELOG2 = "- fixed for WOTLK",   
-    CHANGELOG3 = "",
+    CHANGELOG1 = "CulteDKP - v1.0.4-wotlk", 
+    CHANGELOG2 = "- Added Off Spec Button",   
+    CHANGELOG3 = "- Fixed some nil errors",
     CHANGELOG4 = "",
     CHANGELOG5 = "Fixed by Yozomia from server Pagle Classic WOTLK",
     CHANGELOG6 = "",
