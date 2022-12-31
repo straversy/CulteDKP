@@ -322,6 +322,7 @@ if GetLocale() == "frFR" then
     BESTPRACTICES = "",
     BID = "Offre",
     BIDACCEPTEDFILTER = "Votre offre a été acceptée.",
+    BIDOSACCEPTEDFILTER = "Votre offre OffSpec a été acceptée.",
     BIDCANCELLED = "Votre offre a été annulée.",
     BIDDENIEDEXCEEDMAX = "Offre refusée ! Votre enchère a dépassé la valeur de l'enchère maximum de",
     BIDDENIEDFILTER = "Offre refusée !",
@@ -340,6 +341,8 @@ if GetLocale() == "frFR" then
     BIDTIMERTTDESC = "Durée durant laquelle l’enchère restera ouverte, en secondes.",
     BIDTIMERTTWARN = "La valeur par défaut peut être définie dans l'onglet Options.",
     BIDWASACCEPTED = "Offre acceptée.",
+    BIDOSWASACCEPTED = "Offre offspec acceptée.",
+    BIDSPECCHANGED = "Changement de spec acceptée.",
     BIDWHISPARENOW = "Les chuchotements sont maintenant",
     BLOCKOODBROADCAST = "Vous ne pouvez pas diffuser de tableaux obsolètes. Cela entraînerait une perte de données irrécupérable. Si vous êtes absolument certain de disposer des données les plus récentes, la suppression de l’étiquette de la note publique du chef de guilde résoudra ce problème.",
     BONUS = "Prime",
@@ -490,7 +493,7 @@ if GetLocale() == "frFR" then
     FORLEGSLOT = "pour les jambières.",
     FORNECKSLOT = "pour les colliers.",
     FOROFFHANDSLOT = "pour les boucliers et mains-gauches.",
-	FOROFFSPEC = "pour les objets qui ne sont pas pour type de compétence (E.G. Équipement guérisseur pour un paladin protection)",
+    FOROFFSPEC = "pour les objets qui ne sont pas pour type de compétence (E.G. Équipement guérisseur pour un paladin protection)",
     FORONEHANDSLOT = "pour les armes à une main.",
     FOROTHERSLOT = "pour tous les autres objets qui n'entrent pas dans les catégories ci-dessus (têtes, cœurs, feuille de chasseur, etc.)",
     FORPLAYERS = "pour les joueurs suivants",
@@ -678,7 +681,7 @@ if GetLocale() == "frFR" then
     OFF = "de",
     OFFHAND = "En main gauche",
     OFFHANDITEMS = "Articles en main gauche",
-	OFFSPEC = "Off-Spec",
+    OFFSPEC = "Off-Spec",
     OK = "D'accord",
     ON = "sur",
     ONEHANDED = "À une main",
@@ -1010,7 +1013,7 @@ if GetLocale() == "frFR" then
     MIGRATIONCOMPLETED    = "Migration réussie.|n|nVeuillez désactiver MonolithDKP et recharger votre interface (/reload).", --TODO TRANSLATE:
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.2-wotlk", 
+    CHANGELOG1 = "CulteDKP - v1.0.3-wotlk", 
     CHANGELOG2 = "- Fixé pour WOTLK",   
     CHANGELOG3 = "- Bosses et raids WOTLK ajoutés",
     CHANGELOG4 = "",

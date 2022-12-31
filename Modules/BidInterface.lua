@@ -28,7 +28,7 @@ local function SortBidTable()
       if mode == "Minimum Bid Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
         return a["bid"] > b["bid"]
       elseif mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
-        return a["dkp"] > b["dkp"]
+        return (a["spec"] == 'MS' and b["spec"] == 'OS') or (a["spec"] == b["spec"] and a["dkp"] > b["dkp"])
       elseif mode == "Roll Based Bidding" then
         return a["roll"] > b["roll"]
       end
@@ -206,6 +206,7 @@ function CulteDKP_BidInterface_Update()
               row.Strings[2]:SetText(Bids_Submitted[i].roll..Bids_Submitted[i].range)
               row.Strings[3]:SetText(math.floor(minRoll).."-"..math.floor(maxRoll))
             elseif mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
+              row.Strings[2]:SetText(Bids_Submitted[i].spec)
               row.Strings[3]:SetText(CulteDKP_round(Bids_Submitted[i].dkp, core.DB.modes.rounding))
             end
         else
@@ -238,22 +239,20 @@ function CulteDKP:BidInterface_Toggle()
     for k, v in pairs(f.headerButtons) do
       v:SetHighlightTexture("Interface\\BUTTONS\\BlueGrad64_faded.blp");
       if k == "player" then
-        if mode == "Minimum Bid Values" or mode == "Roll Based Bidding" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
-          v:SetSize((width/2)-1, height)
-          v:Show()
-        elseif mode == "Static Item Values" or mode == "Roll Based Bidding" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
-          v:SetSize((width*0.75)-1, height)
-          v:Show()
-        end
+        v:SetSize((width/2)-1, height)
+        v:Show()
       else
+        v:SetSize((width/4)-1, height)
         if mode == "Minimum Bid Values" or mode == "Roll Based Bidding" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
-          v:SetSize((width/4)-1, height)
-          v:Show();
+		  if k == "spec" then 
+            v:Hide()
+          else
+            v:Show();
+          end	
         elseif mode == "Static Item Values" or mode == "Roll Based Bidding" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
           if k == "bid" then
             v:Hide()
           else
-            v:SetSize((width/4)-1, height)
             v:Show();
           end
         end
@@ -263,11 +262,15 @@ function CulteDKP:BidInterface_Toggle()
     if mode == "Minimum Bid Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
       f.headerButtons.bid.t:SetText(L["BID"]);
       f.headerButtons.bid.t:Show();
+      f.headerButtons.spec.t:Hide()
     elseif mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") then
       f.headerButtons.bid.t:Hide(); 
+	  f.headerButtons.spec.t:SetText("SPEC");
+      f.headerButtons.spec.t:Show()
     elseif mode == "Roll Based Bidding" then
       f.headerButtons.bid.t:SetText(L["PLAYERROLL"])
       f.headerButtons.bid.t:Show()
+      f.headerButtons.spec.t:Hide()
     end
 
     if mode == "Minimum Bid Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
@@ -439,19 +442,18 @@ function CulteDKP:CurrItem_Set(item, value, icon, value2)
       core.BidInterface.Bid:ClearFocus();
     end)
 	
-  -- TODO YOZO VALIDATE BID OS	
---  if core.DB.modes.mode ~= "Roll Based Bidding" then
---  core.BidInterface.SubmitBidOS:SetScript("OnClick", function()
---      local message;
+    -- TODO YOZO VALIDATE BID OS	
+    core.BidInterface.SubmitBidOS:SetScript("OnClick", function()
+      local message;
 
---      if core.BidInterface.Bid:IsShown() then
---         message = "!bid "..CulteDKP_round(core.BidInterface.Bid:GetNumber(), core.DB.modes.rounding)
---      else
---        message = "!bid";
---      end
---      CulteDKP.Sync:SendData("CDKPBidder", tostring(message))
---      core.BidInterface.Bid:ClearFocus();
---    end)
+      if core.BidInterface.Bid:IsShown() then
+         message = "!bid "..CulteDKP_round(core.BidInterface.Bid:GetNumber(), core.DB.modes.rounding)
+      else
+        message = "!bid OS";
+      end
+      CulteDKP.Sync:SendData("CDKPBidder", tostring(message))
+      core.BidInterface.Bid:ClearFocus();
+    end)
 
     core.BidInterface.CancelBid:SetScript("OnClick", function()
       CulteDKP.Sync:SendData("CDKPBidder", "!bid cancel")
@@ -785,7 +787,7 @@ function CulteDKP:BidInterface_Create()
   f.SubmitBidOS:GetFontString():SetTextColor(1, 1, 1, 1)
   f.SubmitBidOS:SetNormalFontObject("CulteDKPSmallCenter");
   f.SubmitBidOS:SetHighlightFontObject("CulteDKPSmallCenter");
-  f.SubmitBidOS:Disable();
+  --f.SubmitBidOS:Disable();
 
   f.CancelBid = CreateFrame("Button", nil, f, "CulteDKPButtonTemplate")
   f.CancelBid:SetPoint("LEFT", f.SubmitBid, "BOTTOMLEFT", 0, -14);
@@ -895,15 +897,18 @@ function CulteDKP:BidInterface_Create()
   if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then
     f.headerButtons.player = CreateFrame("Button", "$ParentButtonPlayer", f.BidTable_Headers)
     f.headerButtons.bid = CreateFrame("Button", "$ParentButtonBid", f.BidTable_Headers)
-    f.headerButtons.dkp = CreateFrame("Button", "$ParentSuttonDkp", f.BidTable_Headers)
+    f.headerButtons.spec = CreateFrame("Button", "$ParentButtonSpec", f.BidTable_Headers)
+    f.headerButtons.dkp = CreateFrame("Button", "$ParentButtonDkp", f.BidTable_Headers)
   else -- WOW_PROJECT_BURNING_CRUSADE_CLASSIC OR WOW_PROJECT_WRATH_CLASSIC
     f.headerButtons.player = CreateFrame("Button", "$ParentButtonPlayer", f.BidTable_Headers, BackdropTemplateMixin and "BackdropTemplate" or nil)
     f.headerButtons.bid = CreateFrame("Button", "$ParentButtonBid", f.BidTable_Headers, BackdropTemplateMixin and "BackdropTemplate" or nil)
-    f.headerButtons.dkp = CreateFrame("Button", "$ParentSuttonDkp", f.BidTable_Headers, BackdropTemplateMixin and "BackdropTemplate" or nil)
+    f.headerButtons.spec = CreateFrame("Button", "$ParentButtonSpec", f.BidTable_Headers, BackdropTemplateMixin and "BackdropTemplate" or nil)
+    f.headerButtons.dkp = CreateFrame("Button", "$ParentButtonDkp", f.BidTable_Headers, BackdropTemplateMixin and "BackdropTemplate" or nil)
   end
 
   f.headerButtons.player:SetPoint("LEFT", f.BidTable_Headers, "LEFT", 2, 0)
   f.headerButtons.bid:SetPoint("LEFT", f.headerButtons.player, "RIGHT", 0, 0)
+  f.headerButtons.spec:SetPoint("LEFT", f.headerButtons.player, "RIGHT", 0, 0)
   f.headerButtons.dkp:SetPoint("RIGHT", f.BidTable_Headers, "RIGHT", -1, 0)
 
   f.headerButtons.player.t = f.headerButtons.player:CreateFontString(nil, "OVERLAY")
@@ -916,6 +921,11 @@ function CulteDKP:BidInterface_Create()
   f.headerButtons.bid.t:SetFontObject("CulteDKPNormal");
   f.headerButtons.bid.t:SetTextColor(1, 1, 1, 1);
   f.headerButtons.bid.t:SetPoint("CENTER", f.headerButtons.bid, "CENTER", 0, 0);
+
+  f.headerButtons.spec.t = f.headerButtons.dkp:CreateFontString(nil, "OVERLAY")
+  f.headerButtons.spec.t:SetFontObject("CulteDKPNormal")
+  f.headerButtons.spec.t:SetTextColor(1, 1, 1, 1);
+  f.headerButtons.spec.t:SetPoint("CENTER", f.headerButtons.spec, "CENTER", 0, 0);
 
   f.headerButtons.dkp.t = f.headerButtons.dkp:CreateFontString(nil, "OVERLAY")
   f.headerButtons.dkp.t:SetFontObject("CulteDKPNormal")

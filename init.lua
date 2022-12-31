@@ -983,12 +983,12 @@ function CulteDKP:InitializeCulteDKPDB(dbTable)
 	if not dbTable.raiders then dbTable.raiders = {} end
 	if not dbTable.MinBidBySlot or not dbTable.MinBidBySlot.Head then
 		dbTable.MinBidBySlot = {
-			Head = 70, Neck = 70, Shoulders = 70, Cloak = 70, Chest = 70, Bracers = 70, Hands = 70, Belt = 70, Legs = 70, Boots = 70, Ring = 70, Trinket = 70, OneHanded = 70, TwoHanded = 70, OffHand = 70, Range = 70, Other = 70,
+			Head = 70, Neck = 70, Shoulders = 70, Cloak = 70, Chest = 70, Bracers = 70, Hands = 70, Belt = 70, Legs = 70, Boots = 70, Ring = 70, Trinket = 70, OneHanded = 70, TwoHanded = 70, OffHand = 70, Range = 70, Other = 70, Offspec = 10,
 		}
 	end
 	if not dbTable.MaxBidBySlot or not dbTable.MaxBidBySlot.Head then
 		dbTable.MaxBidBySlot = {
-			Head = 0, Neck = 0, Shoulders = 0, Cloak = 0, Chest = 0, Bracers = 0, Hands = 0, Belt = 0, Legs = 0, Boots = 0, Ring = 0, Trinket = 0, OneHanded = 0, TwoHanded = 0, OffHand = 0, Range = 0, Other = 0,
+			Head = 0, Neck = 0, Shoulders = 0, Cloak = 0, Chest = 0, Bracers = 0, Hands = 0, Belt = 0, Legs = 0, Boots = 0, Ring = 0, Trinket = 0, OneHanded = 0, TwoHanded = 0, OffHand = 0, Range = 0, Other = 0, Offspec = 10,
 		}
 	end
 	if not dbTable.bossargs then dbTable.bossargs = { CurrentRaidZone = "Molten Core", LastKilledBoss = "Lucifron" } end
