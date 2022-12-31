@@ -116,7 +116,6 @@ function CulteDKP:ClassGraph_Update()
 			tinsert(perc_height, adjustBar)
 		end
 	end
--- TODO YOZO VALIDATE NUMBER
 	for i=1, 10 do
   		core.ClassGraph.icons[i].bar:SetSize(BarWidth, perc_height[i])
 		core.ClassGraph.icons[i].percentage:SetText(CulteDKP_round(perc[i], 1).."%")

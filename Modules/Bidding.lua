@@ -139,7 +139,6 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
     name = strsub(name, 1, dashPos-1)
   end
 
-  -- TODO YOZO add MS or OS
   if string.find(text, "!bid") == 1 and core.IsOfficer == true then
     if core.BidInProgress then
       cmd = BidCmd(text)
@@ -177,27 +176,27 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
         SendChatMessage(L["INVALIDPLAYER"], "WHISPER", nil, name)
         return
       end
-	  if mode == "Static Item Values" or core.DB.modes.ZeroSumBidType == "Static" then
-		for i=1, #Bids_Submitted do
-	      if Bids_Submitted[i] and Bids_Submitted[i].player == name then 
-		    if Bids_Submitted[i].spec ~= locspec then
-				table.remove(Bids_Submitted, i)
-				table.insert(Bids_Submitted, {player=name, dkp=dkp, spec=locspec})
-				CulteDKP:BidScrollFrame_Update()
-				if core.DB.modes.BroadcastBids then
-					CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
-				end
-				SendChatMessage(L["BIDSPECCHANGED"], "WHISPER", nil, name)
-			end
-		  end
-		end
-	  end
+      if mode == "Static Item Values" or core.DB.modes.ZeroSumBidType == "Static" then
+        for i=1, #Bids_Submitted do
+          if Bids_Submitted[i] and Bids_Submitted[i].player == name then 
+            if Bids_Submitted[i].spec ~= locspec then
+              table.remove(Bids_Submitted, i)
+              table.insert(Bids_Submitted, {player=name, dkp=dkp, spec=locspec})
+              CulteDKP:BidScrollFrame_Update()
+              if core.DB.modes.BroadcastBids then
+                CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
+              end
+              SendChatMessage(L["BIDSPECCHANGED"], "WHISPER", nil, name)
+            end
+          end
+        end
+      end
       if (tonumber(cmd) and (core.BiddingWindow.maxBid == nil or tonumber(cmd) <= core.BiddingWindow.maxBid:GetNumber() or core.BiddingWindow.maxBid:GetNumber() == 0)) or ((mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static")) and not cmd) then
         if dkp then
           if (cmd and cmd <= dkp) or (core.DB.modes.SubZeroBidding == true and dkp >= 0) or (core.DB.modes.SubZeroBidding == true and core.DB.modes.AllowNegativeBidders == true) or (mode == "Static Item Values" and dkp > 0 and (dkp > core.BiddingWindow.cost:GetNumber() or core.DB.modes.SubZeroBidding == true or core.DB.modes.costvalue == "Percent")) or ((mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") and not cmd) then
             if (cmd and core.BiddingWindow.minBid and tonumber(core.BiddingWindow.minBid:GetNumber()) <= cmd) or mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid" and cmd >= core.BiddingWindow.minBid:GetNumber()) then
               for i=1, #Bids_Submitted do           -- checks if a bid was submitted, removes last bid if it was
-                if (not (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static")) and Bids_Submitted[i] and Bids_Submitted[i].player == name and Bids_Submitted[i].bid < cmd then
+                if (not (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static")) and Bids_Submitted[i] and Bids_Submitted[i].player == name and (mode == "Static Item Values" or Bids_Submitted[i].bid < cmd) then
                   table.remove(Bids_Submitted, i)
                 elseif (not (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static")) and Bids_Submitted[i] and Bids_Submitted[i].player == name and Bids_Submitted[i].bid >= cmd then
                   SendChatMessage(L["BIDEQUALORLESS"], "WHISPER", nil, name)
@@ -241,7 +240,7 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
                     msgTarget = "RAID_WARNING";
                   end
 
-				  if locspec == "MS" and ((Bids_Submitted[1] and Bids_Submitted[1].spec == "MS") or not Bids_Submitted[1]) then
+                  if locspec == "MS" and ((Bids_Submitted[1] and Bids_Submitted[1].spec == "MS") or not Bids_Submitted[1]) then
                     if not core.DB.modes.AnnounceBidName then
                       SendChatMessage(L["NEWHIGHBID"].." "..dkp.." DKP", msgTarget)
                     else
@@ -253,11 +252,11 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
                 if core.DB.modes.BroadcastBids then
                   CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
                 end
-				if locspec == "OS" then
+                if locspec == "OS" then
                   response = L["BIDOSWASACCEPTED"]
-				else 
+                else 
                   response = L["BIDWASACCEPTED"]
-				end
+                end
 				
                 if Timer ~= 0 and Timer > (core.BiddingWindow.bidTimer:GetText() - 10) and core.DB.modes.AntiSnipe > 0 then
                   seconds = core.BiddingWindow.bidTimer:GetText().."{"..core.DB.modes.AntiSnipe
@@ -386,7 +385,6 @@ end
 function CulteDKP:GetItemLocBid(from, itemLink)
   local _,_,_,_,_,_,_,_,loc = GetItemInfo(itemLink);
 
-  -- TODO YOZO Add Off Spec
   if loc == "INVTYPE_HEAD" then
     return from.Head
   elseif loc == "INVTYPE_NECK" then
@@ -1067,7 +1065,7 @@ local function BidRow_OnClick(self)
       self:GetNormalTexture():SetAlpha(0.7)
 
       if core.DB.modes.costvalue == "Percent" then
-        SelectedBidder = {player=strsub(self.Strings[1]:GetText(), 1, strfind(self.Strings[1]:GetText(), " ")-1), dkp=tonumber(self.Strings[3]:GetText())}
+        SelectedBidder = {player=strsub(self.Strings[1]:GetText(), 1, strfind(self.Strings[1]:GetText(), " ")-1), dkp=tonumber(self.Strings[3]:GetText()), spec=self.Strings[2]:GetText()}
       else
         SelectedBidder = {player=strsub(self.Strings[1]:GetText(), 1, strfind(self.Strings[1]:GetText(), " ")-1), bid=tonumber(self.Strings[2]:GetText())}
       end
@@ -1685,8 +1683,8 @@ function CulteDKP:CreateBidWindow()
 
     headerButtons.player = CreateFrame("Button", "$ParentButtonPlayer", f.BidTable_Headers)
     headerButtons.bid = CreateFrame("Button", "$ParentButtonBid", f.BidTable_Headers)
-    headerButtons.dkp = CreateFrame("Button", "$ParentSuttonDkp", f.BidTable_Headers)
-	headerButtons.spec = CreateFrame("Button", "$ParentSuttonSpec", f.BidTable_Headers)
+    headerButtons.dkp = CreateFrame("Button", "$ParentButtonDkp", f.BidTable_Headers)
+	headerButtons.spec = CreateFrame("Button", "$ParentButtonSpec", f.BidTable_Headers)
 
     headerButtons.player:SetPoint("LEFT", f.BidTable_Headers, "LEFT", 2, 0)
     headerButtons.bid:SetPoint("LEFT", headerButtons.player, "RIGHT", 0, 0)
@@ -1824,8 +1822,18 @@ function CulteDKP:CreateBidWindow()
           StaticPopup_Show ("VALIDATE_BOSS")
           return;
         end
-
-        CulteDKP:AwardConfirm(SelectedBidder["player"], tonumber(f.cost:GetText()), f.boss:GetText(), core.DB.bossargs.CurrentRaidZone, CurrItemForBid)
+		if SelectedBidder["spec"] then 
+        CulteDKP:Print(SelectedBidder["spec"])
+		else
+		CulteDKP:Print("Spec is null")
+		end
+		local costValueWithSpec = tonumber(f.cost:GetText())
+		if SelectedBidder["spec"] == "OS" then
+		  if core.DB.MinBidBySlot.OffSpec then
+		    costValueWithSpec = tonumber(core.DB.MinBidBySlot.OffSpec)
+		  end
+		end
+        CulteDKP:AwardConfirm(SelectedBidder["player"], costValueWithSpec, f.boss:GetText(), core.DB.bossargs.CurrentRaidZone, CurrItemForBid)
       else
         local selected = L["PLAYERVALIDATE"];
 

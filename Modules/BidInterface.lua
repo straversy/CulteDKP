@@ -442,7 +442,6 @@ function CulteDKP:CurrItem_Set(item, value, icon, value2)
       core.BidInterface.Bid:ClearFocus();
     end)
 	
-    -- TODO YOZO VALIDATE BID OS	
     core.BidInterface.SubmitBidOS:SetScript("OnClick", function()
       local message;
 
@@ -779,7 +778,6 @@ function CulteDKP:BidInterface_Create()
   f.SubmitBid:SetNormalFontObject("CulteDKPSmallCenter");
   f.SubmitBid:SetHighlightFontObject("CulteDKPSmallCenter");
 
--- TODO YOZO SubmitBidOS
   f.SubmitBidOS = CreateFrame("Button", nil, f, "CulteDKPButtonTemplate")
   f.SubmitBidOS:SetPoint("LEFT", f.SubmitBid, "RIGHT", 32, 0);
   f.SubmitBidOS:SetSize(115,25)
@@ -787,7 +785,6 @@ function CulteDKP:BidInterface_Create()
   f.SubmitBidOS:GetFontString():SetTextColor(1, 1, 1, 1)
   f.SubmitBidOS:SetNormalFontObject("CulteDKPSmallCenter");
   f.SubmitBidOS:SetHighlightFontObject("CulteDKPSmallCenter");
-  --f.SubmitBidOS:Disable();
 
   f.CancelBid = CreateFrame("Button", nil, f, "CulteDKPButtonTemplate")
   f.CancelBid:SetPoint("LEFT", f.SubmitBid, "BOTTOMLEFT", 0, -14);
