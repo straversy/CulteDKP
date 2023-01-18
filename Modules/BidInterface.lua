@@ -292,7 +292,7 @@ function CulteDKP:BidInterface_Toggle()
       print(err)
       core.CulteDKPUI:SetShown(false)
       StaticPopupDialogs["SUGGEST_RELOAD"] = {
-        text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+        Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
         button1 = L["YES"],
         button2 = L["NO"],
         OnAccept = function()
@@ -381,6 +381,8 @@ function CulteDKP:CurrItem_Set(item, value, icon, value2)
   -- Overwrite the list to contain only the item
   -- Thank you to lantisnt of EssentialDKP for the assist on this.
   -- https://github.com/lantisnt/EssentialDKP/pull/26/files#diff-c2e2b9359e4bbfc335111a2a4472c9c6
+  -- https://github.com/Vapok/CommunityDKP
+  -- https://github.com/straversy/CulteDKP
 
   local _,tmpLink,_,_,_,_,_,_,_,tmpIcon = GetItemInfo(item)
   local currItemInLoot = false
@@ -492,7 +494,7 @@ function CulteDKP:Bids_Set(entry)
     print(err)
     core.CulteDKPUI:SetShown(false)
     StaticPopupDialogs["SUGGEST_RELOAD"] = {
-      text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+      Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
       button1 = L["YES"],
       button2 = L["NO"],
       OnAccept = function()
@@ -705,7 +707,7 @@ function CulteDKP:BidInterface_Create()
     local behavior = core.DB.modes.MaxBehavior
     local itemValue = 0
     if mode == "Minimum Bid Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
-      local value, text = strsplit(" ", f.MaxBid:GetText())
+      local value,Text = strsplit(" ", f.MaxBid:GetText())
       itemValue = tonumber(value)
     else
       behavior = "Max DKP"
@@ -743,7 +745,7 @@ function CulteDKP:BidInterface_Create()
     local behavior = core.DB.modes.MaxBehavior
     local itemValue = 0
     if mode == "Minimum Bid Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid") then
-      local value, text = strsplit(" ", f.MaxBid:GetText())
+      local value,Text = strsplit(" ", f.MaxBid:GetText())
       itemValue = tonumber(value)
     else
       behavior = "Max DKP"
@@ -818,11 +820,11 @@ function CulteDKP:BidInterface_Create()
   f.AutoOpenCheckbox = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate");
   f.AutoOpenCheckbox:SetChecked(core.DB.defaults.AutoOpenBid)
   f.AutoOpenCheckbox:SetScale(0.6);
-  f.AutoOpenCheckbox.text:SetText("|cff5151de"..L["AUTOOPEN"].."|r");
-  f.AutoOpenCheckbox.text:SetScale(1.4);
-  f.AutoOpenCheckbox.text:ClearAllPoints()
-  f.AutoOpenCheckbox.text:SetPoint("RIGHT", f.AutoOpenCheckbox, "LEFT", -2, 0)
-  f.AutoOpenCheckbox.text:SetFontObject("CulteDKPSmallLeft")
+  f.AutoOpenCheckbox.Text:SetText("|cff5151de"..L["AUTOOPEN"].."|r");
+  f.AutoOpenCheckbox.Text:SetScale(1.4);
+  f.AutoOpenCheckbox.Text:ClearAllPoints()
+  f.AutoOpenCheckbox.Text:SetPoint("RIGHT", f.AutoOpenCheckbox, "LEFT", -2, 0)
+  f.AutoOpenCheckbox.Text:SetFontObject("CulteDKPSmallLeft")
   f.AutoOpenCheckbox:SetPoint("TOP", f.CancelBid, "BOTTOMRIGHT", 5, -53)
   f.AutoOpenCheckbox:SetScript("OnClick", function(self)
     core.DB.defaults.AutoOpenBid = self:GetChecked()

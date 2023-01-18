@@ -205,7 +205,7 @@ function CulteDKP:ZeroSumBank_Create()
 	f.Distribute:SetScript("OnClick", function (self)
 		if core.DB.modes.ZeroSumBank.balance > 0 or tonumber(f.Balance:GetText()) > 0 then
 			StaticPopupDialogs["CONFIRM_ADJUST1"] = {
-				text = L["DISTRIBUTEALLDKPCONF"],
+			    Text = L["DISTRIBUTEALLDKPCONF"],
 				button1 = L["YES"],
 				button2 = L["NO"],
 				OnAccept = function()
@@ -235,9 +235,9 @@ function CulteDKP:ZeroSumBank_Create()
 	f.IncludeStandby = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate");
 	f.IncludeStandby:SetChecked(core.DB.modes.ZeroSumStandby)
 	f.IncludeStandby:SetScale(0.6);
-	f.IncludeStandby.text:SetText("  |cff5151de"..L["INCLUDESTANDBY"].."|r");
-	f.IncludeStandby.text:SetScale(1.5);
-	f.IncludeStandby.text:SetFontObject("CulteDKPSmallLeft")
+	f.IncludeStandby.Text:SetText("  |cff5151de"..L["INCLUDESTANDBY"].."|r");
+	f.IncludeStandby.Text:SetScale(1.5);
+	f.IncludeStandby.Text:SetFontObject("CulteDKPSmallLeft")
 	f.IncludeStandby:SetPoint("TOPLEFT", f.Distribute, "BOTTOMLEFT", -15, -10);
 	f.IncludeStandby:SetScript("OnClick", function(self)
 		core.DB.modes.ZeroSumStandby = self:GetChecked();

@@ -18,7 +18,7 @@ CulteDKP.Commands = {
         CulteDKP:Print(err)
         core.CulteDKPUI:SetShown(false)
         StaticPopupDialogs["SUGGEST_RELOAD"] = {
-          text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+          Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
           button1 = L["YES"],
           button2 = L["NO"],
           OnAccept = function()
@@ -294,7 +294,7 @@ local function DoGuildUpdate()
 			CulteDKP:SortDKPHistoryTable()
 			CulteDKP:Print(L["VERSION"].." "..core.MonVersion..", "..L["CREATEDMAINTAIN"].."Yozomia@Pagle-WOTLK_Classic");
 			CulteDKP:Print(L["LOADED"].." "..#CulteDKP:GetTable(CulteDKP_DKPTable, true).." "..L["PLAYERRECORDS"]..", "..#CulteDKP:GetTable(CulteDKP_Loot, true).." "..L["LOOTHISTRECORDS"].." "..#CulteDKP:GetTable(CulteDKP_DKPHistory, true).." "..L["DKPHISTRECORDS"]..".");
-			CulteDKP:Print(L["USE"].." /dkp ? "..L["SUBMITBUGS"].." @ https://github.com/Vapok/CulteDKP/issues");
+			CulteDKP:Print(L["USE"].." /dkp ? "..L["SUBMITBUGS"].." @ https://github.com/straversy/CulteDKP");
 			CulteDKP.Sync:SendData("CDKPBuild", tostring(core.BuildNumber)) -- broadcasts build number to guild to check if a newer version is available
 			CulteDKP:SendTalentsAndRole()
 
@@ -1191,7 +1191,7 @@ end
 
 function CulteDKP:MonolithMigrationLegacyDetected(migration)
 	StaticPopupDialogs["MONOLITH_MIGRATION_DETECTED"] = {
-		text = L["MIGRATIONDETECTED"],
+	    Text = L["MIGRATIONDETECTED"],
 		button1 = L["YES"],
 		button2 = L["NO"],
 		OnAccept = function() self:MonolithMigrationConfirmationPopup(migration) end,
@@ -1206,7 +1206,7 @@ end
 
 function CulteDKP:MonolithMigrationAsNewTeam(migration)
 	StaticPopupDialogs["MONOLITH_MIGRATION_TEAM"] = {
-		text = L["MIGRATIONTEAM"],
+	    Text = L["MIGRATIONTEAM"],
 		button1 = L["YES"],
 		button2 = L["NO"],
 		OnAccept = migration,
@@ -1221,7 +1221,7 @@ end
 
 function CulteDKP:MonolithMigrationConfirmationPopup(migration)
 	StaticPopupDialogs["MONOLITH_MIGRATION_CONFIRMATION"] = {
-		text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MIGRATIONCONFIRM"],
+	    Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MIGRATIONCONFIRM"],
 		button1 = L["YES"],
 		button2 = L["NO"],
 		OnAccept = migration,
@@ -1236,7 +1236,7 @@ end
 
 function CulteDKP:MonolithMigrationCancelationPopup()
 	StaticPopupDialogs["MONOLITH_MIGRATION_CANCELED"] = {
-		text = L["MIGRATIONCANCELED"],
+	    Text = L["MIGRATIONCANCELED"],
 		button1 = L["OK"],
 		timeout = 0,
 		whileDead = true,
@@ -1248,7 +1248,7 @@ end
 
 function CulteDKP:MonolithMigrationGenericPopup(text)
 	StaticPopupDialogs["MONOLITH_MIGRATION_GENERIC"] = {
-		text = text,
+	    Text = text,
 		button1 = L["OK"],
 		timeout = 0,
 		whileDead = true,

@@ -767,7 +767,7 @@ function CulteDKP:ClearBidWindow()
     if not pass then
       core.BiddingWindow:SetShown(false)
       StaticPopupDialogs["SUGGEST_RELOAD"] = {
-        text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+        Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
         button1 = L["YES"],
         button2 = L["NO"],
         OnAccept = function()
@@ -861,9 +861,15 @@ function CulteDKP:StartBidTimer(seconds, title, itemIcon)
       timerMinute = math.floor(tonumber(timerText) / 60, 0);
       modulo = bit.mod(tonumber(timerText), 60);
       if tonumber(modulo) < 10 then modulo = "0"..modulo end
-      CulteDKP.BidTimer.timertext:SetText(timerMinute..":"..modulo)
+	  --CulteDKP:Print("timerMinute = ")
+	  --CulteDKP:Print(timerMinute)
+	  --CulteDKP:Print("modulo = ")
+	  --CulteDKP:Print(modulo)
+      --CulteDKP.BidTimer.Text:SetText(timerMinute..":"..modulo)
     else
-      CulteDKP.BidTimer.timertext:SetText(timerText)
+		--CulteDKP:Print("timerText = ")
+		--CulteDKP:Print(timerText)
+	    --CulteDKP.BidTimer.Text:SetText(timerText)
     end
     if duration >= 120 then
       expiring = 30;
@@ -871,14 +877,14 @@ function CulteDKP:StartBidTimer(seconds, title, itemIcon)
       expiring = 10;
     end
     if tonumber(timerText) < expiring then
-      CulteDKP.BidTimer:SetStatusBarColor(0.8, 0.1, 0, alpha)
+      --CulteDKP.BidTimer:SetStatusBarColor(0.8, 0.1, 0, alpha)
       if alpha > 0 then
         alpha = alpha - 0.005
       elseif alpha <= 0 then
         alpha = 1
       end
     else
-      CulteDKP.BidTimer:SetStatusBarColor(0, 0.8, 0)
+      --CulteDKP.BidTimer:SetStatusBarColor(0, 0.8, 0)
     end
 
     if tonumber(timerText) == 10 and messageSent[1] == false then
@@ -927,7 +933,7 @@ function CulteDKP:StartBidTimer(seconds, title, itemIcon)
           if not pass then
             core.BiddingWindow:SetShown(false)
             StaticPopupDialogs["SUGGEST_RELOAD"] = {
-              text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+              Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
               button1 = L["YES"],
               button2 = L["NO"],
               OnAccept = function()
@@ -1021,11 +1027,11 @@ function CulteDKP:CreateTimer()
   f.timerTitle:SetPoint("LEFT", f, "LEFT", 3, 0);
   f.timerTitle:SetText(nil);
 
-  f.timertext = f:CreateFontString(nil, "OVERLAY")
-  f.timertext:SetFontObject("CulteDKPSmallOutlineRight")
-  f.timertext:SetTextColor(1, 1, 1, 1);
-  f.timertext:SetPoint("RIGHT", f, "RIGHT", -5, 0);
-  f.timertext:SetText(nil);
+  --f.time.Text = f:CreateFontString(nil, "OVERLAY")
+  --f.time.Text:SetFontObject("CulteDKPSmallOutlineRight")
+  --f.time.Text:SetTextColor(1, 1, 1, 1);
+  --f.time.Text:SetPoint("RIGHT", f, "RIGHT", -5, 0);
+  --f.time.Text:SetText(nil);
 
   f.itemIcon = f:CreateTexture(nil, "OVERLAY", nil);   -- Title Bar Texture
   f.itemIcon:SetPoint("RIGHT", f, "LEFT", 0, 0);
@@ -1076,7 +1082,7 @@ local function RightClickMenu(self)
   local menu;
 
   menu = {
-    { text = L["REMOVEENTRY"], notCheckable = true, func = function()
+    {Text = L["REMOVEENTRY"], notCheckable = true, func = function()
       if Bids_Submitted[self.index].bid then
         SendChatMessage(L["YOURBIDOF"].." "..Bids_Submitted[self.index].bid.." "..L["DKP"].." "..L["MANUALLYDENIED"], "WHISPER", nil, Bids_Submitted[self.index].player)
       else
@@ -1421,10 +1427,10 @@ function CulteDKP:CreateBidWindow()
     f.CustomMinBid = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate");
     f.CustomMinBid:SetChecked(true)
     f.CustomMinBid:SetScale(0.6);
-    f.CustomMinBid.text:SetText("  |cff5151de"..L["CUSTOM"].."|r");
-    f.CustomMinBid.text:SetScale(1.5);
-    f.CustomMinBid.text:SetFontObject("CulteDKPSmallLeft")
-    f.CustomMinBid.text:SetPoint("LEFT", f.CustomMinBid, "RIGHT", -10, 0)
+    f.CustomMinBid.Text:SetText("  |cff5151de"..L["CUSTOM"].."|r");
+    f.CustomMinBid.Text:SetScale(1.5);
+    f.CustomMinBid.Text:SetFontObject("CulteDKPSmallLeft")
+    f.CustomMinBid.Text:SetPoint("LEFT", f.CustomMinBid, "RIGHT", -10, 0)
     f.CustomMinBid:Hide();
     f.CustomMinBid:SetScript("OnEnter", function(self)
       GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
@@ -1486,10 +1492,10 @@ function CulteDKP:CreateBidWindow()
     f.CustomMaxBid = CreateFrame("CheckButton", nil, f, "UICheckButtonTemplate");
     f.CustomMaxBid:SetChecked(core.DB.defaults.CustomMaxBid)
     f.CustomMaxBid:SetScale(0.6);
-    f.CustomMaxBid.text:SetText("  |cff5151de"..L["CUSTOM"].."|r");
-    f.CustomMaxBid.text:SetScale(1.5);
-    f.CustomMaxBid.text:SetFontObject("CulteDKPSmallLeft")
-    f.CustomMaxBid.text:SetPoint("LEFT", f.CustomMaxBid, "RIGHT", -10, 0)
+    f.CustomMaxBid.Text:SetText("  |cff5151de"..L["CUSTOM"].."|r");
+    f.CustomMaxBid.Text:SetScale(1.5);
+    f.CustomMaxBid.Text:SetFontObject("CulteDKPSmallLeft")
+    f.CustomMaxBid.Text:SetPoint("LEFT", f.CustomMaxBid, "RIGHT", -10, 0)
     f.CustomMaxBid:Hide();
     f.CustomMaxBid:SetScript("OnEnter", function(self)
       GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
@@ -1584,7 +1590,7 @@ function CulteDKP:CreateBidWindow()
         CulteDKP:Print(err)
         core.BiddingWindow:SetShown(false)
         StaticPopupDialogs["SUGGEST_RELOAD"] = {
-          text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+          Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
           button1 = L["YES"],
           button2 = L["NO"],
           OnAccept = function()
@@ -1812,7 +1818,7 @@ function CulteDKP:CreateBidWindow()
       if SelectedBidder["player"] then
         if strlen(strtrim(core.BiddingWindow.boss:GetText(), " ")) < 1 then       -- verifies there is a boss name
           StaticPopupDialogs["VALIDATE_BOSS"] = {
-            text = L["INVALIDBOSSNAME"],
+            Text = L["INVALIDBOSSNAME"],
             button1 = L["OK"],
             timeout = 0,
             whileDead = true,
@@ -1838,7 +1844,7 @@ function CulteDKP:CreateBidWindow()
         local selected = L["PLAYERVALIDATE"];
 
         StaticPopupDialogs["CONFIRM_AWARD"] = {
-          text = selected,
+          Text = selected,
           button1 = L["OK"],
           timeout = 5,
           whileDead = true,

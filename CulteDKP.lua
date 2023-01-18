@@ -386,15 +386,15 @@ function CulteDKP:CreateMenu()
 	local reason = LibDD:UIDropDownMenu_CreateInfo()
 		reason.func = self.SetValue
 		reason.fontObject = "CulteDKPSmallCenter"
-		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["CLASS"], "class", L["CLASS"], "class" == core.CenterSort, true
+		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["CLASS"], "class", L["CLASS"], "class" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["SPEC"], "spec", L["SPEC"], "spec" == core.CenterSort, true
+		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["SPEC"], "spec", L["SPEC"], "spec" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["RANK"], "rank", L["RANK"], "rank" == core.CenterSort, true
+		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["RANK"], "rank", L["RANK"], "rank" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["ROLE"], "role", L["ROLE"], "role" == core.CenterSort, true
+		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["ROLE"], "role", L["ROLE"], "role" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["VERSION"], "version", L["VERSION"], "version" == core.CenterSort, true
+		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["VERSION"], "version", L["VERSION"], "version" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
 	end)
 	-- Dropdown Menu Function
@@ -461,7 +461,7 @@ function CulteDKP:CreateMenu()
 	CulteDKP.UIConfig.search:SetFontObject("CulteDKPNormalLeft");
 	CulteDKP.UIConfig.search:SetTextInsets(10, 10, 5, 5)
 	CulteDKP.UIConfig.search:SetText(L["SEARCH"])
-	CulteDKP.UIConfig.search:SetScript("OnKeyUp", function(self)    -- clears text and focus on esc
+	CulteDKP.UIConfig.search:SetScript("OnKeyUp", function(self)    -- clears.Text and focus on esc
 		if (CulteDKP.UIConfig.search:GetText():match("[%^%$%(%)%%%.%[%]%*%+%-%?]")) then
 			CulteDKP.UIConfig.search:SetText(string.gsub(CulteDKP.UIConfig.search:GetText(), "[%^%$%(%)%%%.%[%]%*%+%-%?]", ""))
 			--CulteDKP.UIConfig.search:SetText(strsub(CulteDKP.UIConfig.search:GetText(), 1, -2))
@@ -469,16 +469,16 @@ function CulteDKP:CreateMenu()
 			CulteDKP:FilterDKPTable(core.currentSort, "reset")
 		end
 	end)
-	CulteDKP.UIConfig.search:SetScript("OnEscapePressed", function(self)    -- clears text and focus on esc
+	CulteDKP.UIConfig.search:SetScript("OnEscapePressed", function(self)    -- clears.Text and focus on esc
 		self:SetText(L["SEARCH"])
 		self:SetTextColor(0.3, 0.3, 0.3, 1)
 		self:ClearFocus()
 		CulteDKP:FilterDKPTable(core.currentSort, "reset")
 	end)
-	CulteDKP.UIConfig.search:SetScript("OnEnterPressed", function(self)    -- clears text and focus on enter
+	CulteDKP.UIConfig.search:SetScript("OnEnterPressed", function(self)    -- clears.Text and focus on enter
 		self:ClearFocus()
 	end)
-	CulteDKP.UIConfig.search:SetScript("OnTabPressed", function(self)    -- clears text and focus on tab
+	CulteDKP.UIConfig.search:SetScript("OnTabPressed", function(self)    -- clears.Text and focus on tab
 		self:ClearFocus()
 	end)
 	CulteDKP.UIConfig.search:SetScript("OnEditFocusGained", function(self)
@@ -542,7 +542,7 @@ function CulteDKP:CreateMenu()
 				teamList = CulteDKP:GetGuildTeamList()
 
 				for i=1, #teamList do
-					dropDownMenuItem.text = teamList[i][2]
+					dropDownMenuItem.Text = teamList[i][2]
 					dropDownMenuItem.arg1 = teamList[i][2] -- name
 					dropDownMenuItem.arg2 = teamList[i][1] -- index
 					dropDownMenuItem.checked = teamList[i][1] == tonumber(CulteDKP:GetCurrentTeamIndex())
@@ -562,7 +562,7 @@ function CulteDKP:CreateMenu()
 					LibDD:UIDropDownMenu_SetText(CulteDKP.UIConfig.TeamViewChangerDropDown, arg1)
 				else
 					StaticPopupDialogs["RAID_IN_PROGRESS"] = {
-						text = L["TEAMCHANGERAIDINPROGRESS"],
+					    Text = L["TEAMCHANGERAIDINPROGRESS"],
 						button1 = L["OK"],
 						timeout = 0,
 						whileDead = true,
@@ -724,9 +724,9 @@ function CulteDKP:CreateMenu()
 		CulteDKP.ChangeLogDisplay.DontShowCheck = CreateFrame("CheckButton", nil, CulteDKP.ChangeLogDisplay, "UICheckButtonTemplate");
 		CulteDKP.ChangeLogDisplay.DontShowCheck:SetChecked(false)
 		CulteDKP.ChangeLogDisplay.DontShowCheck:SetScale(0.6);
-		CulteDKP.ChangeLogDisplay.DontShowCheck.text:SetText("  |cff5151de"..L["DONTSHOW"].."|r");
-		CulteDKP.ChangeLogDisplay.DontShowCheck.text:SetScale(1.5);
-		CulteDKP.ChangeLogDisplay.DontShowCheck.text:SetFontObject("CulteDKPSmallLeft");
+		CulteDKP.ChangeLogDisplay.DontShowCheck.Text:SetText("  |cff5151de"..L["DONTSHOW"].."|r");
+		CulteDKP.ChangeLogDisplay.DontShowCheck.Text:SetScale(1.5);
+		CulteDKP.ChangeLogDisplay.DontShowCheck.Text:SetFontObject("CulteDKPSmallLeft");
 		CulteDKP.ChangeLogDisplay.DontShowCheck:SetPoint("LEFT", CulteDKP.ChangeLogDisplay.ChangeLogHeader, "RIGHT", 10, 0);
 		CulteDKP.ChangeLogDisplay.DontShowCheck:SetScript("OnClick", function(self)
 			if self:GetChecked() then

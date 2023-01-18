@@ -432,7 +432,7 @@ local function UpdateWhitelist()
 
 			if not validate then
 				StaticPopupDialogs["VALIDATE_OFFICER"] = {
-					text = core.SelectedData[i].player.." "..L["NOTANOFFICER"],
+				    Text = core.SelectedData[i].player.." "..L["NOTANOFFICER"],
 					button1 = "Ok",
 					timeout = 0,
 					whileDead = true,
@@ -483,7 +483,7 @@ function CulteDKP:ManageEntries()
 	-- add raid to dkp table if they don't exist
 
 	----------------------------------
-	-- Header text above the buttons
+	-- Header.Text above the buttons
 	----------------------------------
 		CulteDKP.ConfigTab3.AddEntriesHeader = CulteDKP.ConfigTab3:CreateFontString(nil, "OVERLAY")
 		CulteDKP.ConfigTab3.AddEntriesHeader:SetPoint("BOTTOMLEFT", CulteDKP.ConfigTab3.add_raid_to_table, "TOPLEFT", -10, 10);
@@ -518,7 +518,7 @@ function CulteDKP:ManageEntries()
 				local selected = L["ADDRAIDMEMBERSCONFIRM"];
 
 				StaticPopupDialogs["ADD_RAID_ENTRIES"] = {
-				text = selected,
+			    Text = selected,
 				button1 = L["YES"],
 				button2 = L["NO"],
 				OnAccept = function()
@@ -579,7 +579,7 @@ function CulteDKP:ManageEntries()
 					selected = selected.."?"
 
 					StaticPopupDialogs["REMOVE_ENTRIES"] = {
-					text = selected,
+				    Text = selected,
 					button1 = L["YES"],
 					button2 = L["NO"],
 					OnAccept = function()
@@ -621,7 +621,7 @@ function CulteDKP:ManageEntries()
 		CulteDKP.ConfigTab3.reset_previous_dkp:SetScript("OnClick",
 			function ()	
 				StaticPopupDialogs["RESET_PREVIOUS_DKP"] = {
-					text = L["RESETPREVCONFIRM"],
+				    Text = L["RESETPREVCONFIRM"],
 					button1 = L["YES"],
 					button2 = L["NO"],
 					OnAccept = function()
@@ -672,7 +672,7 @@ function CulteDKP:ManageEntries()
 					local rankList = CulteDKP:GetGuildRankList()
 
 					for i=1, #rankList do
-						rank.text, rank.arg1, rank.arg2, rank.checked, rank.isNotRadio = rankList[i].name, rankList[i].name, rankList[i].index, rankList[i].name == curRank, true
+						rank.Text, rank.arg1, rank.arg2, rank.checked, rank.isNotRadio = rankList[i].name, rankList[i].name, rankList[i].index, rankList[i].name == curRank, true
 						LibDD:UIDropDownMenu_AddButton(rank)
 					end
 			end
@@ -718,7 +718,7 @@ function CulteDKP:ManageEntries()
 			function ()	
 				if curIndex ~= nil then
 					StaticPopupDialogs["ADD_GUILD_MEMBERS"] = {
-						text = L["ADDGUILDCONFIRM"].." \""..curRank.."\"?",
+					    Text = L["ADDGUILDCONFIRM"].." \""..curRank.."\"?",
 						button1 = L["YES"],
 						button2 = L["NO"],
 						OnAccept = function()
@@ -732,7 +732,7 @@ function CulteDKP:ManageEntries()
 					StaticPopup_Show ("ADD_GUILD_MEMBERS")
 				else
 					StaticPopupDialogs["ADD_GUILD_MEMBERS"] = {
-						text = L["NORANKSELECTED"],
+					    Text = L["NORANKSELECTED"],
 						button1 = L["OK"],
 						timeout = 0,
 						whileDead = true,
@@ -768,7 +768,7 @@ function CulteDKP:ManageEntries()
 			function ()	-- confirmation dialog to add user(s)
 				if UnitIsPlayer("target") == true then
 					StaticPopupDialogs["ADD_TARGET_DKP"] = {
-						text = L["CONFIRMADDTARGET"].." "..UnitName("target").." "..L["TODKPLIST"],
+					    Text = L["CONFIRMADDTARGET"].." "..UnitName("target").." "..L["TODKPLIST"],
 						button1 = L["YES"],
 						button2 = L["NO"],
 						OnAccept = function()
@@ -782,7 +782,7 @@ function CulteDKP:ManageEntries()
 					StaticPopup_Show ("ADD_TARGET_DKP")
 				else
 					StaticPopupDialogs["ADD_TARGET_DKP"] = {
-						text = L["NOPLAYERTARGETED"],
+					    Text = L["NOPLAYERTARGETED"],
 						button1 = L["OK"],
 						timeout = 0,
 						whileDead = true,
@@ -817,7 +817,7 @@ function CulteDKP:ManageEntries()
 		CulteDKP.ConfigTab3.CleanList:SetScript("OnClick", 
 			function()
 				StaticPopupDialogs["PURGE_CONFIRM"] = {
-					text = L["PURGECONFIRM"],
+				    Text = L["PURGECONFIRM"],
 					button1 = L["YES"],
 					button2 = L["NO"],
 					OnAccept = function()
@@ -897,7 +897,7 @@ function CulteDKP:ManageEntries()
 			function ()	
 				if #core.SelectedData > 0 then
 					StaticPopupDialogs["ADD_GUILD_MEMBERS"] = {
-						text = L["CONFIRMWHITELIST"],
+					    Text = L["CONFIRMWHITELIST"],
 						button1 = L["YES"],
 						button2 = L["NO"],
 						OnAccept = function()
@@ -911,7 +911,7 @@ function CulteDKP:ManageEntries()
 					StaticPopup_Show ("ADD_GUILD_MEMBERS")
 				else
 					StaticPopupDialogs["ADD_GUILD_MEMBERS"] = {
-						text = L["CONFIRMWHITELISTCLEAR"],
+					    Text = L["CONFIRMWHITELISTCLEAR"],
 						button1 = L["YES"],
 						button2 = L["NO"],
 						OnAccept = function()
@@ -952,7 +952,7 @@ function CulteDKP:ManageEntries()
 							ViewWhitelist()
 						else
 							StaticPopupDialogs["ADD_GUILD_MEMBERS"] = {
-								text = L["WHITELISTEMPTY"],
+							    Text = L["WHITELISTEMPTY"],
 								button1 = L["OK"],
 								timeout = 0,
 								whileDead = true,
@@ -1044,7 +1044,7 @@ function CulteDKP:ManageEntries()
 					teamList = CulteDKP:GetGuildTeamList()
 					
 					for i=1, #teamList do
-						dropDownMenuItem.text = teamList[i][2]
+						dropDownMenuItem.Text = teamList[i][2]
 						dropDownMenuItem.arg1 = teamList[i][2]
 						dropDownMenuItem.arg2 = teamList[i][1]
 						dropDownMenuItem.checked = teamList[i][1] == selectedTeamIndex
@@ -1110,7 +1110,7 @@ function CulteDKP:ManageEntries()
 					self:HighlightText(0,0)
 					if (selectedTeamIndex == nil ) then
 						StaticPopupDialogs["RENAME_TEAM"] = {
-							text = L["NOTEAMCHOSEN"],
+						    Text = L["NOTEAMCHOSEN"],
 							button1 = L["OK"],
 							timeout = 0,
 							whileDead = true,
@@ -1182,7 +1182,7 @@ function CulteDKP:ManageEntries()
 				function ()	
 					if selectedTeamIndex == nil then
 						StaticPopupDialogs["RENAME_TEAM"] = {
-							text = L["NOTEAMCHOSEN"],
+						    Text = L["NOTEAMCHOSEN"],
 							button1 = L["OK"],
 							timeout = 0,
 							whileDead = true,
@@ -1204,7 +1204,7 @@ function CulteDKP:ManageEntries()
 							LibDD:CloseDropDownMenus()
 						else
 							StaticPopupDialogs["NOT_GUILD_MASTER"] = {
-								text = L["NOTGUILDMASTER"],
+							    Text = L["NOTGUILDMASTER"],
 								button1 = L["OK"],
 								timeout = 0,
 								whileDead = true,
@@ -1242,7 +1242,7 @@ function CulteDKP:ManageEntries()
 			function ()	
 				if CheckLeader and CheckLeader <= 2 then
 					StaticPopupDialogs["ADD_TEAM"] = {
-						text = L["TEAMADDDIALOG"],
+					    Text = L["TEAMADDDIALOG"],
 						button1 = L["YES"],
 						button2 = L["NO"],
 						OnAccept = function()
@@ -1259,7 +1259,7 @@ function CulteDKP:ManageEntries()
 					StaticPopup_Show ("ADD_TEAM")	
 				else
 					StaticPopupDialogs["NOT_GUILD_MASTER"] = {
-						text = L["NOTGUILDMASTER"],
+					    Text = L["NOTGUILDMASTER"],
 						button1 = L["OK"],
 						timeout = 0,
 						whileDead = true,

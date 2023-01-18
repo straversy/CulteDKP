@@ -70,7 +70,7 @@ function CulteDKP:AdjustDKP(value)
 		end
 
 		StaticPopupDialogs["VALIDATION_PROMPT"] = {
-			text = validation,
+		    Text = validation,
 			button1 = L["OK"],
 			timeout = 5,
 			whileDead = true,
@@ -223,21 +223,21 @@ function CulteDKP:AdjustDKPTab_Create()
 		local reason = LibDD:UIDropDownMenu_CreateInfo()
 		reason.func = self.SetValue
 		reason.fontObject = "CulteDKPSmallCenter"
-		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["ONTIMEBONUS"], L["ONTIMEBONUS"], L["ONTIMEBONUS"] == curReason, true
+		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["ONTIMEBONUS"], L["ONTIMEBONUS"], L["ONTIMEBONUS"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["BOSSKILLBONUS"], L["BOSSKILLBONUS"], L["BOSSKILLBONUS"] == curReason, true
+		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["BOSSKILLBONUS"], L["BOSSKILLBONUS"], L["BOSSKILLBONUS"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["RAIDCOMPLETIONBONUS"], L["RAIDCOMPLETIONBONUS"], L["RAIDCOMPLETIONBONUS"] == curReason, true
+		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["RAIDCOMPLETIONBONUS"], L["RAIDCOMPLETIONBONUS"], L["RAIDCOMPLETIONBONUS"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["NEWBOSSKILLBONUS"], L["NEWBOSSKILLBONUS"], L["NEWBOSSKILLBONUS"] == curReason, true
+		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["NEWBOSSKILLBONUS"], L["NEWBOSSKILLBONUS"], L["NEWBOSSKILLBONUS"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["CORRECTINGERROR"], L["CORRECTINGERROR"], L["CORRECTINGERROR"] == curReason, true
+		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["CORRECTINGERROR"], L["CORRECTINGERROR"], L["CORRECTINGERROR"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["DKPADJUST"], L["DKPADJUST"], L["DKPADJUST"] == curReason, true
+		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["DKPADJUST"], L["DKPADJUST"], L["DKPADJUST"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["UNEXCUSEDABSENCE"], L["UNEXCUSEDABSENCE"], L["UNEXCUSEDABSENCE"] == curReason, true
+		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["UNEXCUSEDABSENCE"], L["UNEXCUSEDABSENCE"], L["UNEXCUSEDABSENCE"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["OTHER"], L["OTHER"], L["OTHER"] == curReason, true
+		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["OTHER"], L["OTHER"], L["OTHER"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
 	end)
 
@@ -309,7 +309,7 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.otherReason:SetFontObject("CulteDKPNormalLeft")
 	CulteDKP.ConfigTab2.otherReason:SetTextInsets(10, 10, 5, 5)
 	CulteDKP.ConfigTab2.otherReason:SetText(L["ENTEROTHERREASONHERE"])
-	CulteDKP.ConfigTab2.otherReason:SetScript("OnEscapePressed", function(self)    -- clears text and focus on esc
+	CulteDKP.ConfigTab2.otherReason:SetScript("OnEscapePressed", function(self)    -- clears.Text and focus on esc
 		self:ClearFocus()
 	end)
 	CulteDKP.ConfigTab2.otherReason:SetScript("OnEditFocusGained", function(self)
@@ -339,57 +339,57 @@ function CulteDKP:AdjustDKPTab_Create()
 		local boss = LibDD:UIDropDownMenu_CreateInfo()
 		boss.fontObject = "CulteDKPSmallCenter"
 		if (level or 1) == 1 then
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[4], core.CurrentRaidZone == core.ZoneList[4], "NAXX", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[4], core.CurrentRaidZone == core.ZoneList[4], "NAXX", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[17], core.CurrentRaidZone == core.ZoneList[17], "ULDUAR", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[17], core.CurrentRaidZone == core.ZoneList[17], "ULDUAR", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[18], core.CurrentRaidZone == core.ZoneList[18], "OBSIDIANSANCTUM", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[18], core.CurrentRaidZone == core.ZoneList[18], "OBSIDIANSANCTUM", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[19], core.CurrentRaidZone == core.ZoneList[19], "EYEOfETERNITY", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[19], core.CurrentRaidZone == core.ZoneList[19], "EYEOfETERNITY", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[20], core.CurrentRaidZone == core.ZoneList[20], "VAULTOFARCHAVON", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[20], core.CurrentRaidZone == core.ZoneList[20], "VAULTOFARCHAVON", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[21], core.CurrentRaidZone == core.ZoneList[21], "ICECROWNCITADEL", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[21], core.CurrentRaidZone == core.ZoneList[21], "ICECROWNCITADEL", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[22], core.CurrentRaidZone == core.ZoneList[22], "TRIALCRUSADER", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[22], core.CurrentRaidZone == core.ZoneList[22], "TRIALCRUSADER", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[23], core.CurrentRaidZone == core.ZoneList[23], "RUBYSANCTUM", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[23], core.CurrentRaidZone == core.ZoneList[23], "RUBYSANCTUM", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[7], core.CurrentRaidZone == core.ZoneList[7], "ONYXIA", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[7], core.CurrentRaidZone == core.ZoneList[7], "ONYXIA", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[9], core.CurrentRaidZone == core.ZoneList[9], "KARAZHAN", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[9], core.CurrentRaidZone == core.ZoneList[9], "KARAZHAN", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[10], core.CurrentRaidZone == core.ZoneList[10], "GRULLSLAIR", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[10], core.CurrentRaidZone == core.ZoneList[10], "GRULLSLAIR", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[11], core.CurrentRaidZone == core.ZoneList[11], "MAGTHERIDONSLAIR", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[11], core.CurrentRaidZone == core.ZoneList[11], "MAGTHERIDONSLAIR", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[12], core.CurrentRaidZone == core.ZoneList[12], "SERPENTSHRINECAVERN", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[12], core.CurrentRaidZone == core.ZoneList[12], "SERPENTSHRINECAVERN", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[13], core.CurrentRaidZone == core.ZoneList[13], "TEMPESTKEEP", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[13], core.CurrentRaidZone == core.ZoneList[13], "TEMPESTKEEP", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[14], core.CurrentRaidZone == core.ZoneList[14], "ZULAMAN", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[14], core.CurrentRaidZone == core.ZoneList[14], "ZULAMAN", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[15], core.CurrentRaidZone == core.ZoneList[15], "BLACKTEMPLE", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[15], core.CurrentRaidZone == core.ZoneList[15], "BLACKTEMPLE", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[16], core.CurrentRaidZone == core.ZoneList[16], "SUNWELLPLATEAU", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[16], core.CurrentRaidZone == core.ZoneList[16], "SUNWELLPLATEAU", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[1], core.CurrentRaidZone == core.ZoneList[1], "MC", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[1], core.CurrentRaidZone == core.ZoneList[1], "MC", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[2], core.CurrentRaidZone == core.ZoneList[2], "BWL", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[2], core.CurrentRaidZone == core.ZoneList[2], "BWL", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[3], core.CurrentRaidZone == core.ZoneList[3], "AQ", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[3], core.CurrentRaidZone == core.ZoneList[3], "AQ", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[5], core.CurrentRaidZone == core.ZoneList[5], "ZG", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[5], core.CurrentRaidZone == core.ZoneList[5], "ZG", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[6], core.CurrentRaidZone == core.ZoneList[6], "AQ20", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[6], core.CurrentRaidZone == core.ZoneList[6], "AQ20", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[8], core.CurrentRaidZone == core.ZoneList[8], "WORLD", true
+			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[8], core.CurrentRaidZone == core.ZoneList[8], "WORLD", true
 			LibDD:UIDropDownMenu_AddButton(boss)
 			
 		else
 			boss.func = self.SetValue
 			for i=1, #core.BossList[menuList] do
-				boss.text, boss.arg1, boss.checked = core.BossList[menuList][i], core.EncounterList[menuList][i], core.BossList[menuList][i] == core.LastKilledBoss
+				boss.Text, boss.arg1, boss.checked = core.BossList[menuList][i], core.EncounterList[menuList][i], core.BossList[menuList][i] == core.LastKilledBoss
 				LibDD:UIDropDownMenu_AddButton(boss, level)
 			end
 		end
@@ -482,7 +482,7 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.addDKP:SetTextColor(1, 1, 1, 1)
 	CulteDKP.ConfigTab2.addDKP:SetFontObject("CulteDKPNormalRight")
 	CulteDKP.ConfigTab2.addDKP:SetTextInsets(10, 10, 5, 5)
-	CulteDKP.ConfigTab2.addDKP:SetScript("OnEscapePressed", function(self)    -- clears text and focus on esc
+	CulteDKP.ConfigTab2.addDKP:SetScript("OnEscapePressed", function(self)    -- clears.Text and focus on esc
 		self:SetText("")
 		self:ClearFocus()
 	end)
@@ -507,9 +507,9 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.RaidOnlyCheck = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab2, "UICheckButtonTemplate");
 	CulteDKP.ConfigTab2.RaidOnlyCheck:SetChecked(false)
 	CulteDKP.ConfigTab2.RaidOnlyCheck:SetScale(0.6);
-	CulteDKP.ConfigTab2.RaidOnlyCheck.text:SetText("  |cff5151deShow Raid Only|r");
-	CulteDKP.ConfigTab2.RaidOnlyCheck.text:SetScale(1.5);
-	CulteDKP.ConfigTab2.RaidOnlyCheck.text:SetFontObject("CulteDKPSmallLeft")
+	CulteDKP.ConfigTab2.RaidOnlyCheck.Text:SetText("  |cff5151deShow Raid Only|r");
+	CulteDKP.ConfigTab2.RaidOnlyCheck.Text:SetScale(1.5);
+	CulteDKP.ConfigTab2.RaidOnlyCheck.Text:SetFontObject("CulteDKPSmallLeft")
 	CulteDKP.ConfigTab2.RaidOnlyCheck:SetPoint("LEFT", CulteDKP.ConfigTab2.addDKP, "RIGHT", 15, 13);
 	CulteDKP.ConfigTab2.RaidOnlyCheck:Hide()
 	
@@ -518,9 +518,9 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.selectAll = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab2, "UICheckButtonTemplate");
 	CulteDKP.ConfigTab2.selectAll:SetChecked(false)
 	CulteDKP.ConfigTab2.selectAll:SetScale(0.6);
-	CulteDKP.ConfigTab2.selectAll.text:SetText("  |cff5151de"..L["SELECTALLVISIBLE"].."|r");
-	CulteDKP.ConfigTab2.selectAll.text:SetScale(1.5);
-	CulteDKP.ConfigTab2.selectAll.text:SetFontObject("CulteDKPSmallLeft")
+	CulteDKP.ConfigTab2.selectAll.Text:SetText("  |cff5151de"..L["SELECTALLVISIBLE"].."|r");
+	CulteDKP.ConfigTab2.selectAll.Text:SetScale(1.5);
+	CulteDKP.ConfigTab2.selectAll.Text:SetFontObject("CulteDKPSmallLeft")
 	CulteDKP.ConfigTab2.selectAll:SetPoint("LEFT", CulteDKP.ConfigTab2.addDKP, "RIGHT", 15, -13);
 	CulteDKP.ConfigTab2.selectAll:Hide();
 	
@@ -546,7 +546,7 @@ function CulteDKP:AdjustDKPTab_Create()
 				end
 			end
 			StaticPopupDialogs["ADJUST_DKP"] = {
-				text = selected,
+			    Text = selected,
 				button1 = L["YES"],
 				button2 = L["NO"],
 				OnAccept = function()
@@ -626,9 +626,9 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.SelectedOnlyCheck = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab2, "UICheckButtonTemplate");
 	CulteDKP.ConfigTab2.SelectedOnlyCheck:SetChecked(false)
 	CulteDKP.ConfigTab2.SelectedOnlyCheck:SetScale(0.6);
-	CulteDKP.ConfigTab2.SelectedOnlyCheck.text:SetText("  |cff5151de"..L["SELPLAYERSONLY"].."|r");
-	CulteDKP.ConfigTab2.SelectedOnlyCheck.text:SetScale(1.5);
-	CulteDKP.ConfigTab2.SelectedOnlyCheck.text:SetFontObject("CulteDKPSmallLeft")
+	CulteDKP.ConfigTab2.SelectedOnlyCheck.Text:SetText("  |cff5151de"..L["SELPLAYERSONLY"].."|r");
+	CulteDKP.ConfigTab2.SelectedOnlyCheck.Text:SetScale(1.5);
+	CulteDKP.ConfigTab2.SelectedOnlyCheck.Text:SetFontObject("CulteDKPSmallLeft")
 	CulteDKP.ConfigTab2.SelectedOnlyCheck:SetPoint("TOP", CulteDKP.ConfigTab2.decayDKP, "BOTTOMLEFT", 15, -13);
 	CulteDKP.ConfigTab2.SelectedOnlyCheck:SetScript("OnClick", function(self)
 		PlaySound(808)
@@ -648,9 +648,9 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.AddNegative = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab2, "UICheckButtonTemplate");
 	CulteDKP.ConfigTab2.AddNegative:SetChecked(core.DB.modes.AddToNegative)
 	CulteDKP.ConfigTab2.AddNegative:SetScale(0.6);
-	CulteDKP.ConfigTab2.AddNegative.text:SetText("  |cff5151de"..L["ADDNEGVALUES"].."|r");
-	CulteDKP.ConfigTab2.AddNegative.text:SetScale(1.5);
-	CulteDKP.ConfigTab2.AddNegative.text:SetFontObject("CulteDKPSmallLeft")
+	CulteDKP.ConfigTab2.AddNegative.Text:SetText("  |cff5151de"..L["ADDNEGVALUES"].."|r");
+	CulteDKP.ConfigTab2.AddNegative.Text:SetScale(1.5);
+	CulteDKP.ConfigTab2.AddNegative.Text:SetFontObject("CulteDKPSmallLeft")
 	CulteDKP.ConfigTab2.AddNegative:SetPoint("TOP", CulteDKP.ConfigTab2.SelectedOnlyCheck, "BOTTOM", 0, 0);
 	CulteDKP.ConfigTab2.AddNegative:SetScript("OnClick", function(self)
 		core.DB.modes.AddToNegative = self:GetChecked();
@@ -677,7 +677,7 @@ function CulteDKP:AdjustDKPTab_Create()
 		selected = L["CONFIRMDECAY"].." "..SelectedToggle.." "..L["DKPENTRIESBY"].." "..CulteDKP.ConfigTab2.decayDKP:GetNumber().."%%";
 
 			StaticPopupDialogs["ADJUST_DKP"] = {
-				text = selected,
+			    Text = selected,
 				button1 = L["YES"],
 				button2 = L["NO"],
 				OnAccept = function()
@@ -787,7 +787,7 @@ function CulteDKP:AdjustDKPTab_Create()
 		CulteDKP.ConfigTab2.RaidTimerContainer.StartTimer:SetScript("OnClick", function(self)
 			if not IsInRaid() then
 				StaticPopupDialogs["NO_RAID_TIMER"] = {
-					text = L["NOTINRAID"],
+				    Text = L["NOTINRAID"],
 					button1 = L["OK"],
 					timeout = 0,
 					whileDead = true,
@@ -800,7 +800,7 @@ function CulteDKP:AdjustDKPTab_Create()
 			if not core.RaidInProgress then				
 				if core.DB.DKPBonus.GiveRaidStart and self:GetText() ~= L["CONTINUERAID"] then
 					StaticPopupDialogs["START_RAID_BONUS"] = {
-						text = L["RAIDTIMERBONUSCONFIRM"],
+					    Text = L["RAIDTIMERBONUSCONFIRM"],
 						button1 = L["YES"],
 						button2 = L["NO"],
 						OnAccept = function()						
@@ -841,7 +841,7 @@ function CulteDKP:AdjustDKPTab_Create()
 				end
 			else
 				StaticPopupDialogs["END_RAID"] = {
-					text = L["ENDCURRAIDCONFIRM"],
+				    Text = L["ENDCURRAIDCONFIRM"],
 					button1 = L["YES"],
 					button2 = L["NO"],
 					OnAccept = function()
@@ -925,7 +925,7 @@ function CulteDKP:AdjustDKPTab_Create()
 				core.DB.modes.increment = self:GetNumber();
 			else
 				StaticPopupDialogs["ALERT_NUMBER"] = {
-					text = L["INCREMENTINVALIDWARN"],
+				    Text = L["INCREMENTINVALIDWARN"],
 					button1 = L["OK"],
 					timeout = 0,
 					whileDead = true,
@@ -994,7 +994,7 @@ function CulteDKP:AdjustDKPTab_Create()
 				core.DB.DKPBonus.IntervalBonus = self:GetNumber();
 			else
 				StaticPopupDialogs["ALERT_NUMBER"] = {
-					text = L["INCREMENTINVALIDWARN"],
+				    Text = L["INCREMENTINVALIDWARN"],
 					button1 = L["OK"],
 					timeout = 0,
 					whileDead = true,
@@ -1037,9 +1037,9 @@ function CulteDKP:AdjustDKPTab_Create()
 		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab2.RaidTimerContainer, "UICheckButtonTemplate");
 		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus:SetChecked(core.DB.DKPBonus.GiveRaidStart)
 		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus:SetScale(0.6);
-		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus.text:SetText("  |cff5151de"..L["GIVEONTIMEBONUS"].."|r");
-		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus.text:SetScale(1.5);
-		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus.text:SetFontObject("CulteDKPSmallLeft")
+		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus.Text:SetText("  |cff5151de"..L["GIVEONTIMEBONUS"].."|r");
+		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus.Text:SetScale(1.5);
+		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus.Text:SetFontObject("CulteDKPSmallLeft")
 		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus:SetPoint("TOPLEFT", CulteDKP.ConfigTab2.RaidTimerContainer.interval, "BOTTOMLEFT", 0, -10);
 		CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus:SetScript("OnClick", function(self)
 			if self:GetChecked() then
@@ -1063,9 +1063,9 @@ function CulteDKP:AdjustDKPTab_Create()
 		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab2.RaidTimerContainer, "UICheckButtonTemplate");
 		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus:SetChecked(core.DB.DKPBonus.GiveRaidEnd)
 		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus:SetScale(0.6);
-		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus.text:SetText("  |cff5151de"..L["GIVEENDBONUS"].."|r");
-		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus.text:SetScale(1.5);
-		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus.text:SetFontObject("CulteDKPSmallLeft")
+		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus.Text:SetText("  |cff5151de"..L["GIVEENDBONUS"].."|r");
+		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus.Text:SetScale(1.5);
+		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus.Text:SetFontObject("CulteDKPSmallLeft")
 		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus:SetPoint("TOP", CulteDKP.ConfigTab2.RaidTimerContainer.StartBonus, "BOTTOM", 0, 2);
 		CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus:SetScript("OnClick", function(self)
 			if self:GetChecked() then
@@ -1089,9 +1089,9 @@ function CulteDKP:AdjustDKPTab_Create()
 		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab2.RaidTimerContainer, "UICheckButtonTemplate");
 		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetChecked(core.DB.DKPBonus.IncStandby)
 		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetScale(0.6);
-		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetText("  |cff5151de"..L["INCLUDESTANDBY"].."|r");
-		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetScale(1.5);
-		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetFontObject("CulteDKPSmallLeft")
+		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.Text:SetText("  |cff5151de"..L["INCLUDESTANDBY"].."|r");
+		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.Text:SetScale(1.5);
+		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.Text:SetFontObject("CulteDKPSmallLeft")
 		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetPoint("TOP", CulteDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus, "BOTTOM", 0, 2);
 		CulteDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetScript("OnClick", function(self)
 			if self:GetChecked() then
