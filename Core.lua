@@ -227,8 +227,8 @@ core.EncounterList = {      -- Event IDs must be in the exact same order as core
 }
 
 core.CulteDKPUI = {}        -- global storing entire Configuration UI to hide/show UI
-core.MonVersion = "v1.0.4";
-core.BuildNumber = 30209;
+core.MonVersion = "v1.0.5";
+core.BuildNumber = 30401;
 core.ReleaseNumber = 1
 core.defaultTable = "__default";
 core.SemVer = core.MonVersion.."-r"..tostring(core.ReleaseNumber);
@@ -336,7 +336,8 @@ function CulteDKP:GetRealmName()
 		core.FactionName = UnitFactionGroup(UnitName("player"));
 	end
 
-	return core.RealmName.."-"..core.FactionName
+	return
+	core.RealmName.."-"..core.FactionName
 end
 
 function CulteDKP:GetGuildName()
@@ -595,12 +596,12 @@ function CulteDKP:CreateContainer(parent, name, header)
 	f.header:SetBackdropColor(0,0,0,1)
 	f.header:SetBackdropBorderColor(0,0,0,1)
 	f.header:SetPoint("LEFT", f, "TOPLEFT", 20, 0)
-	f.header.text = f.header:CreateFontString(nil, "OVERLAY")
-	f.header.text:SetFontObject("CulteDKPSmallCenter");
-	f.header.text:SetPoint("CENTER", f.header, "CENTER", 0, 0);
-	f.header.text:SetText(header);
-	f.header:SetWidth(f.header.text:GetWidth() + 30)
-	f.header:SetHeight(f.header.text:GetHeight() + 4)
+	f.header.Text = f.header:CreateFontString(nil, "OVERLAY")
+	f.header.Text:SetFontObject("CulteDKPSmallCenter");
+	f.header.Text:SetPoint("CENTER", f.header, "CENTER", 0, 0);
+	f.header.Text:SetText(header);
+	f.header:SetWidth(f.header.Text:GetWidth() + 30)
+	f.header:SetHeight(f.header.Text:GetHeight() + 4)
 
 	return f;
 end
@@ -645,9 +646,9 @@ function CulteDKP:StartTimer(seconds, ...)
 			timerMinute = math.floor(tonumber(timerText) / 60, 0);
 			modulo = bit.mod(tonumber(timerText), 60);
 			if tonumber(modulo) < 10 then modulo = "0"..modulo end
-			CulteDKP.BidTimer.timertext:SetText(timerMinute..":"..modulo)
+			CulteDKP.BidTimer.time.Text:SetText(timerMinute..":"..modulo)
 		else
-			CulteDKP.BidTimer.timertext:SetText(timerText)
+			CulteDKP.BidTimer.time.Text:SetText(timerText)
 		end
 		if duration >= 120 then
 			expiring = 30;

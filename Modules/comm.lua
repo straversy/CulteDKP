@@ -470,7 +470,7 @@ function CulteDKP:AllTabsReceived(commObject)
     local entry2 = "DKP: |cff616ccf"..commObject.Data.DKP[1].reason.." ("..date("%b %d @ %H:%M:%S", commObject.Data.DKP[1].date)..") - "..strsub(commObject.Data.DKP[1].index, 1, strfind(commObject.Data.DKP[1].index, "-")-1).."|r"
 
     StaticPopupDialogs["FULL_TABS_ALERT"] = {
-      text = "|CFFFF0000"..L["WARNING"].."|r: "..string.format(L["NEWERTABS1"], sender).."\n\n"..entry1.."\n\n"..entry2.."\n\n"..L["NEWERTABS2"],
+      Text = "|CFFFF0000"..L["WARNING"].."|r: "..string.format(L["NEWERTABS1"], sender).."\n\n"..entry1.."\n\n"..entry2.."\n\n"..L["NEWERTABS2"],
       button1 = L["YES"],
       button2 = L["NO"],
       OnAccept = function()

@@ -6,6 +6,8 @@ local L = core.L;
 --
 --  When clicking a box off, unchecks "All" as well and flags checkAll to false
 --
+
+local next = next
 local checkAll = true;                    -- changes to false when less than all of the boxes are checked
 local curReason;                          -- stores user input in dropdown 
 
@@ -166,32 +168,31 @@ function CulteDKP:ConfigMenuTabs()
 	---------------------------------------
 	-- MENU TAB 1
 	---------------------------------------
-	CulteDKP.ConfigTab1.text = CulteDKP.ConfigTab1:CreateFontString(nil, "OVERLAY")   -- Filters header
-	CulteDKP.ConfigTab1.text:ClearAllPoints();
-	CulteDKP.ConfigTab1.text:SetFontObject("CulteDKPLargeCenter");
-	CulteDKP.ConfigTab1.text:SetPoint("TOPLEFT", CulteDKP.ConfigTab1, "TOPLEFT", 15, -10);
-	CulteDKP.ConfigTab1.text:SetText(L["FILTERS"]);
-	CulteDKP.ConfigTab1.text:SetScale(1.2)
+	CulteDKP.ConfigTab1.Text = CulteDKP.ConfigTab1:CreateFontString(nil, "OVERLAY")   -- Filters header
+	CulteDKP.ConfigTab1.Text:ClearAllPoints();
+	CulteDKP.ConfigTab1.Text:SetFontObject("CulteDKPLargeCenter");
+	CulteDKP.ConfigTab1.Text:SetPoint("TOPLEFT", CulteDKP.ConfigTab1, "TOPLEFT", 15, -10);
+	CulteDKP.ConfigTab1.Text:SetText(L["FILTERS"]);
+	CulteDKP.ConfigTab1.Text:SetScale(1.2)
 
 	local checkBtn = {}
 	CulteDKP.ConfigTab1.checkBtn = checkBtn;
-
 	-- Create CheckBoxes 
 	for i=1, 14 do
 		-- 1 to 10 classes, 11: ALL Classes, 12 In Party/Raid, 13 Online, 14 Not In Raid
 		CulteDKP.ConfigTab1.checkBtn[i] = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab1, "UICheckButtonTemplate");
 		CulteDKP.ConfigTab1.checkBtn[i]:SetID(i)
-		CulteDKP.ConfigTab1.checkBtn[i].text:SetFontObject("CulteDKPSmall")
+	    CulteDKP.ConfigTab1.checkBtn[i].Text:SetFontObject("CulteDKPSmall")
 		if i <= 11 then 
 			if i <= 10 then -- Classes only
-				CulteDKP.ConfigTab1.checkBtn[i].text:SetText("|cff5151de"..API_CLASSES[core.classes[i]].."|r");
+				CulteDKP.ConfigTab1.checkBtn[i].Text:SetText("|cff5151de"..API_CLASSES[core.classes[i]].."|r");
 			end
 			CulteDKP.ConfigTab1.checkBtn[i]:SetChecked(true) 
 		else 
 			CulteDKP.ConfigTab1.checkBtn[i]:SetChecked(false) 
 		end;
 		if i==11 then -- All Classes
-			CulteDKP.ConfigTab1.checkBtn[i].text:SetText("|cff5151de"..L["ALLCLASSES"].."|r");
+			CulteDKP.ConfigTab1.checkBtn[i].Text:SetText("|cff5151de"..L["ALLCLASSES"].."|r");
 			CulteDKP.ConfigTab1.checkBtn[i]:SetScript("OnClick",
 				function()
 					for j=1, 10 do
@@ -219,13 +220,13 @@ function CulteDKP:ConfigMenuTabs()
 				tagName = L["NOTINRAIDFILTER"];
 				otherButton = 12;
 			end
-			CulteDKP.ConfigTab1.checkBtn[i].text:SetText("|cff5151de"..tagName.."|r");
+			CulteDKP.ConfigTab1.checkBtn[i].Text:SetText("|cff5151de"..tagName.."|r");
 			CulteDKP.ConfigTab1.checkBtn[i]:SetScript("OnClick", function(self)
 					CulteDKP.ConfigTab1.checkBtn[otherButton]:SetChecked(false);
 					CulteDKPFilterChecks(self)
 				end)
 		elseif i==13 then -- Online
-			CulteDKP.ConfigTab1.checkBtn[13].text:SetText("|cff5151de"..L["ONLINE"].."|r");
+			CulteDKP.ConfigTab1.checkBtn[13].Text:SetText("|cff5151de"..L["ONLINE"].."|r");
 			CulteDKP.ConfigTab1.checkBtn[13]:SetScript("OnClick", CulteDKPFilterChecks)
 		else -- classes
 			CulteDKP.ConfigTab1.checkBtn[i]:SetScript("OnClick", CulteDKPFilterChecks)
@@ -277,12 +278,12 @@ function CulteDKP:ConfigMenuTabs()
 	---------------------------------------
 	-- Loot History TAB
 	---------------------------------------
-	CulteDKP.ConfigTab5.text = CulteDKP.ConfigTab5:CreateFontString(nil, "OVERLAY")
-	CulteDKP.ConfigTab5.text:ClearAllPoints();
-	CulteDKP.ConfigTab5.text:SetFontObject("CulteDKPLargeLeft");
-	CulteDKP.ConfigTab5.text:SetPoint("TOPLEFT", CulteDKP.ConfigTab5, "TOPLEFT", 15, -10);
-	CulteDKP.ConfigTab5.text:SetText(L["LOOTHISTORY"]);
-	CulteDKP.ConfigTab5.text:SetScale(1.2)
+	CulteDKP.ConfigTab5.Text = CulteDKP.ConfigTab5:CreateFontString(nil, "OVERLAY")
+	CulteDKP.ConfigTab5.Text:ClearAllPoints();
+	CulteDKP.ConfigTab5.Text:SetFontObject("CulteDKPLargeLeft");
+	CulteDKP.ConfigTab5.Text:SetPoint("TOPLEFT", CulteDKP.ConfigTab5, "TOPLEFT", 15, -10);
+	CulteDKP.ConfigTab5.Text:SetText(L["LOOTHISTORY"]);
+	CulteDKP.ConfigTab5.Text:SetScale(1.2)
 	CulteDKP.ConfigTab5.inst = CulteDKP.ConfigTab5:CreateFontString(nil, "OVERLAY")
 	CulteDKP.ConfigTab5.inst:ClearAllPoints();
 	CulteDKP.ConfigTab5.inst:SetFontObject("CulteDKPSmallRight");
@@ -304,12 +305,12 @@ function CulteDKP:ConfigMenuTabs()
 	---------------------------------------
 	-- DKP History Tab
 	---------------------------------------
-	CulteDKP.ConfigTab6.text = CulteDKP.ConfigTab6:CreateFontString(nil, "OVERLAY")
-	CulteDKP.ConfigTab6.text:ClearAllPoints();
-	CulteDKP.ConfigTab6.text:SetFontObject("CulteDKPLargeLeft");
-	CulteDKP.ConfigTab6.text:SetPoint("TOPLEFT", CulteDKP.ConfigTab6, "TOPLEFT", 15, -10);
-	CulteDKP.ConfigTab6.text:SetText(L["DKPHISTORY"]);
-	CulteDKP.ConfigTab6.text:SetScale(1.2)
+	CulteDKP.ConfigTab6.Text = CulteDKP.ConfigTab6:CreateFontString(nil, "OVERLAY")
+	CulteDKP.ConfigTab6.Text:ClearAllPoints();
+	CulteDKP.ConfigTab6.Text:SetFontObject("CulteDKPLargeLeft");
+	CulteDKP.ConfigTab6.Text:SetPoint("TOPLEFT", CulteDKP.ConfigTab6, "TOPLEFT", 15, -10);
+	CulteDKP.ConfigTab6.Text:SetText(L["DKPHISTORY"]);
+	CulteDKP.ConfigTab6.Text:SetScale(1.2)
 
 	CulteDKP.ConfigTab6.inst = CulteDKP.ConfigTab6:CreateFontString(nil, "OVERLAY")
 	CulteDKP.ConfigTab6.inst:ClearAllPoints();

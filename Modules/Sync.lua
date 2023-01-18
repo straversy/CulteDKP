@@ -187,7 +187,7 @@ function CulteDKP_BroadcastFull_Init()
 			for i=1, numSubs do
 				local max = i*20;
 				if max > #PlayerList then max = #PlayerList end
-				filterName.text, filterName.checked, filterName.menuList, filterName.hasArrow = strsub(PlayerList[((i*20)-19)].player, 1, 1).."-"..strsub(PlayerList[max].player, 1, 1), curSelected >= (i*20)-19 and curSelected <= i*20, i, true
+				filterName.Text, filterName.checked, filterName.menuList, filterName.hasArrow = strsub(PlayerList[((i*20)-19)].player, 1, 1).."-"..strsub(PlayerList[max].player, 1, 1), curSelected >= (i*20)-19 and curSelected <= i*20, i, true
 				LibDD:UIDropDownMenu_AddButton(filterName)
 			end
 			
@@ -197,7 +197,7 @@ function CulteDKP_BroadcastFull_Init()
 				if PlayerList[i] then
 					local c = CulteDKP:GetCColors(PlayerList[i].class)
 
-					filterName.text, filterName.arg1, filterName.arg2, filterName.checked, filterName.isNotRadio = "|c"..c.hex..PlayerList[i].player.."|r", PlayerList[i].player, "|c"..c.hex..PlayerList[i].player.."|r", PlayerList[i].player == player, true
+					filterName.Text, filterName.arg1, filterName.arg2, filterName.checked, filterName.isNotRadio = "|c"..c.hex..PlayerList[i].player.."|r", PlayerList[i].player, "|c"..c.hex..PlayerList[i].player.."|r", PlayerList[i].player == player, true
 					LibDD:UIDropDownMenu_AddButton(filterName, level)
 				end
 			end
@@ -243,7 +243,7 @@ function CulteDKP_BroadcastFull_Init()
 				CulteDKP_BroadcastFull_Status()
 			elseif core.Broadcast.fullCheckbox:GetChecked() == true then
 				StaticPopupDialogs["FULL_TABS_ALERT"] = {
-					text = "|CFFFF0000"..L["WARNING"].."|r: "..L["OVERWRITETABLES"],
+				Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["OVERWRITETABLES"],
 					button1 = L["YES"],
 					button2 = L["NO"],
 					OnAccept = function()
@@ -268,7 +268,7 @@ function CulteDKP_BroadcastFull_Init()
 				CulteDKP_BroadcastFull_Status()
 			elseif core.Broadcast.fullCheckbox:GetChecked() == true then
 				StaticPopupDialogs["FULL_TABS_ALERT"] = {
-					text = "|CFFFF0000"..L["WARNING"].."|r: "..L["OVERWRITETABLES"],
+				Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["OVERWRITETABLES"],
 					button1 = L["YES"],
 					button2 = L["NO"],
 					OnAccept = function()

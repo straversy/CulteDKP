@@ -968,13 +968,13 @@ if GetLocale() == "zhCN" then
     MIGRATIONCOMPLETED    = "Migration complete.|n|nPlease disable MonolithDKP and /reload the UI.", --TODO TRANSLATE:
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.4-wotlk", 
-    CHANGELOG2 = "- Added Off Spec Button",   
-    CHANGELOG3 = "- Fixed some nil errors",
-    CHANGELOG4 = "",
-    CHANGELOG5 = "Fixed by Yozomia from server Pagle",
+    CHANGELOG1 = "CulteDKP - v1.0.5-wotlk", 
+    CHANGELOG2 = "Fixed for WOTLK phase 2",   
+    CHANGELOG3 = "",
+    CHANGELOG4 = "In progress: More fixe",
+    CHANGELOG5 = "",
     CHANGELOG6 = "",
-    CHANGELOG7 = "Based on CommunityDKP Discord: https://discord.gg/dXXK4vH",
+    CHANGELOG7 = "Fixed by Yozomia/Yozodeath from server Pagle",
     CHANGELOG8 = "",
     CHANGELOG9 = "",
     CHANGELOG10 = ""

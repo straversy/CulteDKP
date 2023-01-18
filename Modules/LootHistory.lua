@@ -101,6 +101,7 @@ local function DeleteLootHistoryEntry(index)
 end
 
 local function CulteDKPDeleteMenu(index)
+    CulteDKP:Print("CulteDKPDeleteMenu");
 	local search = CulteDKP:Table_Search(CulteDKP:GetTable(CulteDKP_Loot, true), index, "index")
 	local search2 = CulteDKP:Table_Search(CulteDKP:GetTable(CulteDKP_DKPTable, true), CulteDKP:GetTable(CulteDKP_Loot, true)[search[1][1]]["player"])
 	local c, deleteString;
@@ -112,7 +113,7 @@ local function CulteDKPDeleteMenu(index)
 	end
 
 	StaticPopupDialogs["DELETE_LOOT_ENTRY"] = {
-	  text = deleteString,
+	  Text = deleteString,
 	  button1 = L["YES"],
 	  button2 = L["NO"],
 	  OnAccept = function()
@@ -126,21 +127,22 @@ local function CulteDKPDeleteMenu(index)
 	StaticPopup_Show ("DELETE_LOOT_ENTRY")
 end
 
-local function RightClickLootMenu(self, index)  -- called by right click function on ~201 row:SetScript
+local function RightClickLootMenu(_, index)  -- called by right click function on ~201 row:SetScript
+    CulteDKP:Print("RightClickLootMenu");
 	local search = CulteDKP:Table_Search(CulteDKP:GetTable(CulteDKP_Loot, true), index, "index")
 	menu = {
-		{ text = CulteDKP:GetTable(CulteDKP_Loot, true)[search[1][1]]["loot"].." "..L["FOR"].." "..CulteDKP:GetTable(CulteDKP_Loot, true)[search[1][1]]["cost"].." "..L["DKP"], isTitle = true},
-		{ text = "Delete Entry", func = function()
+		{Text = CulteDKP:GetTable(CulteDKP_Loot, true)[search[1][1]]["loot"].." "..L["FOR"].." "..CulteDKP:GetTable(CulteDKP_Loot, true)[search[1][1]]["cost"].." "..L["DKP"], isTitle = true},
+		{Text = "Delete Entry", func = function()
 			CulteDKPDeleteMenu(index)
 		end },
-		{ text = L["REASSIGNSELECTED"], func = function()
+		{Text = L["REASSIGNSELECTED"], func = function()
 			local path = CulteDKP:GetTable(CulteDKP_Loot, true)[search[1][1]]
 
 			if #core.SelectedData == 1 then
 				CulteDKP:AwardConfirm(core.SelectedData[1].player, -path.cost, path.boss, path.zone, path.loot, index)
 			elseif #core.SelectedData > 1 then
 				StaticPopupDialogs["TOO_MANY_SELECTED_LOOT"] = {
-				text = L["TOOMANYPLAYERSSELECT"],
+			    Text = L["TOOMANYPLAYERSSELECT"],
 				button1 = L["OK"],
 				timeout = 0,
 				whileDead = true,
@@ -189,7 +191,7 @@ function CulteDKP:CreateSortBox()
 			-- made it a bit more clear to read for now
 			-- add no filter button
 			dropDownMenuItem.func = self.FilterSetValue
-			dropDownMenuItem.text = L["NOFILTER"]
+			dropDownMenuItem.Text = L["NOFILTER"]
 			dropDownMenuItem.value = L["NOFILTER"]
 			dropDownMenuItem.arg1 = L["NOFILTER"]
 			dropDownMenuItem.arg2 = L["NOFILTER"]
@@ -198,7 +200,7 @@ function CulteDKP:CreateSortBox()
 			LibDD:UIDropDownMenu_AddButton(dropDownMenuItem, level)
 
 			-- add deleted entries button
-			dropDownMenuItem.text = L["DELETEDENTRY"] 
+			dropDownMenuItem.Text = L["DELETEDENTRY"] 
 			dropDownMenuItem.value = L["DELETEDENTRY"] 
 			dropDownMenuItem.arg1 = L["DELETEDENTRY"] 
 			dropDownMenuItem.arg2 = L["DELETEDENTRY"]
@@ -209,14 +211,14 @@ function CulteDKP:CreateSortBox()
 
 			-- add separator
 			--wipe(dropDownMenuItem)
-			dropDownMenuItem.text = ""
+			dropDownMenuItem.Text = ""
 			dropDownMenuItem.disabled = 1
 			dropDownMenuItem.isNotRadio = true
 			LibDD:UIDropDownMenu_AddButton(dropDownMenuItem, level)
 			dropDownMenuItem.disabled = nil
 		
 			-- add players section
-			dropDownMenuItem.text =  L["PLAYERS"] 
+			dropDownMenuItem.Text =  L["PLAYERS"] 
 			dropDownMenuItem.value =  L["PLAYERS"] 
 			dropDownMenuItem.arg1 = L["PLAYERS"] 
 			dropDownMenuItem.arg2 = L["PLAYERS"]
@@ -227,7 +229,7 @@ function CulteDKP:CreateSortBox()
 			LibDD:UIDropDownMenu_AddButton(dropDownMenuItem, level)
 
 			-- add items section
-			dropDownMenuItem.text =  L["ITEMS"] 
+			dropDownMenuItem.Text =  L["ITEMS"] 
 			dropDownMenuItem.value =  L["ITEMS"] 
 			dropDownMenuItem.arg1 = L["ITEMS"] 
 			dropDownMenuItem.arg2 = L["ITEMS"]
@@ -244,7 +246,7 @@ function CulteDKP:CreateSortBox()
 				for i=1, ceil(#PlayerList/displayLimit) do 
 					local max = i*displayLimit;
 					if max > #PlayerList then max = #PlayerList end
-					dropDownMenuItem.text = strsub(PlayerList[((i*displayLimit)-(displayLimit-1))], 1, 1).."-"..strsub(PlayerList[max], 1, 1) 
+					dropDownMenuItem.Text = strsub(PlayerList[((i*displayLimit)-(displayLimit-1))], 1, 1).."-"..strsub(PlayerList[max], 1, 1) 
 					dropDownMenuItem.checked = curSelected >= (i*displayLimit)-(displayLimit-1) and curSelected <= i*displayLimit
 					dropDownMenuItem.menuList = i -- to know which subLevel of players we are on
 					dropDownMenuItem.value = L["PLAYERS"] -- for submenu handling in level 3
@@ -259,8 +261,8 @@ function CulteDKP:CreateSortBox()
 				for i=1, ceil(#ItemList/displayLimit) do 
 					local max = i*displayLimit;
 					if max > #ItemList then max = #ItemList end
-					dropDownMenuItem.text = ItemList[((i*displayLimit)-(displayLimit-1))]
-					dropDownMenuItem.text = strsub(ItemList[((i*displayLimit)-(displayLimit-1))], strfind(ItemList[((i*displayLimit)-(displayLimit-1))], "%[", 1) + 1, strfind(ItemList[((i*displayLimit)-(displayLimit-1))], "%[", 1) + 1).."-"..strsub(ItemList[max], strfind(ItemList[max], "%[", 1) + 1, strfind(ItemList[max], "%[", 1) + 1)
+					dropDownMenuItem.Text = ItemList[((i*displayLimit)-(displayLimit-1))]
+					dropDownMenuItem.Text = strsub(ItemList[((i*displayLimit)-(displayLimit-1))], strfind(ItemList[((i*displayLimit)-(displayLimit-1))], "%[", 1) + 1, strfind(ItemList[((i*displayLimit)-(displayLimit-1))], "%[", 1) + 1).."-"..strsub(ItemList[max], strfind(ItemList[max], "%[", 1) + 1, strfind(ItemList[max], "%[", 1) + 1)
 					dropDownMenuItem.menuList = i -- to know which subLevel of items we are on
 					dropDownMenuItem.value = L["ITEMS"] -- for submenu handling in level 3
 					dropDownMenuItem.hasArrow = true
@@ -292,7 +294,7 @@ function CulteDKP:CreateSortBox()
 						else
 							c = { hex="ff444444" }
 						end
-						dropDownMenuItem.text = "|c"..c.hex..PlayerList[i].."|r" 
+						dropDownMenuItem.Text = "|c"..c.hex..PlayerList[i].."|r" 
 						dropDownMenuItem.value = "|c"..c.hex..PlayerList[i].."|r" 
 						dropDownMenuItem.arg1 = PlayerList[i]
 						dropDownMenuItem.arg2 = L["PLAYERS"]
@@ -307,7 +309,7 @@ function CulteDKP:CreateSortBox()
 
 				for  i=1+(menuList-1)*displayLimit, 1+(menuList-1)*displayLimit+(displayLimit-1) do
 					if ItemList[i] then
-						dropDownMenuItem.text = ItemList[i]
+						dropDownMenuItem.Text = ItemList[i]
 						dropDownMenuItem.value = ItemList[i]
 						dropDownMenuItem.arg1 = ItemList[i]
 						dropDownMenuItem.arg2 = L["ITEMS"]
@@ -329,7 +331,7 @@ function CulteDKP:CreateSortBox()
   -- Dropdown Menu Function
   function sortDropdown:FilterSetValue(newValue, arg2)
  
-	-- text  - display string
+	--Text  - display string
 	-- value - formatted string for player class color
 	-- arg1  - actual value which we filter by
 	-- arg2  - decode which filtering is going on

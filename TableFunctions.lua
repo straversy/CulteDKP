@@ -367,7 +367,7 @@ local function RightClickMenu(self)
 			teamMenuText = string.format("Copy %s to %s","Selected Players",team.name);
 		end
 	
-		local teamMenu = { text = teamMenuText, notCheckable = true, disabled = teamDisabled, func = function()
+		local teamMenu = {Text = teamMenuText, notCheckable = true, disabled = teamDisabled, func = function()
 			CulteDKP:CopyProfileToTeam(self.index, teamIndex)
 			ToggleDropDownMenu(nil, nil, menuFrame)
 		end }
@@ -376,8 +376,8 @@ local function RightClickMenu(self)
 	
 	-- Build Full Menu
 	menu = {
-		{ text = L["MULTIPLESELECT"], isTitle = true, notCheckable = true}, --1
-		{ text = L["INVITESELECTED"], notCheckable = true, func = function()
+		{Text = L["MULTIPLESELECT"], isTitle = true, notCheckable = true}, --1
+		{Text = L["INVITESELECTED"], notCheckable = true, func = function()
 			InvCount = 4 - GetNumSubgroupMembers()
 			
 			for i=1, InvCount do
@@ -388,38 +388,38 @@ local function RightClickMenu(self)
 				ConvToRaidEvent:SetScript("OnEvent", Invite_OnEvent);
 			end
 		end }, --2
-		{ text = L["SELECTALL"], notCheckable = true, func = function()
+		{Text = L["SELECTALL"], notCheckable = true, func = function()
 			core.SelectedData = CopyTable(core.WorkingTable);
 			CulteDKPSelectionCount_Update()
 			CulteDKP:DKPTable_Update()
 		end }, --3
-		{ text = " ", notCheckable = true, disabled = true}, --4
-		{ text = L["VIEWS"], isTitle = true, notCheckable = true}, --5
-		{ text = L["TABLEVIEWS"], notCheckable = true, hasArrow = true,
+		{Text = " ", notCheckable = true, disabled = true}, --4
+		{Text = L["VIEWS"], isTitle = true, notCheckable = true}, --5
+		{Text = L["TABLEVIEWS"], notCheckable = true, hasArrow = true,
 				menuList = { 
-					{ text = L["VIEWRAID"], notCheckable = true, keepShownOnClick = false; func = function()
+					{Text = L["VIEWRAID"], notCheckable = true, keepShownOnClick = false; func = function()
 						CulteDKP:ViewLimited(true)
 						core.CurSubView = "raid"
 						CulteDKP.ConfigTab1.checkBtn[12]:SetChecked(true);
 						ToggleDropDownMenu(nil, nil, menuFrame)
 					end },
-					{ text = L["VIEWSTANDBY"], notCheckable = true, func = function()
+					{Text = L["VIEWSTANDBY"], notCheckable = true, func = function()
 						CulteDKP:ViewLimited(false, true)
 						core.CurSubView = "standby"
 						ToggleDropDownMenu(nil, nil, menuFrame)
 					end },
-					{ text = L["VIEWRAIDSTANDBY"], notCheckable = true, func = function()
+					{Text = L["VIEWRAIDSTANDBY"], notCheckable = true, func = function()
 						CulteDKP:ViewLimited(true, true)
 						core.CurSubView = "raid and standby"
 						ToggleDropDownMenu(nil, nil, menuFrame)
 					end },
-					{ text = L["VIEWCORERAID"], notCheckable = true, func = function()
+					{Text = L["VIEWCORERAID"], notCheckable = true, func = function()
 						CulteDKP:ViewLimited(false, false, true)
 						CulteDKP:SortDKPTable(core.currentSort, "reset")
 						core.CurSubView = "core"
 						ToggleDropDownMenu(nil, nil, menuFrame)
 					end },
-					{ text = L["VIEWALL"], notCheckable = true, func = function()
+					{Text = L["VIEWALL"], notCheckable = true, func = function()
 						CulteDKP.ConfigTab1.checkBtn[12]:SetChecked(false);
 						CulteDKP.ConfigTab1.checkBtn[13]:SetChecked(false);
 						CulteDKP.ConfigTab1.checkBtn[14]:SetChecked(false);
@@ -428,45 +428,45 @@ local function RightClickMenu(self)
 					end },
 			}
 		}, --6
-		{ text = L["CLASSFILTER"], notCheckable = true, hasArrow = true,
+		{Text = L["CLASSFILTER"], notCheckable = true, hasArrow = true,
 				menuList = {}
 		}, --7
-		{ text = " ", notCheckable = true, disabled = true}, --8
-		{ text = L["MANAGELISTS"], isTitle = true, notCheckable = true}, --9
-		{ text = L["MANAGESTANDBY"], notCheckable = true, hasArrow = true,
+		{Text = " ", notCheckable = true, disabled = true}, --8
+		{Text = L["MANAGELISTS"], isTitle = true, notCheckable = true}, --9
+		{Text = L["MANAGESTANDBY"], notCheckable = true, hasArrow = true,
 				menuList = {
-					{ text = L["ADDTOSTANDBY"], notCheckable = true, func = function()
+					{Text = L["ADDTOSTANDBY"], notCheckable = true, func = function()
 						EditStandbyList(self.index, "add")
 						ToggleDropDownMenu(nil, nil, menuFrame)
 					end },
-					{ text = L["REMOVEFROMSTANDBY"], notCheckable = true, func = function()
+					{Text = L["REMOVEFROMSTANDBY"], notCheckable = true, func = function()
 						EditStandbyList(self.index, "remove")
 						ToggleDropDownMenu(nil, nil, menuFrame)
 					end },
-					{ text = L["CLEARSTANDBY"], notCheckable = true, disabled = disabled, func = function()
+					{Text = L["CLEARSTANDBY"], notCheckable = true, disabled = disabled, func = function()
 						EditStandbyList(self.index, "clear")
 						ToggleDropDownMenu(nil, nil, menuFrame)
 					end },
 				}
 		}, --10
-		{ text = L["MANAGECORELIST"], notCheckable = true, hasArrow = true,
+		{Text = L["MANAGECORELIST"], notCheckable = true, hasArrow = true,
 				menuList = {}
 		}, --11
-		{ text = " ", notCheckable = true, disabled = true}, --8
-		{ text = "Manage Tables", isTitle = true, notCheckable = true}, --9
-		{ text = "Copy Profile", notCheckable = true, hasArrow = true,
+		{Text = " ", notCheckable = true, disabled = true}, --8
+		{Text = "Manage Tables", isTitle = true, notCheckable = true}, --9
+		{Text = "Copy Profile", notCheckable = true, hasArrow = true,
 				menuList = manageTeamTables
 		},
-		{ text = L["RESETPREVIOUS"], notCheckable = true, func = function()
+		{Text = L["RESETPREVIOUS"], notCheckable = true, func = function()
 			for i=1, #core.SelectedData do
 				CulteDKP:reset_prev_dkp(core.SelectedData[i].player)
 			end
 			CulteDKP:FilterDKPTable(core.currentSort, "reset")
 		end 
 		}, --13
-		{ text = L["VALIDATETABLES"], notCheckable = true, disabled = not core.IsOfficer, func = function()
+		{Text = L["VALIDATETABLES"], notCheckable = true, disabled = not core.IsOfficer, func = function()
 			StaticPopupDialogs["VALIDATE_WARN"] = {
-				text = "|CFFFF0000"..L["WARNING"].."|r: "..L["VALIDATEWARN"],
+			    Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["VALIDATEWARN"],
 				button1 = L["YES"],
 				button2 = L["NO"],
 				OnAccept = function()
@@ -483,8 +483,8 @@ local function RightClickMenu(self)
 	}
 
 	if #core.SelectedData < 2 then
-		menu[1].text = core.WorkingTable[self.index].player;
-		menu[2] = { text = L["INVITE"].." "..core.WorkingTable[self.index].player.." "..L["TORAID"], notCheckable = true, func = function()
+		menu[1].Text = core.WorkingTable[self.index].player;
+		menu[2] = {Text = L["INVITE"].." "..core.WorkingTable[self.index].player.." "..L["TORAID"], notCheckable = true, func = function()
 			InviteUnit(core.WorkingTable[self.index].player)
 		end }
 
@@ -492,22 +492,22 @@ local function RightClickMenu(self)
 		
 		if StandbySearch then
 			menu[10].menuList = {
-				{ text = L["REMOVE"].." "..core.WorkingTable[self.index].player.." "..L["FROMSTANDBYLIST"], notCheckable = true, func = function()
+				{Text = L["REMOVE"].." "..core.WorkingTable[self.index].player.." "..L["FROMSTANDBYLIST"], notCheckable = true, func = function()
 					EditStandbyList(self.index, "remove")
 					ToggleDropDownMenu(nil, nil, menuFrame)
 				end },
-				{ text = L["CLEARSTANDBY"], notCheckable = true, disabled = disabled, func = function()
+				{Text = L["CLEARSTANDBY"], notCheckable = true, disabled = disabled, func = function()
 					EditStandbyList(self.index, "clear")
 					ToggleDropDownMenu(nil, nil, menuFrame)
 				end },
 			}
 		else
 			menu[10].menuList = {
-				{ text = L["ADD"].." "..core.WorkingTable[self.index].player.." "..L["TOSTANDBYLIST"], notCheckable = true, func = function()
+				{Text = L["ADD"].." "..core.WorkingTable[self.index].player.." "..L["TOSTANDBYLIST"], notCheckable = true, func = function()
 					EditStandbyList(self.index, "add")
 					ToggleDropDownMenu(nil, nil, menuFrame)
 				end },
-				{ text = L["CLEARSTANDBY"], notCheckable = true, disabled = disabled, func = function()
+				{Text = L["CLEARSTANDBY"], notCheckable = true, disabled = disabled, func = function()
 					EditStandbyList(self.index, "clear")
 					ToggleDropDownMenu(nil, nil, menuFrame)
 				end },
@@ -515,8 +515,8 @@ local function RightClickMenu(self)
 		end
 	end
 
-	for i=1, #core.classes do       -- create Filter selections in context menu
-		menu[7].menuList[i] = { text = API_CLASSES[core.classes[i]], isNotRadio = true, keepShownOnClick = true, checked = CulteDKP.ConfigTab1.checkBtn[i]:GetChecked(), func = function()
+	for i=1, #core.classes do       -- create Filter selections in co.Text menu
+		menu[7].menuList[i] = {Text = API_CLASSES[core.classes[i]], isNotRadio = true, keepShownOnClick = true, checked = CulteDKP.ConfigTab1.checkBtn[i]:GetChecked(), func = function()
 			CulteDKP.ConfigTab1.checkBtn[i]:SetChecked(not CulteDKP.ConfigTab1.checkBtn[i]:GetChecked())
 			CulteDKPFilterChecks(CulteDKP.ConfigTab1.checkBtn[11])
 			for j=1, #core.classes+1 do
@@ -525,7 +525,7 @@ local function RightClickMenu(self)
 		end }
 	end
 
-	menu[7].menuList[#core.classes+1] = { text = L["ALLCLASSES"], isNotRadio = true, keepShownOnClick = false, notCheckable = true, func = function()
+	menu[7].menuList[#core.classes+1] = {Text = L["ALLCLASSES"], isNotRadio = true, keepShownOnClick = false, notCheckable = true, func = function()
 		CulteDKP.ConfigTab1.checkBtn[11]:SetChecked(true)
 		
 		for i=1, #core.classes do
@@ -539,7 +539,7 @@ local function RightClickMenu(self)
 		end
 	end }
 
-	menu[7].menuList[#core.classes+2] = { text = L["ONLYPARTYRAID"], isNotRadio = true, keepShownOnClick = false, disabled = not IsInRaid(), checked = CulteDKP.ConfigTab1.checkBtn[12]:GetChecked(), func = function()
+	menu[7].menuList[#core.classes+2] = {Text = L["ONLYPARTYRAID"], isNotRadio = true, keepShownOnClick = false, disabled = not IsInRaid(), checked = CulteDKP.ConfigTab1.checkBtn[12]:GetChecked(), func = function()
 		CulteDKP.ConfigTab1.checkBtn[12]:SetChecked(not CulteDKP.ConfigTab1.checkBtn[12]:GetChecked())
 		CulteDKP.ConfigTab1.checkBtn[14]:SetChecked(false)
 		menu[7].menuList[#core.classes+4].checked = false
@@ -550,14 +550,14 @@ local function RightClickMenu(self)
 		end
 	end }
 
-	menu[7].menuList[#core.classes+3] = { text = L["ONLINE"], isNotRadio = true, keepShownOnClick = true, checked = CulteDKP.ConfigTab1.checkBtn[13]:GetChecked(), func = function()
+	menu[7].menuList[#core.classes+3] = {Text = L["ONLINE"], isNotRadio = true, keepShownOnClick = true, checked = CulteDKP.ConfigTab1.checkBtn[13]:GetChecked(), func = function()
 		CulteDKP.ConfigTab1.checkBtn[13]:SetChecked(not CulteDKP.ConfigTab1.checkBtn[13]:GetChecked())
 		core.CurView = "limited"
 
 		CulteDKPFilterChecks(CulteDKP.ConfigTab1.checkBtn[13])
 	end }
 
-	menu[7].menuList[#core.classes+4] = { text = L["NOTINRAIDFILTER"], isNotRadio = true, keepShownOnClick = false, disabled = not IsInRaid(), checked = CulteDKP.ConfigTab1.checkBtn[14]:GetChecked(), func = function()
+	menu[7].menuList[#core.classes+4] = {Text = L["NOTINRAIDFILTER"], isNotRadio = true, keepShownOnClick = false, disabled = not IsInRaid(), checked = CulteDKP.ConfigTab1.checkBtn[14]:GetChecked(), func = function()
 		CulteDKP.ConfigTab1.checkBtn[14]:SetChecked(not CulteDKP.ConfigTab1.checkBtn[14]:GetChecked())
 		CulteDKP.ConfigTab1.checkBtn[12]:SetChecked(false)
 		menu[7].menuList[#core.classes+2].checked = false
@@ -569,13 +569,13 @@ local function RightClickMenu(self)
 	end }
 
 	if #CulteDKP:GetTable(CulteDKP_Standby, true) == 0 then
-		menu[6].menuList[2] = { text = L["VIEWSTANDBY"], notCheckable = true, disabled = true, }
-		menu[6].menuList[3] = { text = L["VIEWRAIDSTANDBY"], notCheckable = true, disabled = true}
+		menu[6].menuList[2] = {Text = L["VIEWSTANDBY"], notCheckable = true, disabled = true, }
+		menu[6].menuList[3] = {Text = L["VIEWRAIDSTANDBY"], notCheckable = true, disabled = true}
 	end
 
 	if not IsInGroup() and not IsInRaid() then
-		menu[6].menuList[1] = { text = L["VIEWRAID"], notCheckable = true, disabled = true }
-		menu[6].menuList[3] = { text = L["VIEWRAIDSTANDBY"], notCheckable = true, disabled = true}
+		menu[6].menuList[1] = {Text = L["VIEWRAID"], notCheckable = true, disabled = true }
+		menu[6].menuList[3] = {Text = L["VIEWRAIDSTANDBY"], notCheckable = true, disabled = true}
 	end
 
 	local rankList = CulteDKP:GetGuildRankList()
@@ -588,7 +588,7 @@ local function RightClickMenu(self)
 			checked = false;
 		end
 
-		menu[11].menuList[i] = { text = rankList[i].name, isNotRadio = true, keepShownOnClick = true, checked = checked, func = function()
+		menu[11].menuList[i] = {Text = rankList[i].name, isNotRadio = true, keepShownOnClick = true, checked = checked, func = function()
 			if menu[11].menuList[i].checked then
 				menu[11].menuList[i].checked = false;
 
@@ -604,9 +604,9 @@ local function RightClickMenu(self)
 		end }
 	end
 
-	menu[11].menuList[#menu[11].menuList + 1] = { text = " ", notCheckable = true, disabled = true }
+	menu[11].menuList[#menu[11].menuList + 1] = {Text = " ", notCheckable = true, disabled = true }
 
-	menu[11].menuList[#menu[11].menuList + 1] = { text = L["CLOSE"], notCheckable = true, func = function()
+	menu[11].menuList[#menu[11].menuList + 1] = {Text = L["CLOSE"], notCheckable = true, func = function()
 		ToggleDropDownMenu(nil, nil, menuFrame)
 	end }
 

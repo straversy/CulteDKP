@@ -294,11 +294,11 @@ function CulteDKP:ExportBox_Show(text)
 		local Format = LibDD:UIDropDownMenu_CreateInfo()
 			Format.func = self.SetValue
 			Format.fontObject = "CulteDKPSmallCenter"
-			Format.text, Format.arg1, Format.checked, Format.isNotRadio = "HTML", "HTML", "HTML" == CurFormat, false
+			Format.Text, Format.arg1, Format.checked, Format.isNotRadio = "HTML", "HTML", "HTML" == CurFormat, false
 			LibDD:UIDropDownMenu_AddButton(Format)
-			Format.text, Format.arg1, Format.checked, Format.isNotRadio = "CSV", "CSV", "CSV" == CurFormat, false
+			Format.Text, Format.arg1, Format.checked, Format.isNotRadio = "CSV", "CSV", "CSV" == CurFormat, false
 			LibDD:UIDropDownMenu_AddButton(Format)
-			Format.text, Format.arg1, Format.checked, Format.isNotRadio = "XML", "XML", "XML" == CurFormat, false
+			Format.Text, Format.arg1, Format.checked, Format.isNotRadio = "XML", "XML", "XML" == CurFormat, false
 			LibDD:UIDropDownMenu_AddButton(Format)
 		end)
 
@@ -329,7 +329,7 @@ function CulteDKP:ExportBox_Show(text)
 		end)
 
 		StaticPopupDialogs["NO_FORMAT"] = {
-			text = "You do not have a format selected.",
+		    Text = "You do not have a format selected.",
 			button1 = "Ok",
 			timeout = 0,
 			whileDead = true,
@@ -375,7 +375,7 @@ function CulteDKP:ExportBox_Show(text)
 		end)
     end
     
-    if text then
+    if Text then
         CulteDKPExportBoxEditBox:SetText(text)
     end
     CulteDKPExportBox:Show()
