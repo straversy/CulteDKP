@@ -977,3 +977,4 @@ if GetLocale() == "koKR" then
     CHANGELOG10 = ""
       }
 
+end

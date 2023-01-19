@@ -1024,3 +1024,4 @@ if GetLocale() == "frFR" then
     CHANGELOG9 = "",
     CHANGELOG10 = ""
 } 
+end

@@ -978,3 +978,4 @@ if GetLocale() == "esES" or GetLocale() == "esMX" then
     CHANGELOG10 = ""
           }
 
+end

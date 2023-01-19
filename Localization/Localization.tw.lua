@@ -978,3 +978,4 @@ if GetLocale() == "zhTW" then
     CHANGELOG10 = ""
 }
 
+end
