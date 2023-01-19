@@ -386,15 +386,15 @@ function CulteDKP:CreateMenu()
 	local reason = LibDD:UIDropDownMenu_CreateInfo()
 		reason.func = self.SetValue
 		reason.fontObject = "CulteDKPSmallCenter"
-		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["CLASS"], "class", L["CLASS"], "class" == core.CenterSort, true
+		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["CLASS"], "class", L["CLASS"], "class" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["SPEC"], "spec", L["SPEC"], "spec" == core.CenterSort, true
+		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["SPEC"], "spec", L["SPEC"], "spec" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["RANK"], "rank", L["RANK"], "rank" == core.CenterSort, true
+		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["RANK"], "rank", L["RANK"], "rank" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["ROLE"], "role", L["ROLE"], "role" == core.CenterSort, true
+		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["ROLE"], "role", L["ROLE"], "role" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["VERSION"], "version", L["VERSION"], "version" == core.CenterSort, true
+		reason.text, reason.arg1, reason.arg2, reason.checked, reason.isNotRadio = L["VERSION"], "version", L["VERSION"], "version" == core.CenterSort, true
 		LibDD:UIDropDownMenu_AddButton(reason)
 	end)
 	-- Dropdown Menu Function
@@ -542,7 +542,7 @@ function CulteDKP:CreateMenu()
 				teamList = CulteDKP:GetGuildTeamList()
 
 				for i=1, #teamList do
-					dropDownMenuItem.Text = teamList[i][2]
+					dropDownMenuItem.text = teamList[i][2]
 					dropDownMenuItem.arg1 = teamList[i][2] -- name
 					dropDownMenuItem.arg2 = teamList[i][1] -- index
 					dropDownMenuItem.checked = teamList[i][1] == tonumber(CulteDKP:GetCurrentTeamIndex())
@@ -562,7 +562,7 @@ function CulteDKP:CreateMenu()
 					LibDD:UIDropDownMenu_SetText(CulteDKP.UIConfig.TeamViewChangerDropDown, arg1)
 				else
 					StaticPopupDialogs["RAID_IN_PROGRESS"] = {
-					    Text = L["TEAMCHANGERAIDINPROGRESS"],
+					    text = L["TEAMCHANGERAIDINPROGRESS"],
 						button1 = L["OK"],
 						timeout = 0,
 						whileDead = true,

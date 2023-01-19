@@ -70,7 +70,7 @@ function CulteDKP:AdjustDKP(value)
 		end
 
 		StaticPopupDialogs["VALIDATION_PROMPT"] = {
-		    Text = validation,
+		    text = validation,
 			button1 = L["OK"],
 			timeout = 5,
 			whileDead = true,
@@ -223,21 +223,21 @@ function CulteDKP:AdjustDKPTab_Create()
 		local reason = LibDD:UIDropDownMenu_CreateInfo()
 		reason.func = self.SetValue
 		reason.fontObject = "CulteDKPSmallCenter"
-		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["ONTIMEBONUS"], L["ONTIMEBONUS"], L["ONTIMEBONUS"] == curReason, true
+		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["ONTIMEBONUS"], L["ONTIMEBONUS"], L["ONTIMEBONUS"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["BOSSKILLBONUS"], L["BOSSKILLBONUS"], L["BOSSKILLBONUS"] == curReason, true
+		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["BOSSKILLBONUS"], L["BOSSKILLBONUS"], L["BOSSKILLBONUS"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["RAIDCOMPLETIONBONUS"], L["RAIDCOMPLETIONBONUS"], L["RAIDCOMPLETIONBONUS"] == curReason, true
+		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["RAIDCOMPLETIONBONUS"], L["RAIDCOMPLETIONBONUS"], L["RAIDCOMPLETIONBONUS"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["NEWBOSSKILLBONUS"], L["NEWBOSSKILLBONUS"], L["NEWBOSSKILLBONUS"] == curReason, true
+		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["NEWBOSSKILLBONUS"], L["NEWBOSSKILLBONUS"], L["NEWBOSSKILLBONUS"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["CORRECTINGERROR"], L["CORRECTINGERROR"], L["CORRECTINGERROR"] == curReason, true
+		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["CORRECTINGERROR"], L["CORRECTINGERROR"], L["CORRECTINGERROR"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["DKPADJUST"], L["DKPADJUST"], L["DKPADJUST"] == curReason, true
+		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["DKPADJUST"], L["DKPADJUST"], L["DKPADJUST"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["UNEXCUSEDABSENCE"], L["UNEXCUSEDABSENCE"], L["UNEXCUSEDABSENCE"] == curReason, true
+		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["UNEXCUSEDABSENCE"], L["UNEXCUSEDABSENCE"], L["UNEXCUSEDABSENCE"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
-		reason.Text, reason.arg1, reason.checked, reason.isNotRadio = L["OTHER"], L["OTHER"], L["OTHER"] == curReason, true
+		reason.text, reason.arg1, reason.checked, reason.isNotRadio = L["OTHER"], L["OTHER"], L["OTHER"] == curReason, true
 		LibDD:UIDropDownMenu_AddButton(reason)
 	end)
 
@@ -339,57 +339,64 @@ function CulteDKP:AdjustDKPTab_Create()
 		local boss = LibDD:UIDropDownMenu_CreateInfo()
 		boss.fontObject = "CulteDKPSmallCenter"
 		if (level or 1) == 1 then
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[4], core.CurrentRaidZone == core.ZoneList[4], "NAXX", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[4], core.CurrentRaidZone == core.ZoneList[4], "NAXX", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[17], core.CurrentRaidZone == core.ZoneList[17], "ULDUAR", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[17], core.CurrentRaidZone == core.ZoneList[17], "ULDUAR", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[18], core.CurrentRaidZone == core.ZoneList[18], "OBSIDIANSANCTUM", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[18], core.CurrentRaidZone == core.ZoneList[18], "OBSIDIANSANCTUM", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[19], core.CurrentRaidZone == core.ZoneList[19], "EYEOfETERNITY", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[19], core.CurrentRaidZone == core.ZoneList[19], "EYEOFETERNITY", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[20], core.CurrentRaidZone == core.ZoneList[20], "VAULTOFARCHAVON", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[20], core.CurrentRaidZone == core.ZoneList[20], "VAULTOFARCHAVON", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[21], core.CurrentRaidZone == core.ZoneList[21], "ICECROWNCITADEL", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[21], core.CurrentRaidZone == core.ZoneList[21], "ICECROWNCITADEL", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[22], core.CurrentRaidZone == core.ZoneList[22], "TRIALCRUSADER", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[22], core.CurrentRaidZone == core.ZoneList[22], "TRIALCRUSADER", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[23], core.CurrentRaidZone == core.ZoneList[23], "RUBYSANCTUM", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[23], core.CurrentRaidZone == core.ZoneList[23], "RUBYSANCTUM", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[7], core.CurrentRaidZone == core.ZoneList[7], "ONYXIA", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[7], core.CurrentRaidZone == core.ZoneList[7], "ONYXIA", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[9], core.CurrentRaidZone == core.ZoneList[9], "KARAZHAN", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[9], core.CurrentRaidZone == core.ZoneList[9], "KARAZHAN", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[10], core.CurrentRaidZone == core.ZoneList[10], "GRULLSLAIR", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[10], core.CurrentRaidZone == core.ZoneList[10], "GRULLSLAIR", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[11], core.CurrentRaidZone == core.ZoneList[11], "MAGTHERIDONSLAIR", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[11], core.CurrentRaidZone == core.ZoneList[11], "MAGTHERIDONSLAIR", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[12], core.CurrentRaidZone == core.ZoneList[12], "SERPENTSHRINECAVERN", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[12], core.CurrentRaidZone == core.ZoneList[12], "SERPENTSHRINECAVERN", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[13], core.CurrentRaidZone == core.ZoneList[13], "TEMPESTKEEP", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[13], core.CurrentRaidZone == core.ZoneList[13], "TEMPESTKEEP", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[14], core.CurrentRaidZone == core.ZoneList[14], "ZULAMAN", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[14], core.CurrentRaidZone == core.ZoneList[14], "ZULAMAN", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[15], core.CurrentRaidZone == core.ZoneList[15], "BLACKTEMPLE", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[15], core.CurrentRaidZone == core.ZoneList[15], "BLACKTEMPLE", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[16], core.CurrentRaidZone == core.ZoneList[16], "SUNWELLPLATEAU", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[16], core.CurrentRaidZone == core.ZoneList[16], "SUNWELLPLATEAU", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[1], core.CurrentRaidZone == core.ZoneList[1], "MC", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[1], core.CurrentRaidZone == core.ZoneList[1], "MC", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[2], core.CurrentRaidZone == core.ZoneList[2], "BWL", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[2], core.CurrentRaidZone == core.ZoneList[2], "BWL", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[3], core.CurrentRaidZone == core.ZoneList[3], "AQ", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[3], core.CurrentRaidZone == core.ZoneList[3], "AQ", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[5], core.CurrentRaidZone == core.ZoneList[5], "ZG", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[5], core.CurrentRaidZone == core.ZoneList[5], "ZG", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[6], core.CurrentRaidZone == core.ZoneList[6], "AQ20", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[6], core.CurrentRaidZone == core.ZoneList[6], "AQ20", true
 			LibDD:UIDropDownMenu_AddButton(boss)
-			boss.Text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[8], core.CurrentRaidZone == core.ZoneList[8], "WORLD", true
+			boss.text, boss.checked, boss.menuList, boss.hasArrow = core.ZoneList[8], core.CurrentRaidZone == core.ZoneList[8], "WORLD", true
 			LibDD:UIDropDownMenu_AddButton(boss)
 			
 		else
 			boss.func = self.SetValue
+			if not core.LastKilledBoss then
+			   CulteDKP:Print("LastKilledBoss null")
+			   core.LastKilledBoss = "TEST"
+			end
 			for i=1, #core.BossList[menuList] do
-				boss.Text, boss.arg1, boss.checked = core.BossList[menuList][i], core.EncounterList[menuList][i], core.BossList[menuList][i] == core.LastKilledBoss
+			    if not boss.text then
+					boss.text = ""
+				end
+				boss.text, boss.arg1, boss.checked = core.BossList[menuList][i], core.EncounterList[menuList][i], core.BossList[menuList][i] == core.LastKilledBoss
 				LibDD:UIDropDownMenu_AddButton(boss, level)
 			end
 		end
@@ -546,7 +553,7 @@ function CulteDKP:AdjustDKPTab_Create()
 				end
 			end
 			StaticPopupDialogs["ADJUST_DKP"] = {
-			    Text = selected,
+			    text = selected,
 				button1 = L["YES"],
 				button2 = L["NO"],
 				OnAccept = function()
@@ -677,7 +684,7 @@ function CulteDKP:AdjustDKPTab_Create()
 		selected = L["CONFIRMDECAY"].." "..SelectedToggle.." "..L["DKPENTRIESBY"].." "..CulteDKP.ConfigTab2.decayDKP:GetNumber().."%%";
 
 			StaticPopupDialogs["ADJUST_DKP"] = {
-			    Text = selected,
+			    text = selected,
 				button1 = L["YES"],
 				button2 = L["NO"],
 				OnAccept = function()
@@ -787,7 +794,7 @@ function CulteDKP:AdjustDKPTab_Create()
 		CulteDKP.ConfigTab2.RaidTimerContainer.StartTimer:SetScript("OnClick", function(self)
 			if not IsInRaid() then
 				StaticPopupDialogs["NO_RAID_TIMER"] = {
-				    Text = L["NOTINRAID"],
+				    text = L["NOTINRAID"],
 					button1 = L["OK"],
 					timeout = 0,
 					whileDead = true,
@@ -800,7 +807,7 @@ function CulteDKP:AdjustDKPTab_Create()
 			if not core.RaidInProgress then				
 				if core.DB.DKPBonus.GiveRaidStart and self:GetText() ~= L["CONTINUERAID"] then
 					StaticPopupDialogs["START_RAID_BONUS"] = {
-					    Text = L["RAIDTIMERBONUSCONFIRM"],
+					    text = L["RAIDTIMERBONUSCONFIRM"],
 						button1 = L["YES"],
 						button2 = L["NO"],
 						OnAccept = function()						
@@ -841,7 +848,7 @@ function CulteDKP:AdjustDKPTab_Create()
 				end
 			else
 				StaticPopupDialogs["END_RAID"] = {
-				    Text = L["ENDCURRAIDCONFIRM"],
+				    text = L["ENDCURRAIDCONFIRM"],
 					button1 = L["YES"],
 					button2 = L["NO"],
 					OnAccept = function()
@@ -925,7 +932,7 @@ function CulteDKP:AdjustDKPTab_Create()
 				core.DB.modes.increment = self:GetNumber();
 			else
 				StaticPopupDialogs["ALERT_NUMBER"] = {
-				    Text = L["INCREMENTINVALIDWARN"],
+				    text = L["INCREMENTINVALIDWARN"],
 					button1 = L["OK"],
 					timeout = 0,
 					whileDead = true,
@@ -994,7 +1001,7 @@ function CulteDKP:AdjustDKPTab_Create()
 				core.DB.DKPBonus.IntervalBonus = self:GetNumber();
 			else
 				StaticPopupDialogs["ALERT_NUMBER"] = {
-				    Text = L["INCREMENTINVALIDWARN"],
+				    text = L["INCREMENTINVALIDWARN"],
 					button1 = L["OK"],
 					timeout = 0,
 					whileDead = true,

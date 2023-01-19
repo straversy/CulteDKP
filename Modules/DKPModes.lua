@@ -119,7 +119,7 @@ function CulteDKP:DKPModesFrame_Create()
 
 		if (core.DB.modes.rolls.min > core.DB.modes.rolls.max and core.DB.modes.rolls.max ~= 0 and core.DB.modes.rolls.UserPerc == false) or (core.DB.modes.rolls.UsePerc and (core.DB.modes.rolls.min < 0 or core.DB.modes.rolls.max > 100 or core.DB.modes.rolls.min > core.DB.modes.rolls.max)) then
 			StaticPopupDialogs["NOTIFY_ROLLS"] = {
-			Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["INVALIDROLLPARAM"],
+				text = "|CFFFF0000"..L["WARNING"].."|r: "..L["INVALIDROLLPARAM"],
 				button1 = L["OK"],
 				timeout = 0,
 				whileDead = true,

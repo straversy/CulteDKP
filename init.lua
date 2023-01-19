@@ -18,7 +18,7 @@ CulteDKP.Commands = {
         CulteDKP:Print(err)
         core.CulteDKPUI:SetShown(false)
         StaticPopupDialogs["SUGGEST_RELOAD"] = {
-          Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+          text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
           button1 = L["YES"],
           button2 = L["NO"],
           OnAccept = function()
@@ -1191,7 +1191,7 @@ end
 
 function CulteDKP:MonolithMigrationLegacyDetected(migration)
 	StaticPopupDialogs["MONOLITH_MIGRATION_DETECTED"] = {
-	    Text = L["MIGRATIONDETECTED"],
+	    text = L["MIGRATIONDETECTED"],
 		button1 = L["YES"],
 		button2 = L["NO"],
 		OnAccept = function() self:MonolithMigrationConfirmationPopup(migration) end,
@@ -1206,7 +1206,7 @@ end
 
 function CulteDKP:MonolithMigrationAsNewTeam(migration)
 	StaticPopupDialogs["MONOLITH_MIGRATION_TEAM"] = {
-	    Text = L["MIGRATIONTEAM"],
+	    text = L["MIGRATIONTEAM"],
 		button1 = L["YES"],
 		button2 = L["NO"],
 		OnAccept = migration,
@@ -1221,7 +1221,7 @@ end
 
 function CulteDKP:MonolithMigrationConfirmationPopup(migration)
 	StaticPopupDialogs["MONOLITH_MIGRATION_CONFIRMATION"] = {
-	    Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MIGRATIONCONFIRM"],
+	    text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MIGRATIONCONFIRM"],
 		button1 = L["YES"],
 		button2 = L["NO"],
 		OnAccept = migration,
@@ -1236,7 +1236,7 @@ end
 
 function CulteDKP:MonolithMigrationCancelationPopup()
 	StaticPopupDialogs["MONOLITH_MIGRATION_CANCELED"] = {
-	    Text = L["MIGRATIONCANCELED"],
+	    text = L["MIGRATIONCANCELED"],
 		button1 = L["OK"],
 		timeout = 0,
 		whileDead = true,
@@ -1248,7 +1248,7 @@ end
 
 function CulteDKP:MonolithMigrationGenericPopup(text)
 	StaticPopupDialogs["MONOLITH_MIGRATION_GENERIC"] = {
-	    Text = text,
+	    text = text,
 		button1 = L["OK"],
 		timeout = 0,
 		whileDead = true,

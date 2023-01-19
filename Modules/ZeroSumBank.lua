@@ -205,7 +205,7 @@ function CulteDKP:ZeroSumBank_Create()
 	f.Distribute:SetScript("OnClick", function (self)
 		if core.DB.modes.ZeroSumBank.balance > 0 or tonumber(f.Balance:GetText()) > 0 then
 			StaticPopupDialogs["CONFIRM_ADJUST1"] = {
-			    Text = L["DISTRIBUTEALLDKPCONF"],
+			    text = L["DISTRIBUTEALLDKPCONF"],
 				button1 = L["YES"],
 				button2 = L["NO"],
 				OnAccept = function()

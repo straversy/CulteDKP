@@ -232,7 +232,7 @@ function CulteDKP:StartRaidTimer(pause, syncTimer, syncSecondCount, syncMinuteCo
 		if SecondCount >= 60 then						-- counds minutes past toward interval
 			SecondCount = 0;
 			MinuteCount = MinuteCount + 1;
-			CulteDKP.Sync:SendData("CDKPRaidTime", "sync "..timer.." "..SecondCount.." "..MinuteCount.." "..totalAwarded)
+			CulteDKP.Sync:SendData("CtDKPRaidTime", "sync "..timer.." "..SecondCount.." "..MinuteCount.." "..totalAwarded)
 			--print("Minute has passed!!!!")
 		end
 
