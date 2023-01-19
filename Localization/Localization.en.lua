@@ -944,9 +944,9 @@ core.L = {
   MIGRATIONCANCELED     = "Migration canceled.|n|nPlease disable MonolithDKP and /reload the UI if you want to continue with CulteDKP without using your current tables and settings.",
   MIGRATIONCOMPLETED    = "Migration complete.|n|nPlease disable MonolithDKP and /reload the UI.",
 
-    CHANGELOG1 = "CulteDKP - v1.0.6-wotlk", 
+    CHANGELOG1 = "CulteDKP - v1.0.7-wotlk", 
     CHANGELOG2 = "- Fixed Wotlk Phase 2, remove major LUA errors",   
-    CHANGELOG3 = "- Fixed Menu",
+    CHANGELOG3 = "- Fixed Menu + Localization error",
     CHANGELOG4 = "",
     CHANGELOG5 = "In progress issue to solve : Background and Bidding Timer",
     CHANGELOG6 = "",
