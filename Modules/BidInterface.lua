@@ -292,7 +292,7 @@ function CulteDKP:BidInterface_Toggle()
       print(err)
       core.CulteDKPUI:SetShown(false)
       StaticPopupDialogs["SUGGEST_RELOAD"] = {
-        Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+        text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
         button1 = L["YES"],
         button2 = L["NO"],
         OnAccept = function()
@@ -494,7 +494,7 @@ function CulteDKP:Bids_Set(entry)
     print(err)
     core.CulteDKPUI:SetShown(false)
     StaticPopupDialogs["SUGGEST_RELOAD"] = {
-      Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+      text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
       button1 = L["YES"],
       button2 = L["NO"],
       OnAccept = function()

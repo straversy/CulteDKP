@@ -1013,15 +1013,14 @@ if GetLocale() == "frFR" then
     MIGRATIONCOMPLETED    = "Migration réussie.|n|nVeuillez désactiver MonolithDKP et recharger votre interface (/reload).", --TODO TRANSLATE:
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.5-wotlk", 
+    CHANGELOG1 = "CulteDKP - v1.0.6-wotlk", 
     CHANGELOG2 = "- Fixé pour WOTLK phase 2, enlever les erreurs LUA majeures",   
-    CHANGELOG3 = "",
-    CHANGELOG4 = "À venir : Fond de la fenêtre a disparu, plusieurs menus ne sont plus fonctionnels",
-    CHANGELOG5 = "",
+    CHANGELOG3 = "- Fixé les menus de l'addon",
+    CHANGELOG4 = "",
+    CHANGELOG5 = "À venir : Fond de la fenêtre a disparu + Timer de bid",
     CHANGELOG6 = "",
     CHANGELOG7 = "Fixé par Yozomia/Yozodeath du server Pagle",
     CHANGELOG8 = "",
     CHANGELOG9 = "",
     CHANGELOG10 = ""
-          } 
-end
+} 

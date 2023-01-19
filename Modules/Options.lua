@@ -513,7 +513,7 @@ function CulteDKP:Options()
       CulteDKP.ConfigTab4.BroadcastMinBids:SetSize(110,25)
       CulteDKP.ConfigTab4.BroadcastMinBids:SetScript("OnClick", function()
         StaticPopupDialogs["SEND_MINBIDS"] = {
-          Text = L["BCASTMINBIDCONFIRM"],
+          text = L["BCASTMINBIDCONFIRM"],
           button1 = L["YES"],
           button2 = L["NO"],
           OnAccept = function()
@@ -776,7 +776,7 @@ function CulteDKP:Options()
       CulteDKP.ConfigTab4.BroadcastMaxBids:SetSize(110,25)
       CulteDKP.ConfigTab4.BroadcastMaxBids:SetScript("OnClick", function()
         StaticPopupDialogs["SEND_MAXBIDS"] = {
-          Text = L["BCASTMAXBIDCONFIRM"],
+          text = L["BCASTMAXBIDCONFIRM"],
           button1 = L["YES"],
           button2 = L["NO"],
           OnAccept = function()
@@ -1380,7 +1380,7 @@ function CulteDKP:Options()
       for i=1, 6 do
         if not tonumber(CulteDKP.ConfigTab4.default[i]:GetText()) then
           StaticPopupDialogs["OPTIONS_VALIDATION"] = {
-            Text = L["INVALIDOPTIONENTRY"].." "..CulteDKP.ConfigTab4.default[i].tooltipText..". "..L["PLEASEUSENUMS"],
+            text = L["INVALIDOPTIONENTRY"].." "..CulteDKP.ConfigTab4.default[i].tooltipText..". "..L["PLEASEUSENUMS"],
             button1 = L["OK"],
             timeout = 0,
             whileDead = true,
@@ -1395,7 +1395,7 @@ function CulteDKP:Options()
       for i=1, 17 do
         if not tonumber(CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i]:GetText()) then
           StaticPopupDialogs["OPTIONS_VALIDATION"] = {
-            Text = L["INVALIDMINBIDENTRY"].." "..CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i].tooltipText..". "..L["PLEASEUSENUMS"],
+            text = L["INVALIDMINBIDENTRY"].." "..CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i].tooltipText..". "..L["PLEASEUSENUMS"],
             button1 = L["OK"],
             timeout = 0,
             whileDead = true,
@@ -1429,7 +1429,7 @@ function CulteDKP:Options()
     for i = 1, NUM_CHAT_WINDOWS do
       local name = GetChatWindowInfo(i)
       if name ~= "" then
-        SelectedFrame.Text, SelectedFrame.arg1, SelectedFrame.checked = name, name, core.DB.defaults.ChatFrames[name]
+        SelectedFrame.text, SelectedFrame.arg1, SelectedFrame.checked = name, name, core.DB.defaults.ChatFrames[name]
         LibDD:UIDropDownMenu_AddButton(SelectedFrame)
       end
     end
@@ -1481,7 +1481,7 @@ function CulteDKP:Options()
   CulteDKP.ConfigTab4.WipeTables:SetScript("OnClick", function()
 
     StaticPopupDialogs["WIPE_TABLES"] = {
-      Text = L["WIPETABLESCONF"],
+      text = L["WIPETABLESCONF"],
       button1 = L["YES"],
       button2 = L["NO"],
       OnAccept = function()

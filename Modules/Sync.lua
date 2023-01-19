@@ -243,7 +243,7 @@ function CulteDKP_BroadcastFull_Init()
 				CulteDKP_BroadcastFull_Status()
 			elseif core.Broadcast.fullCheckbox:GetChecked() == true then
 				StaticPopupDialogs["FULL_TABS_ALERT"] = {
-				Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["OVERWRITETABLES"],
+				text = "|CFFFF0000"..L["WARNING"].."|r: "..L["OVERWRITETABLES"],
 					button1 = L["YES"],
 					button2 = L["NO"],
 					OnAccept = function()
@@ -268,7 +268,7 @@ function CulteDKP_BroadcastFull_Init()
 				CulteDKP_BroadcastFull_Status()
 			elseif core.Broadcast.fullCheckbox:GetChecked() == true then
 				StaticPopupDialogs["FULL_TABS_ALERT"] = {
-				Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["OVERWRITETABLES"],
+				text = "|CFFFF0000"..L["WARNING"].."|r: "..L["OVERWRITETABLES"],
 					button1 = L["YES"],
 					button2 = L["NO"],
 					OnAccept = function()

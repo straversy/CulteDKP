@@ -962,13 +962,13 @@ if GetLocale() == "ruRU" then
     MIGRATIONCOMPLETED    = "Миграция завершена.|n|nПожалуйста отключите MonolithDKP и перезагрузите интерфейс.",
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.5-wotlk", 
-    CHANGELOG2 = "Fixed for WOTLK phase 2",   
-    CHANGELOG3 = "",
-    CHANGELOG4 = "In progress: More fixe",
-    CHANGELOG5 = "",
+    CHANGELOG1 = "CulteDKP - v1.0.6-wotlk", 
+    CHANGELOG2 = "- Fixed Wotlk Phase 2, remove major LUA errors",   
+    CHANGELOG3 = "- Fixed Menu",
+    CHANGELOG4 = "",
+    CHANGELOG5 = "In progress issue to solve : Background and Bidding Timer",
     CHANGELOG6 = "",
-    CHANGELOG7 = "Fixed by Yozomia/Yozodeath from server Pagle",
+    CHANGELOG7 = "Fixed by Yozomia/Yozodeath from server Pagle Classic WOTLK",
     CHANGELOG8 = "",
     CHANGELOG9 = "",
     CHANGELOG10 = ""

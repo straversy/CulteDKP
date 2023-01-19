@@ -61,13 +61,13 @@ function CulteDKP:DKPModes_Main()
   local DKPMode = LibDD:UIDropDownMenu_CreateInfo()
     DKPMode.func = self.SetValue
     DKPMode.fontObject = "CulteDKPSmallCenter"
-    DKPMode.Text, DKPMode.arg1, DKPMode.checked, DKPMode.isNotRadio = L["MINBIDVALUESHEAD"], "Minimum Bid Values", "Minimum Bid Values" == CurMode, false
+    DKPMode.text, DKPMode.arg1, DKPMode.checked, DKPMode.isNotRadio = L["MINBIDVALUESHEAD"], "Minimum Bid Values", "Minimum Bid Values" == CurMode, false
     LibDD:UIDropDownMenu_AddButton(DKPMode)
-    DKPMode.Text, DKPMode.arg1, DKPMode.checked, DKPMode.isNotRadio = L["STATICITEMVALUESHEAD"], "Static Item Values", "Static Item Values" == CurMode, false
+    DKPMode.text, DKPMode.arg1, DKPMode.checked, DKPMode.isNotRadio = L["STATICITEMVALUESHEAD"], "Static Item Values", "Static Item Values" == CurMode, false
     LibDD:UIDropDownMenu_AddButton(DKPMode)
-    DKPMode.Text, DKPMode.arg1, DKPMode.checked, DKPMode.isNotRadio = L["ROLLBIDDINGHEAD"], "Roll Based Bidding", "Roll Based Bidding" == CurMode, false
+    DKPMode.text, DKPMode.arg1, DKPMode.checked, DKPMode.isNotRadio = L["ROLLBIDDINGHEAD"], "Roll Based Bidding", "Roll Based Bidding" == CurMode, false
     LibDD:UIDropDownMenu_AddButton(DKPMode)
-    DKPMode.Text, DKPMode.arg1, DKPMode.checked, DKPMode.isNotRadio = L["ZEROSUMHEAD"], "Zero Sum", "Zero Sum" == CurMode, false
+    DKPMode.text, DKPMode.arg1, DKPMode.checked, DKPMode.isNotRadio = L["ZEROSUMHEAD"], "Zero Sum", "Zero Sum" == CurMode, false
     LibDD:UIDropDownMenu_AddButton(DKPMode)
   end)
 
@@ -231,15 +231,15 @@ function CulteDKP:DKPModes_Main()
   local places = LibDD:UIDropDownMenu_CreateInfo()
     places.func = self.SetValue
     places.fontObject = "CulteDKPSmallCenter"
-    places.Text, places.arg1, places.checked, places.isNotRadio = 0, 0, 0 == core.DB.modes.rounding, false
+    places.text, places.arg1, places.checked, places.isNotRadio = 0, 0, 0 == core.DB.modes.rounding, false
     LibDD:UIDropDownMenu_AddButton(places)
-    places.Text, places.arg1, places.checked, places.isNotRadio = 1, 1, 1 == core.DB.modes.rounding, false
+    places.text, places.arg1, places.checked, places.isNotRadio = 1, 1, 1 == core.DB.modes.rounding, false
     LibDD:UIDropDownMenu_AddButton(places)
-    places.Text, places.arg1, places.checked, places.isNotRadio = 2, 2, 2 == core.DB.modes.rounding, false
+    places.text, places.arg1, places.checked, places.isNotRadio = 2, 2, 2 == core.DB.modes.rounding, false
     LibDD:UIDropDownMenu_AddButton(places)
-    places.Text, places.arg1, places.checked, places.isNotRadio = 3, 3, 3 == core.DB.modes.rounding, false
+    places.text, places.arg1, places.checked, places.isNotRadio = 3, 3, 3 == core.DB.modes.rounding, false
     LibDD:UIDropDownMenu_AddButton(places)
-    places.Text, places.arg1, places.checked, places.isNotRadio = 4, 4, 4 == core.DB.modes.rounding, false
+    places.text, places.arg1, places.checked, places.isNotRadio = 4, 4, 4 == core.DB.modes.rounding, false
     LibDD:UIDropDownMenu_AddButton(places)
   end)
 
@@ -282,11 +282,11 @@ function CulteDKP:DKPModes_Main()
   local MaxBehavior = LibDD:UIDropDownMenu_CreateInfo()
     MaxBehavior.func = self.SetValue
     MaxBehavior.fontObject = "CulteDKPSmallCenter"
-    MaxBehavior.Text, MaxBehavior.arg1, MaxBehavior.checked, MaxBehavior.isNotRadio = L["MAXBIDBEHAVIORMAXDKP"], "Max DKP", "Max DKP" == core.DB.modes.MaxBehavior, false
+    MaxBehavior.text, MaxBehavior.arg1, MaxBehavior.checked, MaxBehavior.isNotRadio = L["MAXBIDBEHAVIORMAXDKP"], "Max DKP", "Max DKP" == core.DB.modes.MaxBehavior, false
     LibDD:UIDropDownMenu_AddButton(MaxBehavior)
-    MaxBehavior.Text, MaxBehavior.arg1, MaxBehavior.checked, MaxBehavior.isNotRadio = L["MAXBIDBEHAVIORMAXITEMVALUE"], "Max Item Value", "Max Item Value" == core.DB.modes.MaxBehavior, false
+    MaxBehavior.text, MaxBehavior.arg1, MaxBehavior.checked, MaxBehavior.isNotRadio = L["MAXBIDBEHAVIORMAXITEMVALUE"], "Max Item Value", "Max Item Value" == core.DB.modes.MaxBehavior, false
     LibDD:UIDropDownMenu_AddButton(MaxBehavior)
-    MaxBehavior.Text, MaxBehavior.arg1, MaxBehavior.checked, MaxBehavior.isNotRadio = L["MAXBIDBEHAVIORMIN"], "Min(Max DKP, Max Item Value)", "Min(Max DKP, Max Item Value)" == core.DB.modes.MaxBehavior, false
+    MaxBehavior.text, MaxBehavior.arg1, MaxBehavior.checked, MaxBehavior.isNotRadio = L["MAXBIDBEHAVIORMIN"], "Min(Max DKP, Max Item Value)", "Min(Max DKP, Max Item Value)" == core.DB.modes.MaxBehavior, false
     LibDD:UIDropDownMenu_AddButton(MaxBehavior)
   end)
 
@@ -399,11 +399,11 @@ function CulteDKP:DKPModes_Main()
     OpenChannel.fontObject = "CulteDKPSmallCenter"
     OpenChannel.keepShownOnClick = true;
     OpenChannel.isNotRadio = true;
-    OpenChannel.Text, OpenChannel.arg1, OpenChannel.checked = L["WHISPER"], "Whisper", true == core.DB.modes.channels.whisper
+    OpenChannel.text, OpenChannel.arg1, OpenChannel.checked = L["WHISPER"], "Whisper", true == core.DB.modes.channels.whisper
     LibDD:UIDropDownMenu_AddButton(OpenChannel)
-    OpenChannel.Text, OpenChannel.arg1, OpenChannel.checked = L["RAID"], "Raid", true == core.DB.modes.channels.raid
+    OpenChannel.text, OpenChannel.arg1, OpenChannel.checked = L["RAID"], "Raid", true == core.DB.modes.channels.raid
     LibDD:UIDropDownMenu_AddButton(OpenChannel)
-    OpenChannel.Text, OpenChannel.arg1, OpenChannel.checked = L["GUILD"], "Guild", true == core.DB.modes.channels.guild
+    OpenChannel.text, OpenChannel.arg1, OpenChannel.checked = L["GUILD"], "Guild", true == core.DB.modes.channels.guild
     LibDD:UIDropDownMenu_AddButton(OpenChannel)
   end)
 
@@ -462,11 +462,11 @@ function CulteDKP:DKPModes_Main()
   local CostSelect = LibDD:UIDropDownMenu_CreateInfo()
     CostSelect.func = self.SetValue
     CostSelect.fontObject = "CulteDKPSmallCenter"
-    CostSelect.Text, CostSelect.arg1, CostSelect.checked, CostSelect.isNotRadio = L["FIRSTBIDDER"], "First Bidder", "First Bidder" == core.DB.modes.CostSelection, false
+    CostSelect.text, CostSelect.arg1, CostSelect.checked, CostSelect.isNotRadio = L["FIRSTBIDDER"], "First Bidder", "First Bidder" == core.DB.modes.CostSelection, false
     LibDD:UIDropDownMenu_AddButton(CostSelect)
-    CostSelect.Text, CostSelect.arg1, CostSelect.checked, CostSelect.isNotRadio = L["SECONDBIDDER"], "Second Bidder", "Second Bidder" == core.DB.modes.CostSelection, false
+    CostSelect.text, CostSelect.arg1, CostSelect.checked, CostSelect.isNotRadio = L["SECONDBIDDER"], "Second Bidder", "Second Bidder" == core.DB.modes.CostSelection, false
     LibDD:UIDropDownMenu_AddButton(CostSelect)
-    CostSelect.Text, CostSelect.arg1, CostSelect.checked, CostSelect.isNotRadio = L["SECONDBIDDERORMIN"], "Second Bidder or Min", "Second Bidder or Min" == core.DB.modes.CostSelection, false
+    CostSelect.text, CostSelect.arg1, CostSelect.checked, CostSelect.isNotRadio = L["SECONDBIDDERORMIN"], "Second Bidder or Min", "Second Bidder or Min" == core.DB.modes.CostSelection, false
     LibDD:UIDropDownMenu_AddButton(CostSelect)
   end)
   
@@ -578,9 +578,9 @@ function CulteDKP:DKPModes_Main()
   local BidType = LibDD:UIDropDownMenu_CreateInfo()
     BidType.func = self.SetValue
     BidType.fontObject = "CulteDKPSmallCenter"
-    BidType.Text, BidType.arg1, BidType.checked, BidType.isNotRadio = L["STATIC"], "Static", "Static" == core.DB.modes.ZeroSumBidType, false
+    BidType.text, BidType.arg1, BidType.checked, BidType.isNotRadio = L["STATIC"], "Static", "Static" == core.DB.modes.ZeroSumBidType, false
     LibDD:UIDropDownMenu_AddButton(BidType)
-    BidType.Text, BidType.arg1, BidType.checked, BidType.isNotRadio = L["MINIMUMBID"], "Minimum Bid", "Minimum Bid" == core.DB.modes.ZeroSumBidType, false
+    BidType.text, BidType.arg1, BidType.checked, BidType.isNotRadio = L["MINIMUMBID"], "Minimum Bid", "Minimum Bid" == core.DB.modes.ZeroSumBidType, false
     LibDD:UIDropDownMenu_AddButton(BidType)
   end)
 
@@ -644,9 +644,9 @@ function CulteDKP:DKPModes_Main()
       local CostValue = LibDD:UIDropDownMenu_CreateInfo()
       CostValue.func = self.SetValue
       CostValue.fontObject = "CulteDKPSmallCenter"
-      CostValue.Text, CostValue.arg1, CostValue.checked, CostValue.isNotRadio = L["INTEGER"], "Integer", "Integer" == core.DB.modes.costvalue, false
+      CostValue.text, CostValue.arg1, CostValue.checked, CostValue.isNotRadio = L["INTEGER"], "Integer", "Integer" == core.DB.modes.costvalue, false
       LibDD:UIDropDownMenu_AddButton(CostValue)
-      CostValue.Text, CostValue.arg1, CostValue.checked, CostValue.isNotRadio = L["PERCENT"], "Percent", "Percent" == core.DB.modes.costvalue, false
+      CostValue.text, CostValue.arg1, CostValue.checked, CostValue.isNotRadio = L["PERCENT"], "Percent", "Percent" == core.DB.modes.costvalue, false
       LibDD:UIDropDownMenu_AddButton(CostValue)
     end)
   
@@ -1249,7 +1249,7 @@ function CulteDKP:DKPModes_Main()
 
     if (core.DB.modes.rolls.min > core.DB.modes.rolls.max and core.DB.modes.rolls.max ~= 0 and core.DB.modes.rolls.UserPerc == false) or (core.DB.modes.rolls.UsePerc and (core.DB.modes.rolls.min < 0 or core.DB.modes.rolls.max > 100 or core.DB.modes.rolls.min > core.DB.modes.rolls.max)) then
       StaticPopupDialogs["NOTIFY_ROLLS"] = {
-        Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["INVALIDROLLRANGE"],
+        text = "|CFFFF0000"..L["WARNING"].."|r: "..L["INVALIDROLLRANGE"],
         button1 = L["OK"],
         timeout = 0,
         whileDead = true,
@@ -1261,7 +1261,7 @@ function CulteDKP:DKPModes_Main()
     end
 
     StaticPopupDialogs["SEND_MODES"] = {
-      Text = L["AREYOUSUREBROADCAST"],
+      text = L["AREYOUSUREBROADCAST"],
       button1 = L["YES"],
       button2 = L["NO"],
       OnAccept = function()

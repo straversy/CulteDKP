@@ -767,7 +767,7 @@ function CulteDKP:ClearBidWindow()
     if not pass then
       core.BiddingWindow:SetShown(false)
       StaticPopupDialogs["SUGGEST_RELOAD"] = {
-        Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+        text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
         button1 = L["YES"],
         button2 = L["NO"],
         OnAccept = function()
@@ -933,7 +933,7 @@ function CulteDKP:StartBidTimer(seconds, title, itemIcon)
           if not pass then
             core.BiddingWindow:SetShown(false)
             StaticPopupDialogs["SUGGEST_RELOAD"] = {
-              Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+              text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
               button1 = L["YES"],
               button2 = L["NO"],
               OnAccept = function()
@@ -1082,7 +1082,7 @@ local function RightClickMenu(self)
   local menu;
 
   menu = {
-    {Text = L["REMOVEENTRY"], notCheckable = true, func = function()
+    {text = L["REMOVEENTRY"], notCheckable = true, func = function()
       if Bids_Submitted[self.index].bid then
         SendChatMessage(L["YOURBIDOF"].." "..Bids_Submitted[self.index].bid.." "..L["DKP"].." "..L["MANUALLYDENIED"], "WHISPER", nil, Bids_Submitted[self.index].player)
       else
@@ -1590,7 +1590,7 @@ function CulteDKP:CreateBidWindow()
         CulteDKP:Print(err)
         core.BiddingWindow:SetShown(false)
         StaticPopupDialogs["SUGGEST_RELOAD"] = {
-          Text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
+          text = "|CFFFF0000"..L["WARNING"].."|r: "..L["MUSTRELOADUI"],
           button1 = L["YES"],
           button2 = L["NO"],
           OnAccept = function()
@@ -1818,7 +1818,7 @@ function CulteDKP:CreateBidWindow()
       if SelectedBidder["player"] then
         if strlen(strtrim(core.BiddingWindow.boss:GetText(), " ")) < 1 then       -- verifies there is a boss name
           StaticPopupDialogs["VALIDATE_BOSS"] = {
-            Text = L["INVALIDBOSSNAME"],
+            text = L["INVALIDBOSSNAME"],
             button1 = L["OK"],
             timeout = 0,
             whileDead = true,
@@ -1844,7 +1844,7 @@ function CulteDKP:CreateBidWindow()
         local selected = L["PLAYERVALIDATE"];
 
         StaticPopupDialogs["CONFIRM_AWARD"] = {
-          Text = selected,
+          text = selected,
           button1 = L["OK"],
           timeout = 5,
           whileDead = true,
