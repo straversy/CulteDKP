@@ -965,7 +965,7 @@ if GetLocale() == "deDE" then
     CHANGELOG1 = "CulteDKP - v1.0.7-wotlk", 
     CHANGELOG2 = "- Fixed Wotlk Phase 2, remove major LUA errors",   
     CHANGELOG3 = "- Fixed Menu + Localization error",
-    CHANGELOG4 = "",
+   CHANGELOG4 = "- Fixed Background issues",
     CHANGELOG5 = "In progress issue to solve : Background and Bidding Timer",
     CHANGELOG6 = "",
     CHANGELOG7 = "Fixed by Yozomia/Yozodeath from server Pagle Classic WOTLK",

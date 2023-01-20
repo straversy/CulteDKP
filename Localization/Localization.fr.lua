@@ -1016,7 +1016,7 @@ if GetLocale() == "frFR" then
     CHANGELOG1 = "CulteDKP - v1.0.7-wotlk", 
     CHANGELOG2 = "- Fixé pour WOTLK phase 2, enlever les erreurs LUA majeures",   
     CHANGELOG3 = "- Fixé les menus de l'addon + erreur de Localization",
-    CHANGELOG4 = "",
+    CHANGELOG4 = "- Fixé les fonds des frames transparents",
     CHANGELOG5 = "À venir : Fond de la fenêtre a disparu + Timer de bid",
     CHANGELOG6 = "",
     CHANGELOG7 = "Fixé par Yozomia/Yozodeath du server Pagle",

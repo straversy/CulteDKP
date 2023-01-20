@@ -289,7 +289,7 @@ local function AwardConfirm_Create()
 	f:SetSize(400, 270); -- + 40
 	f:SetClampedToScreen(true)
 	f:SetBackdrop( {
-		bgFile = "Textures\\white.blp", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3,  
 		insets = { left = 0, right = 0, top = 0, bottom = 0 }
 	});
@@ -378,7 +378,7 @@ local function AwardConfirm_Create()
 		f.cost:SetPoint("LEFT", f.costHeader, "RIGHT", 5, 0)
 		f.cost:SetSize(50, 22)
 		f.cost:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 		edgeFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = true, tileSize = 1, edgeSize = 2, 
 		});
 		f.cost:SetBackdropColor(0,0,0,0.9)

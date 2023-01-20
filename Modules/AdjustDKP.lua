@@ -146,7 +146,7 @@ local function RaidTimerPopout_Create()
 	    CulteDKP.RaidTimerPopout:SetPoint("RIGHT", UIParent, "RIGHT", -300, 100);
 	    CulteDKP.RaidTimerPopout:SetSize(100, 50);
 	    CulteDKP.RaidTimerPopout:SetBackdrop( {
-	      bgFile = "Textures\\white.blp", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
+	      bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
 	      edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3,  
 	      insets = { left = 0, right = 0, top = 0, bottom = 0 }
 	    });
@@ -169,7 +169,7 @@ local function RaidTimerPopout_Create()
     
 	    CulteDKP.RaidTimerPopout.closeContainer:SetPoint("CENTER", CulteDKP.RaidTimerPopout, "TOPRIGHT", -8, -4)
 	    CulteDKP.RaidTimerPopout.closeContainer:SetBackdrop({
-	      bgFile   = "Textures\\white.blp", tile = true,
+			bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 	      edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3, 
 	    });
 	    CulteDKP.RaidTimerPopout.closeContainer:SetBackdropColor(0,0,0,0.9)
@@ -299,7 +299,7 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.otherReason:SetMultiLine(false)
 	CulteDKP.ConfigTab2.otherReason:SetSize(225, 24)
 	CulteDKP.ConfigTab2.otherReason:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3, 
 	});
 	CulteDKP.ConfigTab2.otherReason:SetBackdropColor(0,0,0,0.9)
@@ -480,7 +480,7 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.addDKP:SetMultiLine(false)
 	CulteDKP.ConfigTab2.addDKP:SetSize(100, 24)
 	CulteDKP.ConfigTab2.addDKP:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
 	});
 	CulteDKP.ConfigTab2.addDKP:SetBackdropColor(0,0,0,0.9)
@@ -593,7 +593,7 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.decayDKP:SetMultiLine(false)
 	CulteDKP.ConfigTab2.decayDKP:SetSize(100, 24)
 	CulteDKP.ConfigTab2.decayDKP:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
 	});
 	CulteDKP.ConfigTab2.decayDKP:SetBackdropColor(0,0,0,0.9)
@@ -718,7 +718,7 @@ function CulteDKP:AdjustDKPTab_Create()
 	CulteDKP.ConfigTab2.RaidTimerContainer:SetSize(200, 360);
 	CulteDKP.ConfigTab2.RaidTimerContainer:SetPoint("RIGHT", CulteDKP.ConfigTab2, "RIGHT", -25, -60)
 	CulteDKP.ConfigTab2.RaidTimerContainer:SetBackdrop({
-      bgFile   = "Textures\\white.blp", tile = true,
+      bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
       edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2, 
     });
 	CulteDKP.ConfigTab2.RaidTimerContainer:SetBackdropColor(0,0,0,0.9)
@@ -917,7 +917,7 @@ function CulteDKP:AdjustDKPTab_Create()
 		CulteDKP.ConfigTab2.RaidTimerContainer.interval:SetMultiLine(false)
 		CulteDKP.ConfigTab2.RaidTimerContainer.interval:SetSize(60, 24)
 		CulteDKP.ConfigTab2.RaidTimerContainer.interval:SetBackdrop({
-			bgFile   = "Textures\\white.blp", tile = true,
+			bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 			edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
 		});
 		CulteDKP.ConfigTab2.RaidTimerContainer.interval:SetBackdropColor(0,0,0,0.9)
@@ -986,7 +986,7 @@ function CulteDKP:AdjustDKPTab_Create()
 		CulteDKP.ConfigTab2.RaidTimerContainer.bonusvalue:SetMultiLine(false)
 		CulteDKP.ConfigTab2.RaidTimerContainer.bonusvalue:SetSize(60, 24)
 		CulteDKP.ConfigTab2.RaidTimerContainer.bonusvalue:SetBackdrop({
-			bgFile   = "Textures\\white.blp", tile = true,
+			bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 			edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
 		});
 		CulteDKP.ConfigTab2.RaidTimerContainer.bonusvalue:SetBackdropColor(0,0,0,0.9)

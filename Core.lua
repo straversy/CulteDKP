@@ -227,7 +227,7 @@ core.EncounterList = {      -- Event IDs must be in the exact same order as core
 }
 
 core.CulteDKPUI = {}        -- global storing entire Configuration UI to hide/show UI
-core.MonVersion = "v1.0.7";
+core.MonVersion = "v1.0.9";
 core.BuildNumber = 30401;
 core.ReleaseNumber = 1
 core.defaultTable = "__default";
@@ -590,7 +590,7 @@ function CulteDKP:CreateContainer(parent, name, header)
 	end
 	
 	f.header:SetBackdrop( {
-		bgFile = "Textures\\white.blp", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
 		insets = { left = 0, right = 0, top = 0, bottom = 0 }
 	});
 	f.header:SetBackdropColor(0,0,0,1)

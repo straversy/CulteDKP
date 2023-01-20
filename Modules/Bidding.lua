@@ -1254,7 +1254,7 @@ function CulteDKP:CreateBidWindow()
   f:SetSize(400, 500);
   f:SetClampedToScreen(true)
   f:SetBackdrop( {
-    bgFile = "Textures\\white.blp", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3,
     insets = { left = 0, right = 0, top = 0, bottom = 0 }
   });
@@ -1300,7 +1300,7 @@ function CulteDKP:CreateBidWindow()
   
   f.closeContainer:SetPoint("CENTER", f, "TOPRIGHT", -4, 0)
   f.closeContainer:SetBackdrop({
-    bgFile   = "Textures\\white.blp", tile = true,
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 2,
   });
   f.closeContainer:SetBackdropColor(0,0,0,0.9)
@@ -1329,7 +1329,7 @@ function CulteDKP:CreateBidWindow()
     f.boss:SetMultiLine(false)
     f.boss:SetTextInsets(10, 15, 5, 5)
     f.boss:SetBackdrop({
-        bgFile   = "Textures\\white.blp", tile = true,
+        bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
       edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
     });
     f.boss:SetBackdropColor(0,0,0,0.6)
@@ -1396,7 +1396,7 @@ function CulteDKP:CreateBidWindow()
       f.minBid:SetMultiLine(false)
       f.minBid:SetSize(70, 28)
       f.minBid:SetBackdrop({
-        bgFile   = "Textures\\white.blp", tile = true,
+        bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
         edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
       });
       f.minBid:SetBackdropColor(0,0,0,0.6)
@@ -1462,7 +1462,7 @@ function CulteDKP:CreateBidWindow()
       f.maxBid:SetMultiLine(false)
       f.maxBid:SetSize(70, 28)
       f.maxBid:SetBackdrop({
-        bgFile   = "Textures\\white.blp", tile = true,
+        bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
         edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
       });
       f.maxBid:SetBackdropColor(0,0,0,0.6)
@@ -1530,7 +1530,7 @@ function CulteDKP:CreateBidWindow()
       f.bidTimer:SetMultiLine(false)
       f.bidTimer:SetSize(70, 28)
       f.bidTimer:SetBackdrop({
-        bgFile   = "Textures\\white.blp", tile = true,
+        bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
         edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
       });
       f.bidTimer:SetBackdropColor(0,0,0,0.6)
@@ -1640,7 +1640,7 @@ function CulteDKP:CreateBidWindow()
      
     f.bidTable:SetSize(width, height*numrows+3)
     f.bidTable:SetBackdrop({
-      bgFile   = "Textures\\white.blp", tile = true,
+      bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
       edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 2,
     });
     f.bidTable:SetBackdropColor(0,0,0,0.2)
@@ -1679,7 +1679,7 @@ function CulteDKP:CreateBidWindow()
     f.BidTable_Headers:SetSize(370, 22)
     f.BidTable_Headers:SetPoint("BOTTOMLEFT", f.bidTable, "TOPLEFT", 0, 1)
     f.BidTable_Headers:SetBackdrop({
-      bgFile   = "Textures\\white.blp", tile = true,
+      bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
       edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 2,
     });
     f.BidTable_Headers:SetBackdropColor(0,0,0,0.8);
@@ -1770,7 +1770,7 @@ function CulteDKP:CreateBidWindow()
       f.cost:SetSize(70, 28)
       f.cost:SetTextInsets(10, 10, 5, 5)
       f.cost:SetBackdrop({
-        bgFile   = "Textures\\white.blp", tile = true,
+        bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
         edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
       });
       f.cost:SetBackdropColor(0,0,0,0.6)

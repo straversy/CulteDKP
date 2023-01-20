@@ -1085,7 +1085,7 @@ function CulteDKP:ManageEntries()
 			CulteDKP.ConfigTab3.TeamNameInput:SetSize(160, 24)
 			CulteDKP.ConfigTab3.TeamNameInput:SetPoint("TOPRIGHT", CulteDKP.ConfigTab3.TeamListDropDown, "TOPRIGHT", 160, 0)
 			CulteDKP.ConfigTab3.TeamNameInput:SetBackdrop({
-				bgFile   = "Textures\\white.blp", tile = true,
+				bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 				edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile",
 				tile = true, 
 				tileSize = 32, 

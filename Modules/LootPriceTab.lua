@@ -300,7 +300,7 @@ function CulteDKP:PriceTab_Create()
 
 	if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then
 		CulteDKP.ConfigTab7.PriceTable:SetBackdrop( {
-			bgFile = "Textures\\white.blp", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
+			bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
 			edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 2,
 			insets = { left = 0, right = 0, top = 0, bottom = 0 }
 		});
@@ -336,7 +336,7 @@ function CulteDKP:PriceTab_Create()
 	CulteDKP.ConfigTab7.PriceTable.Headers:SetSize(500, 22)
 	CulteDKP.ConfigTab7.PriceTable.Headers:SetPoint("BOTTOMLEFT", CulteDKP.ConfigTab7.PriceTable, "TOPLEFT", 0, 1)
 	CulteDKP.ConfigTab7.PriceTable.Headers:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 2, 
 	});
 	CulteDKP.ConfigTab7.PriceTable.Headers:SetBackdropColor(0,0,0,0.8);

@@ -520,7 +520,7 @@ function CulteDKP:BidInterface_Create()
   end
   f:SetClampedToScreen(true)
   f:SetBackdrop( {
-    bgFile = "Textures\\white.blp", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3,  
     insets = { left = 0, right = 0, top = 0, bottom = 0 }
   });
@@ -561,7 +561,7 @@ function CulteDKP:BidInterface_Create()
   
   f.closeContainer:SetPoint("CENTER", f, "TOPRIGHT", -4, 0)
   f.closeContainer:SetBackdrop({
-    bgFile   = "Textures\\white.blp", tile = true,
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 2, 
   });
   f.closeContainer:SetBackdropColor(0,0,0,0.9)
@@ -661,7 +661,7 @@ function CulteDKP:BidInterface_Create()
   f.Bid:SetMultiLine(false)
   f.Bid:SetSize(70, 28)
   f.Bid:SetBackdrop({
-    bgFile   = "Textures\\white.blp", tile = true,
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
   });
   f.Bid:SetBackdropColor(0,0,0,0.6)
@@ -848,7 +848,7 @@ function CulteDKP:BidInterface_Create()
 
   if WOW_PROJECT_ID == WOW_PROJECT_CLASSIC then
     f.bidTable:SetBackdrop({
-      bgFile   = "Textures\\white.blp", tile = true,
+      bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
       edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 2, 
     });
     f.bidTable:SetBackdropColor(0,0,0,0.2)
@@ -885,7 +885,7 @@ function CulteDKP:BidInterface_Create()
   f.BidTable_Headers:SetSize(370, 22)
   f.BidTable_Headers:SetPoint("BOTTOMLEFT", f.bidTable, "TOPLEFT", 0, 1)
   f.BidTable_Headers:SetBackdrop({
-    bgFile   = "Textures\\white.blp", tile = true,
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 2, 
   });
   f.BidTable_Headers:SetBackdropColor(0,0,0,0.8);

@@ -254,10 +254,15 @@ function CulteDKP:CreateMenu()
 	CulteDKP.UIConfig:SetPoint("CENTER", UIParent, "CENTER", -250, 100);
 	CulteDKP.UIConfig:SetSize(550, 590);
 	CulteDKP.UIConfig:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
-		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3, 
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+		 edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+		 tile = true,
+		 tileEdge = true,
+		 tileSize = 8,
+		 edgeSize = 8,
+		 insets = { left = 1, right = 1, top = 1, bottom = 1 },
 	});
-	CulteDKP.UIConfig:SetBackdropColor(0,0,0,0.8);
+	CulteDKP.UIConfig:SetBackdropColor(0,0,0,1);
 	CulteDKP.UIConfig:SetMovable(true);
 	CulteDKP.UIConfig:EnableMouse(true);
 	CulteDKP.UIConfig:RegisterForDrag("LeftButton");
@@ -286,7 +291,7 @@ function CulteDKP:CreateMenu()
 	end
 
 	CulteDKP.UIConfig.closeContainer:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3, 
 	});
 
@@ -325,7 +330,7 @@ function CulteDKP:CreateMenu()
 	end
 	
 	CulteDKP.DKPTable_Headers:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 2, 
 	});
 	CulteDKP.DKPTable_Headers:SetBackdropColor(0,0,0,0.8);
@@ -451,7 +456,7 @@ function CulteDKP:CreateMenu()
 	CulteDKP.UIConfig.search:SetMultiLine(false)
 	CulteDKP.UIConfig.search:SetSize(140, 24)
 	CulteDKP.UIConfig.search:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3, 
 	});
 	CulteDKP.UIConfig.search:SetBackdropColor(0,0,0,0.9)
@@ -594,7 +599,10 @@ function CulteDKP:CreateMenu()
 	
 	CulteDKP.UIConfig.expand:SetPoint("LEFT", CulteDKP.UIConfig, "RIGHT", 0, 0)
 	CulteDKP.UIConfig.expand:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+		tile = true,
+		tileSize = 1,
 	});
 	CulteDKP.UIConfig.expand:SetBackdropColor(0,0,0,0.7)
 	CulteDKP.UIConfig.expand:SetSize(15, 60)
@@ -633,7 +641,7 @@ function CulteDKP:CreateMenu()
 	CulteDKP.UIConfig.TitleBar:SetPoint("BOTTOM", SortButtons.class, "TOP", 0, 10)
 -- TODO YOZO Add culte logo ?
 --	CulteDKP.UIConfig.TitleBar:SetBackdrop({
---		bgFile   = "Textures\\white.blp", tile = true,
+--		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 --		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3, 
 --	});
 --	CulteDKP.UIConfig.TitleBar:SetBackdropColor(0,0,0,0.9)
@@ -662,9 +670,13 @@ function CulteDKP:CreateMenu()
 		CulteDKP.ChangeLogDisplay:SetPoint("TOP", UIParent, "TOP", 0, -200);
 		CulteDKP.ChangeLogDisplay:SetSize(600, 100);
 		CulteDKP.ChangeLogDisplay:SetBackdrop( {
-			bgFile = "Textures\\white.blp", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
-			edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3,  
-			insets = { left = 0, right = 0, top = 0, bottom = 0 }
+			bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+			 edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+			 tile = true,
+			 tileEdge = true,
+			 tileSize = 8,
+			 edgeSize = 8,
+			 insets = { left = 1, right = 1, top = 1, bottom = 1 },
 		});
 		CulteDKP.ChangeLogDisplay:SetBackdropColor(0,0,0,0.9);
 		CulteDKP.ChangeLogDisplay:SetBackdropBorderColor(1,1,1,1)
@@ -711,7 +723,7 @@ function CulteDKP:CreateMenu()
 		
 		CulteDKP.ChangeLogDisplay.closeContainer:SetPoint("CENTER", CulteDKP.ChangeLogDisplay, "TOPRIGHT", -4, 0)
 		CulteDKP.ChangeLogDisplay.closeContainer:SetBackdrop({
-			bgFile   = "Textures\\white.blp", tile = true,
+			bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
 			edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3, 
 		});
 		CulteDKP.ChangeLogDisplay.closeContainer:SetBackdropColor(0,0,0,0.9)
