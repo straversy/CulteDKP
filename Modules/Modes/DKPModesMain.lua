@@ -339,7 +339,7 @@ function CulteDKP:DKPModes_Main()
     f.DKPModesMain.AntiSnipe:SetPoint("TOPLEFT", f.DKPModesMain.RoundDropDown, "BOTTOMLEFT", 18, -15)
     f.DKPModesMain.AntiSnipe:SetSize(100, 24)
     f.DKPModesMain.AntiSnipe:SetBackdrop({
-      bgFile   = "Textures\\white.blp", tile = true,
+      bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
       edgeFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = true, tileSize = 1, edgeSize = 2, 
     });
     f.DKPModesMain.AntiSnipe:SetBackdropColor(0,0,0,0.9)
@@ -525,7 +525,7 @@ function CulteDKP:DKPModes_Main()
     f.DKPModesMain.Inflation:SetPoint("TOPLEFT", f.DKPModesMain.CostSelection, "BOTTOMLEFT", 20, -15)
     f.DKPModesMain.Inflation:SetSize(100, 24)
     f.DKPModesMain.Inflation:SetBackdrop({
-      bgFile   = "Textures\\white.blp", tile = true,
+      bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
       edgeFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = true, tileSize = 1, edgeSize = 2, 
     });
     f.DKPModesMain.Inflation:SetBackdropColor(0,0,0,0.9)
@@ -801,7 +801,7 @@ function CulteDKP:DKPModes_Main()
     f.DKPModesMain.RollContainer:SetSize(210, 180);
     f.DKPModesMain.RollContainer:SetPoint("TOPLEFT", f.DKPModesMain.ChannelsDropDown, "BOTTOMLEFT", -10, -20)
     f.DKPModesMain.RollContainer:SetBackdrop({
-        bgFile   = "Textures\\white.blp", tile = true,
+        bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
         edgeFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = true, tileSize = 1, edgeSize = 2, 
       });
     f.DKPModesMain.RollContainer:SetBackdropColor(0,0,0,0.9)
@@ -927,7 +927,7 @@ function CulteDKP:DKPModes_Main()
       f.DKPModesMain.RollContainer.rollMin:SetPoint("TOPLEFT", f.DKPModesMain.RollContainer, "TOPLEFT", 20, -80)
       f.DKPModesMain.RollContainer.rollMin:SetSize(70, 24)
       f.DKPModesMain.RollContainer.rollMin:SetBackdrop({
-        bgFile   = "Textures\\white.blp", tile = true,
+        bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
         edgeFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = true, tileSize = 1, edgeSize = 2, 
       });
       f.DKPModesMain.RollContainer.rollMin:SetBackdropColor(0,0,0,0.9)
@@ -1001,7 +1001,7 @@ function CulteDKP:DKPModes_Main()
         f.DKPModesMain.RollContainer.rollMax:SetPoint("LEFT", f.DKPModesMain.RollContainer.rollMin, "RIGHT", 24, 0)
         f.DKPModesMain.RollContainer.rollMax:SetSize(70, 24)
         f.DKPModesMain.RollContainer.rollMax:SetBackdrop({
-          bgFile   = "Textures\\white.blp", tile = true,
+          bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
           edgeFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = true, tileSize = 1, edgeSize = 2, 
         });
         f.DKPModesMain.RollContainer.rollMax:SetBackdropColor(0,0,0,0.9)
@@ -1104,7 +1104,7 @@ function CulteDKP:DKPModes_Main()
         f.DKPModesMain.RollContainer.AddMax:SetPoint("TOP", f.DKPModesMain.RollContainer.rollMax, "BOTTOM", 0, -30)
         f.DKPModesMain.RollContainer.AddMax:SetSize(70, 24)
         f.DKPModesMain.RollContainer.AddMax:SetBackdrop({
-          bgFile   = "Textures\\white.blp", tile = true,
+          bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
           edgeFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = true, tileSize = 1, edgeSize = 2, 
         });
         f.DKPModesMain.RollContainer.AddMax:SetBackdropColor(0,0,0,0.9)
@@ -1173,7 +1173,7 @@ function CulteDKP:DKPModes_Main()
         f.DKPModesMain.RollContainer.maxKarma:SetPoint("TOP", f.DKPModesMain.RollContainer.rollMax, "BOTTOM", 0, -30)
         f.DKPModesMain.RollContainer.maxKarma:SetSize(70, 24)
         f.DKPModesMain.RollContainer.maxKarma:SetBackdrop({
-          bgFile   = "Textures\\white.blp", tile = true,
+          bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
           edgeFile = "Interface\\ChatFrame\\ChatFrameBackground", tile = true, tileSize = 1, edgeSize = 2, 
         });
         f.DKPModesMain.RollContainer.maxKarma:SetBackdropColor(0,0,0,0.9)

@@ -101,7 +101,7 @@ function CulteDKP:DKPModesFrame_Create()
 	
 	f.closeContainer:SetPoint("CENTER", f, "TOPRIGHT", -4, 0)
 	f.closeContainer:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Textures\\white.blp", tile = true,
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3, 
 	});
 	f.closeContainer:SetBackdropColor(0,0,0,0.9)

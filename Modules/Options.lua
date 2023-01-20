@@ -118,7 +118,7 @@ function CulteDKP:Options()
       CulteDKP.ConfigTab4.default[i]:SetMultiLine(false)
       CulteDKP.ConfigTab4.default[i]:SetSize(80, 24)
       CulteDKP.ConfigTab4.default[i]:SetBackdrop({
-        bgFile   = "Textures\\white.blp", tile = true,
+        bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
         edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
       });
       CulteDKP.ConfigTab4.default[i]:SetBackdropColor(0,0,0,0.9)
@@ -288,7 +288,7 @@ function CulteDKP:Options()
         CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i]:SetMultiLine(false)
         CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i]:SetSize(60, 24)
         CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i]:SetBackdrop({
-          bgFile   = "Textures\\white.blp", tile = true,
+          bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
           edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
         });
         CulteDKP.ConfigTab4.DefaultMinBids.SlotBox[i]:SetBackdropColor(0,0,0,0.9)
@@ -573,7 +573,7 @@ function CulteDKP:Options()
         CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i]:SetMultiLine(false)
         CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i]:SetSize(60, 24)
         CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i]:SetBackdrop({
-          bgFile   = "Textures\\white.blp", tile = true,
+          bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
           edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
         });
         CulteDKP.ConfigTab4.DefaultMaxBids.SlotBox[i]:SetBackdropColor(0,0,0,0.9)
@@ -857,7 +857,7 @@ function CulteDKP:Options()
     CulteDKP.ConfigTab4.bidTimer:SetMultiLine(false)
     CulteDKP.ConfigTab4.bidTimer:SetSize(50, 18)
     CulteDKP.ConfigTab4.bidTimer:SetBackdrop({
-      bgFile   = "Textures\\white.blp", tile = true,
+      bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
       edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
     });
     CulteDKP.ConfigTab4.bidTimer:SetBackdropColor(0,0,0,0.9)
@@ -927,7 +927,7 @@ function CulteDKP:Options()
   CulteDKP.ConfigTab4.TooltipHistory:SetMultiLine(false)
   CulteDKP.ConfigTab4.TooltipHistory:SetSize(50, 18)
   CulteDKP.ConfigTab4.TooltipHistory:SetBackdrop({
-    bgFile   = "Textures\\white.blp", tile = true,
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
   });
   CulteDKP.ConfigTab4.TooltipHistory:SetBackdropColor(0,0,0,0.9)
@@ -1000,7 +1000,7 @@ function CulteDKP:Options()
   CulteDKP.ConfigTab4.history:SetMultiLine(false)
   CulteDKP.ConfigTab4.history:SetSize(50, 18)
   CulteDKP.ConfigTab4.history:SetBackdrop({
-    bgFile   = "Textures\\white.blp", tile = true,
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
   });
   CulteDKP.ConfigTab4.history:SetBackdropColor(0,0,0,0.9)
@@ -1064,7 +1064,7 @@ function CulteDKP:Options()
   CulteDKP.ConfigTab4.DKPHistory:SetMultiLine(false)
   CulteDKP.ConfigTab4.DKPHistory:SetSize(50, 18)
   CulteDKP.ConfigTab4.DKPHistory:SetBackdrop({
-    bgFile   = "Textures\\white.blp", tile = true,
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
   });
   CulteDKP.ConfigTab4.DKPHistory:SetBackdropColor(0,0,0,0.9)
@@ -1131,7 +1131,7 @@ function CulteDKP:Options()
   CulteDKP.ConfigTab4.TimerSize:SetMultiLine(false)
   CulteDKP.ConfigTab4.TimerSize:SetSize(50, 18)
   CulteDKP.ConfigTab4.TimerSize:SetBackdrop({
-    bgFile   = "Textures\\white.blp", tile = true,
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
   });
   CulteDKP.ConfigTab4.TimerSize:SetBackdropColor(0,0,0,0.9)
@@ -1196,7 +1196,7 @@ function CulteDKP:Options()
   CulteDKP.ConfigTab4.UIScaleSize:SetMultiLine(false)
   CulteDKP.ConfigTab4.UIScaleSize:SetSize(50, 18)
   CulteDKP.ConfigTab4.UIScaleSize:SetBackdrop({
-    bgFile   = "Textures\\white.blp", tile = true,
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,
     edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile", tile = true, tileSize = 32, edgeSize = 2,
   });
   CulteDKP.ConfigTab4.UIScaleSize:SetBackdropColor(0,0,0,0.9)

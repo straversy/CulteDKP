@@ -70,7 +70,7 @@ local function CulteDKP_BroadcastFull_Status_Create()
 	f:SetSize(300, 85);
 	f:SetClampedToScreen(true)
 	f:SetBackdrop( {
-		bgFile = "Textures\\white.blp", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3,  
 		insets = { left = 0, right = 0, top = 0, bottom = 0 }
 	});
@@ -309,7 +309,7 @@ function CulteDKP_BroadcastFull_Create()
 	f:SetSize(300, 260);
 	f:SetClampedToScreen(true)
 	f:SetBackdrop({
-		bgFile = "Textures\\white.blp", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
+		bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", tile = true,                -- White backdrop allows for black background with 1.0 alpha on low alpha containers
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3,  
 		insets = { left = 0, right = 0, top = 0, bottom = 0 }
 	});
@@ -328,7 +328,7 @@ function CulteDKP_BroadcastFull_Create()
 	f.closeContainer = CreateFrame("Frame", "CulteDKPTitle", f, BackdropTemplateMixin and "BackdropTemplate" or nil)
 	f.closeContainer:SetPoint("CENTER", f, "TOPRIGHT", -4, 0)
 	f.closeContainer:SetBackdrop({
-		bgFile   = "Textures\\white.blp", tile = true,
+		bgFile = "Textures\\white.blp", tile = true,
 		edgeFile = "Interface\\AddOns\\CulteDKP\\Media\\Textures\\edgefile.tga", tile = true, tileSize = 1, edgeSize = 3, 
 	});
 	f.closeContainer:SetBackdropColor(0,0,0,0.9)
