@@ -227,7 +227,7 @@ core.EncounterList = {      -- Event IDs must be in the exact same order as core
 }
 
 core.CulteDKPUI = {}        -- global storing entire Configuration UI to hide/show UI
-core.MonVersion = "v1.0.7";
+core.MonVersion = "v1.0.9";
 core.BuildNumber = 30401;
 core.ReleaseNumber = 1
 core.defaultTable = "__default";
