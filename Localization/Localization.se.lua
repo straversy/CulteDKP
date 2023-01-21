@@ -938,7 +938,7 @@ core.L = {
   MIGRATIONCOMPLETED    = "Migration complete.|n|nPlease disable MonolithDKP and /reload the UI.",
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.7-wotlk", 
+    CHANGELOG1 = "CulteDKP - v1.1.0-wotlk", 
     CHANGELOG2 = "- Fixed Wotlk Phase 2, remove major LUA errors",   
     CHANGELOG3 = "- Fixed Menu + Localization error",
    CHANGELOG4 = "- Fixed Background issues",

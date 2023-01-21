@@ -961,7 +961,7 @@ if GetLocale() == "ruRU" then
     MIGRATIONCOMPLETED    = "Миграция завершена.|n|nПожалуйста отключите MonolithDKP и перезагрузите интерфейс.",
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.7-wotlk", 
+    CHANGELOG1 = "CulteDKP - v1.1.0-wotlk", 
     CHANGELOG2 = "- Fixed Wotlk Phase 2, remove major LUA errors",   
     CHANGELOG3 = "- Fixed Menu + Localization error",
    CHANGELOG4 = "- Fixed Background issues",

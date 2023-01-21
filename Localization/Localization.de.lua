@@ -961,7 +961,7 @@ if GetLocale() == "deDE" then
     MIGRATIONCOMPLETED    = "Migration abgeschlossen.|n|nBitte deaktivieren Sie MonolithDKP und laden Sie das UI neu. (/reload)",
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.7-wotlk", 
+    CHANGELOG1 = "CulteDKP - v1.1.0-wotlk", 
     CHANGELOG2 = "- Fixed Wotlk Phase 2, remove major LUA errors",   
     CHANGELOG3 = "- Fixed Menu + Localization error",
    CHANGELOG4 = "- Fixed Background issues",
