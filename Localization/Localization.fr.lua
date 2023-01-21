@@ -147,21 +147,20 @@ if GetLocale() == "frFR" then
       "Kil'jaeden"
   },
   ULDUAR = { --603
-	"Algalon l'Observateur", 
-	"Auriaya", 
 	"Léviathan des flammes", 
-	"Freya", 
-	"Général Vezax", 
-	"Hodir", 
 	"Ignis le maître de la Fournaise", 
-	"Kologarn", 
-	"Mimiron", 
 	"Tranchécaille", 
-	"Assemblée de Fer", 
-	"Thorim", 
 	"Déconstructeur XT-002", 
+	"Assemblée de Fer", 
+	"Kologarn", 
+	"Auriaya", 
+	"Hodir", 
+	"Thorim", 
+	"Freya", 
+	"Mimiron", 
+	"Général Vezax", 
 	"Yogg-Saron",
-	"Hogger"
+	"Algalon l'Observateur"
   },
   OBSIDIANSANCTUM = { -- 615
 	"Sartharion"
@@ -176,31 +175,31 @@ if GetLocale() == "frFR" then
 	"Toravon la sentinelle de glace"
   },
   ICECROWNCITADEL = { --631
-	"Princes de sang", 
+	"Seigneur Gargamoelle", 
+	"Dame Murmemort", 
+	"La Canonnière", 
 	"Porte-mort Saurcroc", 
 	"Trognepus", 
-	"Valithria Marcherêve", 
-	"La Canonnière", 
-	"Dame Murmemort", 
-	"Seigneur Gargamoelle", 
-	"Professeur Putricide", 
-	"Reine Lana'thel", 
 	"Pulentraille", 
+	"Professeur Putricide", 
+	"Princes de sang", 
+	"Reine Lana'thel", 
+	"Valithria Marcherêve", 
 	"Sindragosa", 
 	"Le Roi Liche"
   },
   TRIALCRUSADER = { --649
-	"Anub’arak", 
-	"Champions de Factions", 
-	"Seigneur Jaraxxus", 
 	"Les bêtes de Norfendre", 
-	"Les jumelles Val'kyr"
+	"Seigneur Jaraxxus", 
+	"Champions de Factions", 
+	"Les jumelles Val'kyr",
+	"Anub’arak",
   },
   RUBYSANCTUM = { --724
+	"Halion",
 	"Baltharus le Né de la guerre",
 	"Général Zarithrian",
-	"Saviana Ragefeu",
-	"Halion"
+	"Saviana Ragefeu"
   }
   }
   
@@ -1013,7 +1012,7 @@ if GetLocale() == "frFR" then
     MIGRATIONCOMPLETED    = "Migration réussie.|n|nVeuillez désactiver MonolithDKP et recharger votre interface (/reload).", --TODO TRANSLATE:
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.0.7-wotlk", 
+    CHANGELOG1 = "CulteDKP - v1.1.0-wotlk", 
     CHANGELOG2 = "- Fixé pour WOTLK phase 2, enlever les erreurs LUA majeures",   
     CHANGELOG3 = "- Fixé les menus de l'addon + erreur de Localization",
     CHANGELOG4 = "- Fixé les fonds des frames transparents",
