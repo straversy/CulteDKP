@@ -100,21 +100,20 @@ if GetLocale() == "deDE" then
       "Kil'jaeden"
   },
   ULDUAR = { --603
-	"Algalon the Observer", 
-	"Auriaya", 
 	"Flame Leviathan", 
-	"Freya", 
-	"General Vezax", 
-	"Hodir", 
 	"Ignis the Furnace Master", 
-	"Kologarn", 
-	"Mimiron", 
 	"Razorscale", 
-	"The Assembly of Iron", 
-	"Thorim", 
 	"XT-002 Deconstructor", 
+	"The Assembly of Iron", 
+	"Kologarn", 
+	"Auriaya", 
+	"Hodir", 
+	"Thorim", 
+	"Freya", 
+	"Mimiron", 
+	"General Vezax", 
 	"Yogg-Saron",
-	"Hogger"
+	"Algalon the Observer"
   },
   OBSIDIANSANCTUM = { -- 615
 	"Sartharion"
@@ -129,32 +128,32 @@ if GetLocale() == "deDE" then
 	"Toravon the Ice Watcher"
   },
   ICECROWNCITADEL = { --631
-	"Blood Council", 
+	"Lord Marrowgar", 
+	"Lady Deathwhisper", 
+	"Icecrown Gunship Battle", 
 	"Deathbringer Saurfang", 
 	"Festergut", 
-	"Valithria Dreamwalker", 
-	"Icecrown Gunship Battle", 
-	"Lady Deathwhisper", 
-	"Lord Marrowgar", 
-	"Professor Putricide", 
-	"Queen Lana'thel", 
 	"Rotface", 
+	"Professor Putricide", 
+	"Blood Council", 
+	"Queen Lana'thel", 
+	"Valithria Dreamwalker", 
 	"Sindragosa", 
 	"The Lich King"
   },
   TRIALCRUSADER = { --649
-	"Anub’arak", 
-	"Faction Champions", 
-	"Lord Jaraxxus", 
 	"Northrend Beasts", 
-	"Val'kyr Twins"
+	"Lord Jaraxxus", 
+	"Faction Champions", 
+	"Val'kyr Twins",
+	"Anub’arak" 
   },
   RUBYSANCTUM = { --724
+	"Halion",
 	"Baltharus the Warborn",
 	"General Zarithrian",
-	"Saviana Ragefire",
-	"Halion"
-    }
+	"Saviana Ragefire"
+  }
   }
 
   core.ZoneList = {

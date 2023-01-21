@@ -169,21 +169,20 @@ core.EncounterList = {      -- Event IDs must be in the exact same order as core
 		729  -- "Kil'jaeden"
 	  },
 	  ULDUAR = { --603
-		1130, -- Algalon the Observer
-		1131, -- Auriaya
-		1132, -- Flame Leviathan
-		1133, -- Freya
-		1134, -- General Vezax
-		1135, -- Hodir
-		1136, -- Ignis the Furnace Master
-		1137, -- Kologarn
-		1138, -- Mimiron
-		1139, -- Razorscale
-		1140, -- The Assembly of Iron
-		1141, -- Thorim
-		1142, -- XT-002 Deconstructor
-		1143, -- Yogg-Saron
-		1144  -- Hogger
+		744, -- Flame Leviathan
+		745, -- Ignis the Furnace Master
+		746, -- Razorscale
+		747, -- XT-002 Deconstructor
+		748, -- The Assembly of Iron
+		749, -- Kologarn
+		750, -- Auriaya
+		751, -- Hodir
+		752, -- Thorim
+		753, -- Freya
+		754, -- Mimiron
+		755, -- General Vezax
+		756, -- Yogg-Saron
+		757 -- Algalon the Observer
 	  },
 	  OBSIDIANSANCTUM = { -- 615
 		742 -- Sartharion
@@ -193,36 +192,36 @@ core.EncounterList = {      -- Event IDs must be in the exact same order as core
 	  },
 	  VAULTOFARCHAVON = { --624
 		772, -- Archavon the Stone Watcher
-		773, -- Emalon the Storm Watcher
-		774, -- Koralon the Flame Watcher
-		775  -- Toravon the Ice Watcher
+		774, -- Emalon the Storm Watcher
+		776, -- Koralon the Flame Watcher
+		885  -- Toravon the Ice Watcher
 	  },
 	  ICECROWNCITADEL = { --631
-		1095, -- Blood Council
-		1096, -- Deathbringer Saurfang
-		1097, -- Festergut
-		1098, -- Valithria Dreamwalker
-		1099, -- Icecrown Gunship Battle
-		1100, -- Lady Deathwhisper
-		1101, -- Lord Marrowgar
-		1102, -- Professor Putricide
-		1103, -- Queen Lana'thel
-		1104, -- Rotface
-		1105, -- Sindragosa
-		1106  -- The Lich King
+		845, -- Lord Marrowgar
+		846, -- Lady Deathwhisper
+		847, -- Icecrown Gunship Battle
+		848, -- Deathbringer Saurfang
+		849, -- Festergut
+		850, -- Rotface
+		851, -- Professor Putricide
+		852, -- Blood Council
+		853, -- Queen Lana'thel
+		854, -- Valithria Dreamwalker
+		855, -- Sindragosa
+		856  -- The Lich King
 	  },
 	  TRIALCRUSADER = { --649
-		1085, -- Anub'arak
-		1086, -- Faction Champions
-		1087, -- Lord Jaraxxus
-		1088, -- Northrend Beasts
-		1089  -- Val'kyr Twins
+		629, -- Northrend Beasts
+		633, -- Lord Jaraxxus
+		637, -- Faction Champions
+		641, -- Val'kyr Twins
+		645  -- Anub'arak
 	  },
 	  RUBYSANCTUM = { --724
-		1147, -- Baltharus the Warborn
-		1148, -- General Zarithrian
-		1149, -- Saviana Ragefire
-		1150  -- Halion
+		887, -- Halion
+		890, -- Baltharus the Warborn
+		891, -- Saviana Ragefire
+		893  -- General Zarithrian
 	  }
 }
 
