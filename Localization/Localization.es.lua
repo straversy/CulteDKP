@@ -965,13 +965,13 @@ if GetLocale() == "esES" or GetLocale() == "esMX" then
     MIGRATIONCOMPLETED    = "Migration complete.|n|nPlease disable MonolithDKP and /reload the UI.", --TODO TRANSLATE:
 
     --TODO TRANSLATE:
-    CHANGELOG1 = "CulteDKP - v1.1.0-wotlk", 
+    CHANGELOG1 = "", 
     CHANGELOG2 = "- Fixed Wotlk Phase 2, remove major LUA errors",   
     CHANGELOG3 = "- Fixed Menu + Localization error",
    CHANGELOG4 = "- Fixed Background issues",
-    CHANGELOG5 = "In progress issue to solve : Background and Bidding Timer",
+    CHANGELOG5 = "In progress issue to solve : Bidding Timer",
     CHANGELOG6 = "",
-    CHANGELOG7 = "Fixed by Yozomia/Yozodeath from server Pagle Classic WOTLK",
+    CHANGELOG7 = "Fixed by Yozomia/Yozodeath and Xenica from server Pagle Classic WOTLK",
     CHANGELOG8 = "",
     CHANGELOG9 = "",
     CHANGELOG10 = ""

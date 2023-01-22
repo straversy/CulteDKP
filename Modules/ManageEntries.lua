@@ -1272,7 +1272,7 @@ function CulteDKP:ManageEntries()
 		);
 
 	-- only show whitelist and/or team management if player is a guild master
-	if CheckLeader and CheckLeader <= 1 then
+	if CheckLeader and CheckLeader <= 2 then
 		CulteDKP.ConfigTab3.WhitelistContainer:Show()
 		CulteDKP.ConfigTab3.TeamHeader:Show()
 		CulteDKP.ConfigTab3.TeamListDropDown:Show()
