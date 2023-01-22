@@ -6,8 +6,6 @@ local L = core.L;
 --
 --  When clicking a box off, unchecks "All" as well and flags checkAll to false
 --
-
-local next = next
 local checkAll = true;                    -- changes to false when less than all of the boxes are checked
 local curReason;                          -- stores user input in dropdown 
 
@@ -180,8 +178,7 @@ function CulteDKP:ConfigMenuTabs()
 	-- Create CheckBoxes 
 	for i=1, 14 do
 		-- 1 to 10 classes, 11: ALL Classes, 12 In Party/Raid, 13 Online, 14 Not In Raid
-		CulteDKP.ConfigTab1.checkBtn[i] = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab1, "UICheckButtonTemplate");
-		CulteDKP.ConfigTab1.checkBtn[i]:SetID(i)
+	    CulteDKP.ConfigTab1.checkBtn[i] = CreateFrame("CheckButton", nil, CulteDKP.ConfigTab1, "UICheckButtonTemplate", i);
 	    CulteDKP.ConfigTab1.checkBtn[i].Text:SetFontObject("CulteDKPSmall")
 		if i <= 11 then 
 			if i <= 10 then -- Classes only
