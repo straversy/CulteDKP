@@ -107,6 +107,7 @@ local function UpdateBidderWindow()
 		core.BidInterface.MinBidHeader:SetText(L["MINIMUMBID"]..":")
 		core.BidInterface.SubmitBid:SetPoint("LEFT", core.BidInterface.Bid, "RIGHT", 8, 0)
 		core.BidInterface.SubmitBid:SetText(L["SUBMITBID"])
+		core.BidInterface.SubmitBidOS:Hide()
 		core.BidInterface.Bid:Show();
 		core.BidInterface.CancelBid:Show();
 		core.BidInterface.Pass:Show();
@@ -114,13 +115,15 @@ local function UpdateBidderWindow()
 		core.BidInterface.MinBidHeader:SetText(L["ITEMCOST"]..":")
 		core.BidInterface.SubmitBid:SetPoint("LEFT", core.BidInterface.BidHeader, "RIGHT", 8, 0)
 		core.BidInterface.SubmitBid:SetText(L["ROLL"])
+		core.BidInterface.SubmitBidOS:Hide()
 		core.BidInterface.Bid:Hide();
 		core.BidInterface.CancelBid:Hide();
 		core.BidInterface.Pass:Hide();
 	else
 		core.BidInterface.MinBidHeader:SetText(L["ITEMCOST"]..":")
 		core.BidInterface.SubmitBid:SetPoint("LEFT", core.BidInterface.BidHeader, "RIGHT", 8, 0)
-		core.BidInterface.SubmitBid:SetText(L["SUBMITBID"])
+		core.BidInterface.SubmitBid:SetText(L["SUBMITBIDMS"])
+		core.BidInterface.SubmitBidOS:Show()
 		core.BidInterface.Bid:Hide();
 		core.BidInterface.CancelBid:Show();
 		core.BidInterface.Pass:Show();
@@ -774,15 +777,15 @@ function CulteDKP:BidInterface_Create()
 
   f.SubmitBid = CreateFrame("Button", nil, f, "CulteDKPButtonTemplate")
   f.SubmitBid:SetPoint("LEFT", f.Bid, "RIGHT", 8, 0);
-  f.SubmitBid:SetSize(115,25)
+  f.SubmitBid:SetSize(100,25)
   f.SubmitBid:SetText(L["SUBMITBID"]);
   f.SubmitBid:GetFontString():SetTextColor(1, 1, 1, 1)
   f.SubmitBid:SetNormalFontObject("CulteDKPSmallCenter");
   f.SubmitBid:SetHighlightFontObject("CulteDKPSmallCenter");
 
   f.SubmitBidOS = CreateFrame("Button", nil, f, "CulteDKPButtonTemplate")
-  f.SubmitBidOS:SetPoint("LEFT", f.SubmitBid, "RIGHT", 32, 0);
-  f.SubmitBidOS:SetSize(115,25)
+  f.SubmitBidOS:SetPoint("LEFT", f.SubmitBid, "RIGHT", 10, 0);
+  f.SubmitBidOS:SetSize(100,25)
   f.SubmitBidOS:SetText(L["SUBMITBIDOS"]);
   f.SubmitBidOS:GetFontString():SetTextColor(1, 1, 1, 1)
   f.SubmitBidOS:SetNormalFontObject("CulteDKPSmallCenter");
@@ -790,7 +793,7 @@ function CulteDKP:BidInterface_Create()
 
   f.CancelBid = CreateFrame("Button", nil, f, "CulteDKPButtonTemplate")
   f.CancelBid:SetPoint("LEFT", f.SubmitBid, "BOTTOMLEFT", 0, -14);
-  f.CancelBid:SetSize(115,25)
+  f.CancelBid:SetSize(100,25)
   f.CancelBid:SetText(L["CANCELBID"]);
   f.CancelBid:GetFontString():SetTextColor(1, 1, 1, 1)
   f.CancelBid:SetNormalFontObject("CulteDKPSmallCenter");
@@ -802,7 +805,7 @@ function CulteDKP:BidInterface_Create()
 
   f.Pass = CreateFrame("Button", nil, f, "CulteDKPButtonTemplate")
   f.Pass:SetPoint("LEFT", f.SubmitBidOS, "BOTTOMLEFT", 0, -14);
-  f.Pass:SetSize(115,25)
+  f.Pass:SetSize(100,25)
   f.Pass:SetText(L["PASS"]);
   f.Pass:GetFontString():SetTextColor(1, 1, 1, 1)
   f.Pass:SetNormalFontObject("CulteDKPSmallCenter");

@@ -838,12 +838,12 @@ function CulteDKP:DKPModes_Main()
             local _rollMode = LibDD:UIDropDownMenu_CreateInfo()
             _rollMode.func = self.SetValue
             _rollMode.fontObject = "CulteDKPSmallCenter"
-            _rollMode.Text = "Default"
+            _rollMode.text = "Default"
             _rollMode.arg1 = "Default"
             _rollMode.checked = ("Default" == core.DB.modes.RollMode)
             _rollMode.isNotRadio = false
             LibDD:UIDropDownMenu_AddButton(_rollMode)
-            _rollMode.Text = "Ni Karma"
+            _rollMode.text = "Ni Karma"
             _rollMode.arg1 = "Ni Karma"
             _rollMode.checked = ("Ni Karma" == core.DB.modes.RollMode)
             _rollMode.isNotRadio = false

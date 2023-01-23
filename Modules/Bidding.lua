@@ -143,7 +143,7 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
     if core.BidInProgress then
       cmd = BidCmd(text)
 
-	  if cmd and cmd:upper() == "OS" then 
+	  if cmd and mode == "Static Item Values" and cmd:upper() == "OS" then 
 	    locspec = "OS";
 		cmd = nil;
 	  end 
@@ -181,7 +181,7 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
           if Bids_Submitted[i] and Bids_Submitted[i].player == name then 
             if Bids_Submitted[i].spec ~= locspec then
               table.remove(Bids_Submitted, i)
-              table.insert(Bids_Submitted, {player=name, dkp=dkp, spec=locspec})
+              table.insert(Bids_Submitted, {player=name, dkp=dkp, bid=cmd, spec=locspec})
               CulteDKP:BidScrollFrame_Update()
               if core.DB.modes.BroadcastBids then
                 CulteDKP.Sync:SendData("CDKPBidShare", Bids_Submitted)
@@ -196,7 +196,7 @@ function CulteDKP_CHAT_MSG_WHISPER(text, ...)
           if (cmd and cmd <= dkp) or (core.DB.modes.SubZeroBidding == true and dkp >= 0) or (core.DB.modes.SubZeroBidding == true and core.DB.modes.AllowNegativeBidders == true) or (mode == "Static Item Values" and dkp > 0 and (dkp > core.BiddingWindow.cost:GetNumber() or core.DB.modes.SubZeroBidding == true or core.DB.modes.costvalue == "Percent")) or ((mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") and not cmd) then
             if (cmd and core.BiddingWindow.minBid and tonumber(core.BiddingWindow.minBid:GetNumber()) <= cmd) or mode == "Static Item Values" or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static") or (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Minimum Bid" and cmd >= core.BiddingWindow.minBid:GetNumber()) then
               for i=1, #Bids_Submitted do           -- checks if a bid was submitted, removes last bid if it was
-                if (not (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static")) and Bids_Submitted[i] and Bids_Submitted[i].player == name and (mode == "Static Item Values" or Bids_Submitted[i].bid < cmd) then
+				if (not (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static")) and Bids_Submitted[i] and Bids_Submitted[i].player == name and (mode == "Static Item Values" or Bids_Submitted[i].bid < cmd) then
                   table.remove(Bids_Submitted, i)
                 elseif (not (mode == "Zero Sum" and core.DB.modes.ZeroSumBidType == "Static")) and Bids_Submitted[i] and Bids_Submitted[i].player == name and Bids_Submitted[i].bid >= cmd then
                   SendChatMessage(L["BIDEQUALORLESS"], "WHISPER", nil, name)
@@ -1222,13 +1222,13 @@ function CulteDKP:BidScrollFrame_Update()
       if core.DB.modes.CostSelection == "First Bidder" and Bids_Submitted[1] then
         core.BiddingWindow.cost:SetText(Bids_Submitted[1].bid)
       elseif core.DB.modes.CostSelection == "Second Bidder" then
-        if Bids_Submitted[2] then
+        if Bids_Submitted[2] and Bids_Submitted[2].bid then
           core.BiddingWindow.cost:SetText(Bids_Submitted[2].bid)
-        elseif Bids_Submitted[1] then
+        elseif Bids_Submitted[1] and Bids_Submitted[1].bid then
           core.BiddingWindow.cost:SetText(Bids_Submitted[1].bid)
         end
       elseif core.DB.modes.CostSelection == "Second Bidder or Min" then
-        if Bids_Submitted[2] then
+        if Bids_Submitted[2] and Bids_Submitted[2].bid then
           core.BiddingWindow.cost:SetText(Bids_Submitted[2].bid)
         else
           core.BiddingWindow.cost:SetText(core.BiddingWindow.minBid:GetText())
