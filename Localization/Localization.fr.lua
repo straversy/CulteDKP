@@ -842,6 +842,8 @@ if GetLocale() == "frFR" then
     Ex: |cffa335ee|Hitem:19143::::::::120:577::::::|h[Flameguard Gauntlets]|h|r tombe et a une valeur statique de 50 DKP. Chaque joueur qui le souhaite utilise "!bid" via l’un des canaux ouverts (sélectionné ci-dessous). Le joueur avec le plus grand nombre de DKP disponibles gagne et se voit facturer cette valeur statique. Lisez les info-bulles pour plus d'informations.]=],
     STATICITEMVALUESHEAD = "Valeurs d'élément statiques",
     SUBMITBID = "Soumettre une offre",
+    SUBMITBIDMS = "Soumettre une offre MS",
+    SUBMITBIDOS = "Soumettre une offre OS",
     SUBMITBUGS = "de l'aide et soumettre des bugs",
     SUBZEROBIDDING = "Enchère insuffisante",
     SUBZEROBIDDINGTTDESC = [=[Permet aux joueurs d'enchérir s'ils ne disposent pas de suffisamment de DKP ou d'une enchère supérieure à leur DKP disponible (en fonction des paramètres de mode). 
