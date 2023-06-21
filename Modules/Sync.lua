@@ -172,22 +172,24 @@ function CulteDKP_BroadcastFull_Init()
 	core.Broadcast:SetShown(not core.Broadcast:IsShown())
 
 	LibDD:UIDropDownMenu_Initialize(core.Broadcast.player, function(self, level, menuList)
-		
+
 		local filterName = LibDD:UIDropDownMenu_CreateInfo()
 		local ranges = {1}
-
+		
 		while ranges[#ranges] < #PlayerList do
 			table.insert(ranges, ranges[#ranges]+20)
 		end
-
+		
 		if (level or 1) == 1 then
 			local numSubs = ceil(#PlayerList/20)
 			filterName.func = self.SetValue
-		
+			
 			for i=1, numSubs do
 				local max = i*20;
+				CulteDKP:Print("max:"..max)
 				if max > #PlayerList then max = #PlayerList end
-				filterName.Text, filterName.checked, filterName.menuList, filterName.hasArrow = strsub(PlayerList[((i*20)-19)].player, 1, 1).."-"..strsub(PlayerList[max].player, 1, 1), curSelected >= (i*20)-19 and curSelected <= i*20, i, true
+				
+				filterName.text, filterName.checked, filterName.menuList, filterName.hasArrow = strsub(PlayerList[((i*20)-19)].player, 1, 1).."-"..strsub(PlayerList[max].player, 1, 1), curSelected >= (i*20)-19 and curSelected <= i*20, i, true
 				LibDD:UIDropDownMenu_AddButton(filterName)
 			end
 			
@@ -196,8 +198,8 @@ function CulteDKP_BroadcastFull_Init()
 			for i=ranges[menuList], ranges[menuList]+19 do
 				if PlayerList[i] then
 					local c = CulteDKP:GetCColors(PlayerList[i].class)
-
-					filterName.Text, filterName.arg1, filterName.arg2, filterName.checked, filterName.isNotRadio = "|c"..c.hex..PlayerList[i].player.."|r", PlayerList[i].player, "|c"..c.hex..PlayerList[i].player.."|r", PlayerList[i].player == player, true
+					
+					filterName.text, filterName.arg1, filterName.arg2, filterName.checked, filterName.isNotRadio = "|c"..c.hex..PlayerList[i].player.."|r", PlayerList[i].player, "|c"..c.hex..PlayerList[i].player.."|r", PlayerList[i].player == player, true
 					LibDD:UIDropDownMenu_AddButton(filterName, level)
 				end
 			end

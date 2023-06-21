@@ -1,8 +1,8 @@
-## Interface: 30401
+## Interface: 30402
 ## Title: |cff9900ffCulte|r |cff595959DKP|r
 ## Author: Yozo
 ## Notes: Feature-rich DKP Management Tool modified by Yozo
-## Version: 1.1.2
+## Version: 1.1.3
 ## DefaultState: enabled
 ## SavedVariables: CulteDKP_DB, CulteDKP_Loot, CulteDKP_DKPTable, CulteDKP_DKPHistory, CulteDKP_MinBids, CulteDKP_MaxBids, CulteDKP_Whitelist, CulteDKP_Standby, CulteDKP_Archive, CulteDKP_Profiles
 

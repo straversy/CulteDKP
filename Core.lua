@@ -226,8 +226,8 @@ core.EncounterList = {      -- Event IDs must be in the exact same order as core
 }
 
 core.CulteDKPUI = {}        -- global storing entire Configuration UI to hide/show UI
-core.MonVersion = "v1.1.2";
-core.BuildNumber = 30401;
+core.MonVersion = "v1.1.3";
+core.BuildNumber = 30402;
 core.ReleaseNumber = 1
 core.defaultTable = "__default";
 core.SemVer = core.MonVersion.."-r"..tostring(core.ReleaseNumber);
@@ -335,7 +335,20 @@ function CulteDKP:GetRealmName()
 		core.FactionName = UnitFactionGroup(UnitName("player"));
 	end
 
-	return core.RealmName.."-"..core.FactionName
+	if (core.FactionName == nil) then
+	    CulteDKP:Print("core.FactionName is null");
+		local i = 1;
+		while (core.FactionName == nil) do
+		    CulteDKP:Print("try #"..i);
+			core.FactionName = UnitFactionGroup(UnitName("player"));
+			i = i + 1;
+		end
+	end
+	if (core.FactionName == nil) then
+		return core.RealmName.."-"
+	else
+		return core.RealmName.."-"..core.FactionName
+	end
 end
 
 function CulteDKP:GetGuildName()
