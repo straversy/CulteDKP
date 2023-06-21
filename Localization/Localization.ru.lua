@@ -962,10 +962,10 @@ if GetLocale() == "ruRU" then
 
     --TODO TRANSLATE:
     CHANGELOG1 = "", 
-    CHANGELOG2 = "- Fixed Wotlk Phase 2, remove major LUA errors",   
-    CHANGELOG3 = "- Fixed Menu + Localization error",
-   CHANGELOG4 = "- Fixed Background issues",
-    CHANGELOG5 = "In progress issue to solve : Bidding Timer",
+    CHANGELOG2 = "- Fixed Wotlk Phase 3, remove major LUA errors",   
+    CHANGELOG3 = "- Fixed Menu for broadcast to a player",
+    CHANGELOG4 = "",
+    CHANGELOG5 = "",
     CHANGELOG6 = "",
     CHANGELOG7 = "Fixed by Yozomia/Yozodeath and Xenica from server Pagle Classic WOTLK",
     CHANGELOG8 = "",

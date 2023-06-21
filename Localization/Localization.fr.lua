@@ -1014,10 +1014,10 @@ if GetLocale() == "frFR" then
     MIGRATIONCOMPLETED    = "Migration réussie.|n|nVeuillez désactiver MonolithDKP et recharger votre interface (/reload).", --TODO TRANSLATE:
 
     CHANGELOG1 = "", 
-    CHANGELOG2 = "- Fixé pour WOTLK phase 2, enlever les erreurs LUA majeures",   
-    CHANGELOG3 = "- Fixé les menus de l'addon + erreur de Localization",
-    CHANGELOG4 = "- Fixé les fonds des frames transparents",
-    CHANGELOG5 = "À venir : Timer de bid",
+    CHANGELOG2 = "- Fixé pour WOTLK phase 3, enlever les erreurs LUA majeures",   
+    CHANGELOG3 = "- Fixé le broadcast vers un joueur",
+    CHANGELOG4 = "",
+    CHANGELOG5 = "",
     CHANGELOG6 = "",
     CHANGELOG7 = "Fixé par Yozomia/Yozodeath et Xenica du server Pagle",
     CHANGELOG8 = "",
