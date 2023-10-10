@@ -111,7 +111,13 @@ function CulteDKP:StopRaidTimer()
 	core.RaidInPause = false
 	CulteDKP.ConfigTab2.RaidTimerContainer.OutputHeader:SetText(L["RAIDENDED"]..":")
 	CulteDKP.ConfigTab2.RaidTimerContainer.StartTimer:SetText(L["INITRAID"])
-	CulteDKP.ConfigTab2.RaidTimerContainer.Output:SetText("|cff00ff00"..strsub(CulteDKP.ConfigTab2.RaidTimerContainer.Output:GetText(), 11, -3).."|r")
+	local RaidTimerContainerText = CulteDKP.ConfigTab2.RaidTimerContainer.Output:GetText()
+	if RaidTimerContainerText == nil then
+       RaidTimerContainerText = "error";
+	else
+	   RaidTimerContainerText = strsub(CulteDKP.ConfigTab2.RaidTimerContainer.Output:GetText(), 11, -3);
+	end
+	CulteDKP.ConfigTab2.RaidTimerContainer.Output:SetText("|cff00ff00"..RaidTimerContainerText.."|r")
 	CulteDKP.RaidTimerPopout.Output:SetText(CulteDKP.ConfigTab2.RaidTimerContainer.Output:GetText());
 	CulteDKP.ConfigTab2.RaidTimerContainer.PauseTimer:Hide();
 	CulteDKP.ConfigTab2.RaidTimerContainer.BonusHeader:SetText(L["TOTALDKPAWARD"]..":")
