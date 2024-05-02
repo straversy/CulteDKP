@@ -152,6 +152,55 @@ if GetLocale() == "koKR" then
 	"Baltharus the Warborn",
 	"General Zarithrian",
 	"Saviana Ragefire"
+  },
+  BARADINHOLD = { --757
+	"Argaloth",
+	"Occu'thar",
+	"Argaloth"
+  },
+  BLACKWINGDESCENT = { --669
+	"Atramedes",
+	"Chimaeron",
+	"Magmaw",
+	"Maloriak",
+	"Nefarian's End",
+	"Omnotron Defense System"
+  },
+  THEBASTIONOFTWILIGHT = { --671
+	"Ascendant Council",
+	"Cho'gall",
+	"Halfus Wyrmbreaker",
+	"Theralion and Valiona"
+  },
+  THRONEOFTHEFOURWINDS = { --754
+	"Al'Akir",
+	"Conclave of Wind"
+  },
+  BLACKROCKCAVERNS = { --645
+	"Ascendant Lord Obsidius",
+	"Beauty",
+	"Corla, Herald of Twilight",
+	"Karsh Steelbender",
+	"Rom'ogg Bonecrusher"
+  },
+  FIRELAND = { --720
+  	"Majordomo Staghelm",
+	"Beth'tilac",
+	"Baleroc",
+	"Ragnaros",
+	"Lord Rhyolith",
+	"Shannox",
+	"Alysrazor"
+  },
+  DRAGONSOUL = { --967
+	"Spine of Deathwing",
+	"Morchok",
+	"Warlord Zon'ozz",
+	"Yor'sahj the Unsleeping",
+	"Hagara",
+	"Ultraxion",
+	"Warmaster Blackhorn",
+	"Madness of Deathwing"
   }
   }
   

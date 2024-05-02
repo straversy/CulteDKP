@@ -222,12 +222,61 @@ core.EncounterList = {      -- Event IDs must be in the exact same order as core
 		890, -- Baltharus the Warborn
 		891, -- Saviana Ragefire
 		893  -- General Zarithrian
-	  }
+	  },
+	  BARADINHOLD = { --757
+        1033, -- Argaloth
+	    1250, -- Occu'thar
+	    1332  -- Argaloth
+      },
+      BLACKWINGDESCENT = { --669
+	    1022, -- Atramedes
+	    1023, -- Chimaeron
+	    1024, -- Magmaw
+	    1025, -- Maloriak
+	    1026, -- Nefarian's End
+	    1027  -- Omnotron Defense System
+      },
+      THEBASTIONOFTWILIGHT = { --671
+	    1028, -- Ascendant Council
+	    1029, -- Cho'gall
+	    1030, -- Halfus Wyrmbreaker
+	    1032  -- Theralion and Valiona
+      },
+      THRONEOFTHEFOURWINDS = { --754
+	    1034, -- Al'Akir
+	    1035  -- Conclave of Wind
+      },
+      BLACKROCKCAVERNS = { --645
+	    1036, -- Ascendant Lord Obsidius
+	    1037, -- Beauty"
+	    1038, -- Corla, Herald of Twilight
+	    1039, -- Karsh Steelbender
+	    1040  -- Rom'ogg Bonecrusher
+      },
+      FIRELAND = { --720
+	    1185, -- Majordomo Staghelm
+	    1197, -- Beth'tilac
+	    1200, -- Baleroc
+	    1203, -- Ragnaros
+	    1204, -- Lord Rhyolith
+	    1205, -- Shannox
+	    1206  -- Alysrazor
+      },
+      DRAGONSOUL = { --967
+	    1291, -- Spine of Deathwing
+	    1292, -- Morchok
+	    1294, -- Warlord Zon'ozz
+	    1295, -- Yor'sahj the Unsleeping
+	    1296, -- Hagara
+	    1297, -- Ultraxion
+	    1298, -- Warmaster Blackhorn
+	    1299  -- Madness of Deathwing
+      }
 }
 
 core.CulteDKPUI = {}        -- global storing entire Configuration UI to hide/show UI
-core.MonVersion = "v1.1.4";
-core.BuildNumber = 30403;
+core.MonVersion = "v1.2.0";
+core.BuildNumber = 40400;
 core.ReleaseNumber = 1
 core.defaultTable = "__default";
 core.SemVer = core.MonVersion.."-r"..tostring(core.ReleaseNumber);
@@ -509,6 +558,9 @@ function CulteDKP:PurgeDKPHistory()     -- purges old entries and stores relevan
 
 			for i=1, #players do
 				if not CulteDKP:GetTable(CulteDKP_Archive, true)[players[i]] then
+				    if (dkp[i] == nil) then
+						dkp[i] = 0
+					end
 					if ((dkp[i] > 0 and not path.deletes) or (dkp[i] < 0 and path.deletes)) and not strfind(path.dkp, "%-%d*%.?%d+%%") then
 						CulteDKP:GetTable(CulteDKP_Archive, true)[players[i]] = { dkp=dkp[i], lifetime_spent=0, lifetime_gained=dkp[i] }
 					else
