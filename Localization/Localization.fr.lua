@@ -200,6 +200,55 @@ if GetLocale() == "frFR" then
 	"Baltharus le Né de la guerre",
 	"Général Zarithrian",
 	"Saviana Ragefeu"
+  },
+  BARADINHOLD = { --757
+	"Argaloth",
+	"Occu'thar",
+	"Argaloth"
+  },
+  BLACKWINGDESCENT = { --669
+	"Atramédès",
+	"Chimaeron",
+	"Magmagueule",
+	"Maloriak",
+	"Fin de Nefarian",
+	"Système de défense Omnitron"
+  },
+  THEBASTIONOFTWILIGHT = { --671
+	"Conseil Ascendant",
+	"Cho'gall",
+	"Halfus Brise-Wyrm",
+	"Theralion et Valiona"
+  },
+  THRONEOFTHEFOURWINDS = { --754
+	"Al'Akir",
+	"Conclave du Vent"
+  },
+  BLACKROCKCAVERNS = { --645
+	"Seigneur ascendant Obsidius",
+	"La Belle",
+	"Corla, héraut du Crépuscule",
+	"Karsh Plielacier",
+	"Rom'ogg Broie-les-Os"
+  },
+  FIRELAND = { --720
+  	"Chambellan Forteramure",
+	"Beth'tilac",
+	"Baleroc",
+	"Ragnaros",
+	"Seigneur Rhyolith",
+	"Shannox",
+	"Alysrazor"
+  },
+  DRAGONSOUL = { --967
+	"Échine d'Aile de mort",
+	"Morchok",
+	"Seigneur de guerre Zon’ozz",
+	"Yor’sahj l’Insomniaque",
+	"Hagara la Lieuse des tempêtes",
+	"Ultraxion",
+	"Maître de guerre Corne-Noire",
+	"Folie d'Aile de mort"
   }
   }
   
@@ -226,7 +275,14 @@ if GetLocale() == "frFR" then
     "Caveau d'Archavon", --21
     "La Citadelle de la Couronne de Glace", --22
     "Le Colisée", --23
-    "Le sanctum Rubis" --24
+    "Le sanctum Rubis", --24
+    "Bastion de Baradin", --24
+    "Descente de l'Aile noire", --25
+    "Le bastion du Crépuscule", --26
+    "Trône des quatre vents", --27
+    "Cavernes de Rochenoire", --28
+    "Terres de Feu", --29
+    "L'Âme des dragons" --30
   }
 
   core.L = {
@@ -1014,8 +1070,8 @@ if GetLocale() == "frFR" then
     MIGRATIONCOMPLETED    = "Migration réussie.|n|nVeuillez désactiver MonolithDKP et recharger votre interface (/reload).", --TODO TRANSLATE:
 
     CHANGELOG1 = "", 
-    CHANGELOG2 = "- Fixé pour WOTLK phase 3, enlever les erreurs LUA majeures",   
-    CHANGELOG3 = "- Fixé le broadcast vers un joueur",
+    CHANGELOG2 = "- Fixé pour CATA phase 1",   
+    CHANGELOG3 = "",
     CHANGELOG4 = "",
     CHANGELOG5 = "",
     CHANGELOG6 = "",
